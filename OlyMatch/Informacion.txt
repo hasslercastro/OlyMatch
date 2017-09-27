@@ -1,0 +1,6 @@
+Nombre del proyecto: OlyMatch
+
+Autores: Hassler Castro C.
+	 Edwin Rengifo V.
+	 Joshua Sánchez A.
+	 Camilo Villa R.
