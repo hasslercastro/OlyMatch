@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Crear</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    
+    <ion-card>
+        <img src={{imagen}}/>
+        <ion-card-content>
+          
+          <ion-card-title>
+            {{ nombreEvento }}
+            </ion-card-title>
+          <h2>
+              {{ fechaEvento }}
+          </h2>
+          
+          <h2>
+              {{ horarioEvento }}
+          </h2>
+          <h2>
+              {{ lugarEvento }}
+          </h2>
+          <h2>
+              {{ numeroParticipantesEvento }}
+          </h2>
+          <h2>
+              {{ deporteEvento }}
+          </h2>
+          
+        </ion-card-content>
+      </ion-card>
+  
+  <ion-fab right bottom>
+    <button ion-fab color="secondary" (click)="cargarPaginaEvento()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+</ion-content>
