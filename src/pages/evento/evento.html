@@ -19,7 +19,7 @@
   <ion-list>
       
       <ion-item>
-          <ion-label>Fecha</ion-label>
+          <ion-label>¿Cuando?</ion-label>
           <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="fechaEvento"></ion-datetime>
       </ion-item>
 
@@ -40,18 +40,9 @@
             <ion-option value="Tenis de mesa">Tenis de mesa</ion-option>
           </ion-select>
       </ion-item>
-    
-     <ion-item>
-        <ion-label>Seleccionar lugar</ion-label>
-          <ion-select [(ngModel)]="lugarEvento">
-            <ion-option value="Placa # 1">Placa # 1</ion-option>
-            <ion-option value="Placa # 2">Placa # 2</ion-option>
-            <ion-option value="Placa # 3">Placa # 3</ion-option>
-            <ion-option value="Coliseo">Coliseo</ion-option>
-            <ion-option value="Mesa de tennis # 1">Mesa de tennis # 1</ion-option>
-            <ion-option value="Mesa de tennis # 2">Mesa de tennis # 2</ion-option>
-            <ion-option value="Mesa de tennis cemento">Mesa de tennis cemento</ion-option>
-          </ion-select>
+   
+      <ion-item>
+          <ion-input placeholder="Lugar" [(ngModel)]="lugarEvento"></ion-input>
       </ion-item>
       
       <ion-item>
@@ -59,7 +50,7 @@
       </ion-item>
 
       <ion-item>
-          <ion-input placeholder="Número de participantes" [(ngModel)]="numeroParticipantesEvento"></ion-input>
+          <ion-input placeholder="¿Cuántos?" [(ngModel)]="numeroParticipantesEvento"></ion-input>
       </ion-item>
 
     </ion-list>
