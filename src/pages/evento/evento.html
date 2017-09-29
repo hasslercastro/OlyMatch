@@ -19,17 +19,17 @@
   <ion-list>
       
       <ion-item>
-          <ion-label>¿Cuando?</ion-label>
+          <ion-label>Fecha</ion-label>
           <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="fechaEvento"></ion-datetime>
       </ion-item>
 
       <ion-item>
-          <ion-label>Horario</ion-label>
+          <ion-label>¿Hora?</ion-label>
           <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="horarioEvento"></ion-datetime>
       </ion-item>
       
       <ion-item>
-        <ion-label>Seleccionar deporte</ion-label>
+        <ion-label>¿Qué vas a jugar?</ion-label>
           <ion-select [(ngModel)]="deporteEvento">
             <ion-option value="Fútbol">Fútbol</ion-option>
             <ion-option value="Basketball">Basketball</ion-option>
@@ -50,7 +50,7 @@
       </ion-item>
 
       <ion-item>
-          <ion-input placeholder="¿Cuántos?" [(ngModel)]="numeroParticipantesEvento"></ion-input>
+          <ion-input placeholder="Número de participantes" [(ngModel)]="numeroParticipantesEvento"></ion-input>
       </ion-item>
 
     </ion-list>
