@@ -24,7 +24,7 @@
       </ion-item>
 
       <ion-item>
-          <ion-label>¿Hora?</ion-label>
+          <ion-label>Horario</ion-label>
           <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="horarioEvento"></ion-datetime>
       </ion-item>
       
@@ -40,9 +40,18 @@
             <ion-option value="Tenis de mesa">Tenis de mesa</ion-option>
           </ion-select>
       </ion-item>
-   
-      <ion-item>
-          <ion-input placeholder="Lugar" [(ngModel)]="lugarEvento"></ion-input>
+    
+     <ion-item>
+        <ion-label>Seleccionar lugar</ion-label>
+          <ion-select [(ngModel)]="lugarEvento">
+            <ion-option value="Placa # 1">Placa # 1</ion-option>
+            <ion-option value="Placa # 2">Placa # 2</ion-option>
+            <ion-option value="Placa # 3">Placa # 3</ion-option>
+            <ion-option value="Coliseo">Coliseo</ion-option>
+            <ion-option value="Mesa de tennis # 1">Mesa de tennis # 1</ion-option>
+            <ion-option value="Mesa de tennis # 2">Mesa de tennis # 2</ion-option>
+            <ion-option value="Mesa de tennis cemento">Mesa de tennis cemento</ion-option>
+          </ion-select>
       </ion-item>
       
       <ion-item>
