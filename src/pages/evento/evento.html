@@ -13,7 +13,7 @@
 
 <ion-content padding>
   <h1 text-center>
-    Crear evento
+    ¡Vamos a jugar!
   </h1>
 
   <ion-list>
@@ -59,11 +59,23 @@
       </ion-item>
 
       <ion-item>
-          <ion-input placeholder="Número de participantes" [(ngModel)]="numeroParticipantesEvento"></ion-input>
-      </ion-item>
+          <ion-label>¿Cuántos?</ion-label>
+            <ion-select [(ngModel)]="numeroParticipantesEvento">
+              <ion-option value="1">1</ion-option>
+              <ion-option value="2">2</ion-option>
+              <ion-option value="3">3</ion-option>
+              <ion-option value="4">4</ion-option>
+              <ion-option value="5">5</ion-option>
+              <ion-option value="6">6</ion-option>
+              <ion-option value="7">7</ion-option>
+              <ion-option value="8">8</ion-option>
+              <ion-option value="9">9</ion-option>
+              <ion-option value="10">10</ion-option>
+            </ion-select>
+         </ion-item>
 
     </ion-list>
-
+ 
     <button ion-button block (click)="volver()">Crear</button>
   
 </ion-content>
