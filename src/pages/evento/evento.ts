@@ -25,8 +25,7 @@ export class EventoPage {
   lugarEvento='';
   nombreEvento='';
   numeroParticipantesEvento='';
-  imagen='assets/img/dt.jpg';
-  
+  imagen='assets/img/cancha.png';
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 

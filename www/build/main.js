@@ -108,7 +108,7 @@ var PerfilPage = (function () {
 }());
 PerfilPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-perfil',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/OlyMatch/src/pages/perfil/perfil.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Perfil</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-card>\n    <img src="assets/img/cr.jpg"/>\n    <ion-card-content>\n      <ion-card-title>\n          Cristiano Ronaldo\n        </ion-card-title>\n      <p>\n        I\'m the best football player, I\'ve worked a lot all my life \n      </p>\n    </ion-card-content>\n  </ion-card>\n</ion-content>\n'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/OlyMatch/src/pages/perfil/perfil.html"*/
+        selector: 'page-perfil',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/OlyMatch/src/pages/perfil/perfil.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Perfil</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-card>\n    <img src="assets/img/cr.jpg"/>\n    <ion-card-content>\n      <ion-card-title text-center>\n          <h1>Cristiano Ronaldo</h1>\n      </ion-card-title>\n      <h1 text-center>\n        cronaldo7\n      </h1>\n\n      <h2 text-center>\n        Calificación\n      </h2>\n      \n      <img src="assets/img/5estrellas.png">\n    </ion-card-content>\n  </ion-card>\n</ion-content>\n'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/OlyMatch/src/pages/perfil/perfil.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
 ], PerfilPage);
@@ -136,16 +136,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var InicioPage = (function () {
-    function InicioPage(navCtrl) {
+    function InicioPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
+        this.navParams = navParams;
     }
     return InicioPage;
 }());
 InicioPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-inicio',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/OlyMatch/src/pages/inicio/inicio.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Esta es la página de inicio.\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <p>\n    En esta página estarán los eventos de a semana, te podrás unir con un solo clic\n  </p>\n\n</ion-content>\n'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/OlyMatch/src/pages/inicio/inicio.html"*/
+        selector: 'page-inicio',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/OlyMatch/src/pages/inicio/inicio.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      ¡Hora de jugar!\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <h1 text-center>\n    ¡Bienvenidos a OlyMatch!\n  </h1>\n\n  <h3 text-center>\n    Una aplicación donde podrás crear y/o participar de un evento deportivo\n  </h3>\n\n  <h4 text-center>\n    ¡Únete al juego!\n  </h4>\n\n  <img src="../assets/img/logo.jpg">\n\n  <h3 text-center>\n    ¡Apartado para ver los eventos creados!\n  </h3>\n\n</ion-content>\n'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/OlyMatch/src/pages/inicio/inicio.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
 ], InicioPage);
 
 //# sourceMappingURL=inicio.js.map
@@ -319,7 +320,7 @@ var CreacionPage = (function () {
         this.lugarEvento = '';
         this.nombreEvento = '';
         this.numeroParticipantesEvento = '';
-        this.imagen = 'assets/img/dt.jpg';
+        this.imagen = 'assets/img/cancha.png';
         this.fechaEvento = navParams.get('fechaEvento');
         this.horarioEvento = navParams.get('horarioEvento');
         this.deporteEvento = navParams.get('deporteEvento');
@@ -335,11 +336,12 @@ var CreacionPage = (function () {
 }());
 CreacionPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-creacion',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/OlyMatch/src/pages/creacion/creacion.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Crear</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n    <ion-card>\n        <img src={{imagen}}/>\n        <ion-card-content>\n          \n          <ion-card-title>\n            {{ nombreEvento }}\n            </ion-card-title>\n          <h2>\n              {{ fechaEvento }}\n          </h2>\n          \n          <h2>\n              {{ horarioEvento }}\n          </h2>\n          <h2>\n              {{ lugarEvento }}\n          </h2>\n          <h2>\n              {{ numeroParticipantesEvento }}\n          </h2>\n          <h2>\n              {{ deporteEvento }}\n          </h2>\n          \n        </ion-card-content>\n      </ion-card>\n  \n  <ion-fab right bottom>\n    <button ion-fab color="secondary" (click)="cargarPaginaEvento()"><ion-icon name="add"></ion-icon></button>\n  </ion-fab>\n</ion-content>\n'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/OlyMatch/src/pages/creacion/creacion.html"*/
+        selector: 'page-creacion',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/OlyMatch/src/pages/creacion/creacion.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Crear</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n    <ion-card>\n        \n        <img src={{imagen}}/>\n        \n        <ion-card-content>  \n          <ion-card-title text-center>\n            <h1>\n                {{ nombreEvento }}\n            </h1>\n        </ion-card-title>\n\n        <h2>\n            <ion-icon name="football"></ion-icon> {{ deporteEvento }}\n        </h2>\n        \n        <h2>\n            <ion-icon name="calendar"></ion-icon> {{ fechaEvento }}\n        </h2>\n          \n        <h2>\n            <ion-icon name="time"></ion-icon> {{ horarioEvento }}\n        </h2>\n\n        <h2>\n            <ion-icon name="locate"></ion-icon> {{ lugarEvento }}\n        </h2>\n\n        <h2>\n            <ion-icon name="clipboard"></ion-icon> {{ numeroParticipantesEvento }}\n        </h2>\n                \n        </ion-card-content>\n      </ion-card>\n\n      <ion-fab right bottom>\n        <button ion-fab color="primary" (click)="cargarPaginaEvento()">\n            <ion-icon name="add"></ion-icon>\n        </button>\n      </ion-fab>\n</ion-content>\n'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/OlyMatch/src/pages/creacion/creacion.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object])
 ], CreacionPage);
 
+var _a, _b;
 //# sourceMappingURL=creacion.js.map
 
 /***/ }),
@@ -381,7 +383,7 @@ var EventoPage = (function () {
         this.lugarEvento = '';
         this.nombreEvento = '';
         this.numeroParticipantesEvento = '';
-        this.imagen = 'assets/img/dt.jpg';
+        this.imagen = 'assets/img/cancha.png';
         this.fecha = {
             month: '1990-02-19',
             timeStarts: '07:43',
@@ -406,11 +408,12 @@ var EventoPage = (function () {
 EventoPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-evento',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/OlyMatch/src/pages/evento/evento.html"*/'<!--\n  Generated template for the EventoPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-header>\n  <ion-navbar>\n    <ion-title>Crear evento</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <h1 text-center>\n    Crear evento\n  </h1>\n\n  <ion-list>\n      \n      <ion-item>\n          <ion-label>¿Cuándo?</ion-label>\n          <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="fechaEvento"></ion-datetime>\n      </ion-item>\n\n      <ion-item>\n          <ion-label>¿Hora?</ion-label>\n          <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="horarioEvento"></ion-datetime>\n      </ion-item>\n      \n      <ion-item>\n        <ion-label>¿Qué vas a jugar?</ion-label>\n          <ion-select [(ngModel)]="deporteEvento">\n            <ion-option value="Fútbol">Fútbol</ion-option>\n            <ion-option value="Basketball">Basketball</ion-option>\n            <ion-option value="Tennis">Tennis</ion-option>\n            <ion-option value="Karate">Karate</ion-option>\n            <ion-option value="Ajedréz">Ajedrez</ion-option>\n            <ion-option value="Natación">Natación</ion-option>\n            <ion-option value="Tenis de mesa">Tenis de mesa</ion-option>\n          </ion-select>\n      </ion-item>\n   \n<<<<<<< HEAD\n       <ion-item>\n         <ion-label>¿Dónde?</ion-label>\n           <ion-select [(ngModel)]="lugarEvento">\n             <ion-option value="Placa # 1">Placa # 1</ion-option>\n             <ion-option value="Placa # 2">Placa # 2</ion-option>\n             <ion-option value="Placa # 3">Placa # 3</ion-option>\n             <ion-option value="Coliseo">Coliseo</ion-option>\n             <ion-option value="Mesa de tennis # 1">Mesa de tennis # 1</ion-option>\n             <ion-option value="Mesa de tennis # 2">Mesa de tennis # 2</ion-option>\n             <ion-option value="Mesa de tennis cemento">Mesa de tennis cemento</ion-option>\n           </ion-select>\n        </ion-item>\n=======\n      <ion-item>\n          <ion-input placeholder="¿Dónde?" [(ngModel)]="lugarEvento"></ion-input>\n      </ion-item>\n>>>>>>> c8f199c2c2fdfb73164ef73df26c5d4822b9331d\n      \n      <ion-item>\n          <ion-input placeholder="Nombre" [(ngModel)]="nombreEvento"></ion-input>\n      </ion-item>\n\n      <ion-item>\n          <ion-input placeholder="Número de participantes" [(ngModel)]="numeroParticipantesEvento"></ion-input>\n      </ion-item>\n\n    </ion-list>\n\n    <button ion-button block (click)="volver()">Crear</button>\n  \n</ion-content>\n'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/OlyMatch/src/pages/evento/evento.html"*/,
+        selector: 'page-evento',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/OlyMatch/src/pages/evento/evento.html"*/'<!--\n  Generated template for the EventoPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-header>\n  <ion-navbar>\n    <ion-title>Crear evento</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <h1 text-center>\n    ¡Vamos a jugar!\n  </h1>\n\n  <ion-list>\n      \n      <ion-item>\n          <ion-label>¿Cuándo?</ion-label>\n          <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="fechaEvento"></ion-datetime>\n      </ion-item>\n\n      <ion-item>\n          <ion-label>¿Hora?</ion-label>\n          <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="horarioEvento"></ion-datetime>\n      </ion-item>\n      \n      <ion-item>\n        <ion-label>¿Qué vas a jugar?</ion-label>\n          <ion-select [(ngModel)]="deporteEvento">\n            <ion-option value="Fútbol">Fútbol</ion-option>\n            <ion-option value="Basketball">Basketball</ion-option>\n            <ion-option value="Tennis">Tennis</ion-option>\n            <ion-option value="Karate">Karate</ion-option>\n            <ion-option value="Ajedréz">Ajedrez</ion-option>\n            <ion-option value="Natación">Natación</ion-option>\n            <ion-option value="Tenis de mesa">Tenis de mesa</ion-option>\n          </ion-select>\n      </ion-item>\n   \n       <ion-item>\n         <ion-label>¿Dónde?</ion-label>\n           <ion-select [(ngModel)]="lugarEvento">\n             <ion-option value="Placa # 1">Placa # 1</ion-option>\n             <ion-option value="Placa # 2">Placa # 2</ion-option>\n             <ion-option value="Placa # 3">Placa # 3</ion-option>\n             <ion-option value="Coliseo">Coliseo</ion-option>\n             <ion-option value="Mesa de tennis # 1">Mesa de tennis # 1</ion-option>\n             <ion-option value="Mesa de tennis # 2">Mesa de tennis # 2</ion-option>\n             <ion-option value="Mesa de tennis cemento">Mesa de tennis cemento</ion-option>\n           </ion-select>\n        </ion-item>\n      \n      <ion-item>\n          <ion-input placeholder="Nombre" [(ngModel)]="nombreEvento"></ion-input>\n      </ion-item>\n\n      <ion-item>\n          <ion-label>¿Cuántos?</ion-label>\n            <ion-select [(ngModel)]="numeroParticipantesEvento">\n              <ion-option value="1">1</ion-option>\n              <ion-option value="2">2</ion-option>\n              <ion-option value="3">3</ion-option>\n              <ion-option value="4">4</ion-option>\n              <ion-option value="5">5</ion-option>\n              <ion-option value="6">6</ion-option>\n              <ion-option value="7">7</ion-option>\n              <ion-option value="8">8</ion-option>\n              <ion-option value="9">9</ion-option>\n              <ion-option value="10">10</ion-option>\n            </ion-select>\n         </ion-item>\n\n    </ion-list>\n \n    <button ion-button block (click)="volver()">Crear</button>\n  \n</ion-content>\n'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/OlyMatch/src/pages/evento/evento.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object])
 ], EventoPage);
 
+var _a, _b;
 //# sourceMappingURL=evento.js.map
 
 /***/ })
