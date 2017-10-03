@@ -1,0 +1,25 @@
+{
+  "name": "olyserver",
+  "version": "1.0.0",
+  "description": "Sports Application",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hasslercastro/OlyMatch.git"
+  },
+  "keywords": [
+    "Sports",
+    "Fun",
+    "Match",
+    "Fiels"
+  ],
+  "author": "Hassler Castro Cuesta - Joshua Sanchez Alvarez - Edwin Rengifo Villa - Camilo Villa Restrepo",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/hasslercastro/OlyMatch/issues"
+  },
+  "homepage": "https://github.com/hasslercastro/OlyMatch#readme"
+}
