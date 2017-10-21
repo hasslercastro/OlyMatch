@@ -17,8 +17,26 @@ import { IngresoPage } from '../ingreso/ingreso';
 
 export class FormularioPage {
 
+  myForm: FormGroup;
+
   constructor(public navCtrl: NavController, public fb: FormBuilder, public navParams: NavParams) {
 
+    this.myForm = this.fb.group({
+
+      nombre: ['', [Validators.required]],
+      primerApellido: ['', [Validators.required]],
+      segundoApellido: [''],
+      email: ['', [Validators.required, Validators.email]],
+      contrasena: ['', [Validators.required]],
+      confirmarContrasena: ['', [Validators.required]]
+
+    });
+
+  }
+
+  // Se obtiene la información luego de que todo esté validado
+  saveData(){
+    alert(JSON.stringify(this.myForm.value));
   }
 
   volver(){

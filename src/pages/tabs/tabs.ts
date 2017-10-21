@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
-import { CreacionPage } from '../creacion/creacion';
+import { EventoPage } from '../evento/evento';
 import { PerfilPage } from '../perfil/perfil';
 import { InicioPage } from '../inicio/inicio';
 
@@ -15,7 +15,7 @@ export class TabsPage {
 
   nombreUsuario='';
 
-  tab1Root = CreacionPage;
+  tab1Root = EventoPage;
   tab2Root = InicioPage;
   tab3Root = PerfilPage;
 

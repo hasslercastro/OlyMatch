@@ -5,11 +5,17 @@ import { MyApp } from './app.component';
 
 import { InicioPage } from '../pages/inicio/inicio';
 import { PerfilPage } from '../pages/perfil/perfil';
-import { CreacionPage } from '../pages/creacion/creacion';
-import { TabsPage } from '../pages/tabs/tabs';
 import { EventoPage } from '../pages/evento/evento';
+import { TabsPage } from '../pages/tabs/tabs';
+import { MomentoPage } from '../pages/momento/momento';
 import { IngresoPage } from '../pages/ingreso/ingreso';
 import { FormularioPage } from '../pages/formulario/formulario';
+import { DeportePage } from '../pages/deporte/deporte';
+import { EscenarioPage } from '../pages/escenario/escenario';
+import { DiaPage } from '../pages/dia/dia';
+import { HorarioPage } from '../pages/horario/horario';
+import { ParticipantesPage } from '../pages/participantes/participantes';
+import { NombrePage} from '../pages/nombre/nombre';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -20,11 +26,17 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     InicioPage,
     PerfilPage,
-    CreacionPage,
-    TabsPage,
     EventoPage,
+    TabsPage,
+    MomentoPage,
     IngresoPage,
-    FormularioPage
+    FormularioPage,
+    DeportePage,
+    EscenarioPage,
+    DiaPage,
+    HorarioPage,
+    ParticipantesPage,
+    NombrePage
   ],
   imports: [
     BrowserModule,
@@ -35,11 +47,17 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     InicioPage,
     PerfilPage,
-    CreacionPage,
-    TabsPage,
     EventoPage,
+    TabsPage,
+    MomentoPage,
     IngresoPage,
-    FormularioPage
+    FormularioPage,
+    DeportePage,
+    EscenarioPage,
+    DiaPage,
+    HorarioPage,
+    ParticipantesPage,
+    NombrePage
   ],
   providers: [
     StatusBar,
