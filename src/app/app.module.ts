@@ -8,6 +8,8 @@ import { PerfilPage } from '../pages/perfil/perfil';
 import { CreacionPage } from '../pages/creacion/creacion';
 import { TabsPage } from '../pages/tabs/tabs';
 import { EventoPage } from '../pages/evento/evento';
+import { IngresoPage } from '../pages/ingreso/ingreso';
+import { FormularioPage } from '../pages/formulario/formulario';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -20,7 +22,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     PerfilPage,
     CreacionPage,
     TabsPage,
-    EventoPage
+    EventoPage,
+    IngresoPage,
+    FormularioPage
   ],
   imports: [
     BrowserModule,
@@ -33,7 +37,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     PerfilPage,
     CreacionPage,
     TabsPage,
-    EventoPage
+    EventoPage,
+    IngresoPage,
+    FormularioPage
   ],
   providers: [
     StatusBar,

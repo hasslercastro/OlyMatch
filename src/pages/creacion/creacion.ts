@@ -10,22 +10,27 @@ import { EventoPage } from '../evento/evento';
 
 export class CreacionPage {
 
+  //Variables que enviamos y recibimos
+
   fechaEvento='';
   horarioEvento='';
   deporteEvento='';
   lugarEvento='';
   nombreEvento='';
   numeroParticipantesEvento='';
+  exigenciaEvento='';
   imagen='assets/img/cancha.png';
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
+    this.nombreEvento=navParams.data;
     this.fechaEvento=navParams.get('fechaEvento');
     this.horarioEvento=navParams.get('horarioEvento');
     this.deporteEvento=navParams.get('deporteEvento');
     this.lugarEvento=navParams.get('lugarEvento');
     this.nombreEvento=navParams.get('nombreEvento');
     this.numeroParticipantesEvento=navParams.get('numeroParticipantesEvento');
+    this.exigenciaEvento=navParams.get('exigenciaEvento');
     this.imagen=navParams.get('imagen');
   
   }
@@ -33,5 +38,5 @@ export class CreacionPage {
   public cargarPaginaEvento(){
     this.navCtrl.push(EventoPage);
   }
-
+  
 }

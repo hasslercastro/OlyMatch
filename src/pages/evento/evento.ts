@@ -25,19 +25,21 @@ export class EventoPage {
   lugarEvento='';
   nombreEvento='';
   numeroParticipantesEvento='';
+  exigenciaEvento='';
   imagen='assets/img/cancha.png';
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
   }
 
-  public volver(){
-    this.navCtrl.setRoot(CreacionPage, {fechaEvento:this.fechaEvento, 
+  public crear(){
+    this.navCtrl.setRoot(CreacionPage,  {fechaEvento:this.fechaEvento, 
                                         horarioEvento:this.horarioEvento,
                                         deporteEvento:this.deporteEvento,
                                         lugarEvento:this.lugarEvento, 
                                         nombreEvento:this.nombreEvento,
                                         numeroParticipantesEvento:this.numeroParticipantesEvento,
+                                        exigenciaEvento:this.exigenciaEvento,
                                         imagen:this.imagen
                                         });
   }
