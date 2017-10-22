@@ -7,8 +7,12 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class InicioPage {
 
+  //Variables que recibimos
+
+  nombreUsuario='';
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    
+    this.nombreUsuario = navParams.data;
   }
 
 }
