@@ -35,7 +35,8 @@ mongoose.connect(config.database, function (err) {
 });
 
 app.use(require('./app/routes/comentario-routes'));
-app.use(require('./app/routes/escenario-routes'));
+//app.use(require('./app/routes/escenario-routes'));
+app.use(require('./app/routes/evento-routes'));
 
 http.createServer(app).listen(port, function (err) {
     console.log('listeing in http://localhost:' + port);
