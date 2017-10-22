@@ -1,16 +1,17 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+var DisponibilidadSchema = new Schema({
+    dia: {type: String, required: true},
+    hora: {type: String, required: true},
+    disponible: {type: boolean, required: true}
+});
+
 var EscenarioSchema = new Schema({
-    id :{type: Number, required: true, unique: true},
-<<<<<<< HEAD
     nombre :{type: String, required: true},
-    deportes: {type: String[], required},
-=======
-    escenario :{type: String, required: true},
     deportes : {type:[String],require:true},
->>>>>>> 6aad0cc54f3942e4fc9ea5458915c4bdadf479be
-    imagen_escenario :{type: String, required: true}
+    imagen_escenario :{type: String, required: true},
+    disponibilidad : {type: DisponibilidadSchema, required: true}
 });
 
 module.exports = mongoose.model('Escenario', EscenarioSchema);
