@@ -19,10 +19,16 @@ app.get('/escenario', function (req, res) {
     });
 });
 
-app.get()
+
+app.get('/escenario/:deporte', function(req, res){
+    var deporte = req.param.deporte;
+    var depor = Esce.find().$where(deporte).in(Esce.deportes).$where(Esce.disponibilidad).equals(true);
+    console.log("melo");
+    console.log(depor);
+});
 //create a place                                                           
 app.post('/escenario', function (req, res) {
-    if (req.body.id == null || req.body.id == '' || req.body.escenario == null || req.body.escenario == '' || req.body.deportes == null || req.body.deportes == ''|| req.body.imagen_escenario == null || req.body.imagen_escenario == '') {
+    if (req.body.deportes == null || req.body.deportes == '') {
         return res.status(400).send({
             "success": false,
             "msg": "Error you need to provide all fields"
@@ -30,10 +36,13 @@ app.post('/escenario', function (req, res) {
     }
 
     var newEsce = new Esce({
-        id: req.body.id,
-        escenario: req.body.escenario,
-        imagen_escenario: req.body.imagen_escenario,
-        deportes: req.body.deportes
+        nombre : req.body.nombre,
+        deportes : req.body.deportes,
+        imagen_escenario : req.body.imagen_escenario,
+        dia : req.body.dia,
+        hora : req.body.hora,
+        disponible: true
+
     });
 
     newEsce.save(function (err) {
