@@ -31,7 +31,7 @@
         {{ myForm.get('participantes').value }}
     </ion-item>
 
-    <button ion-button block type="submit" [disabled]="myForm.invalid">Continuar</button>
+    <button ion-button block type="submit" [disabled]="myForm.invalid" (click)="pasarNombre()">Continuar</button>
 
   </form>
 </ion-content>

@@ -5,6 +5,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { NombrePage } from '../nombre/nombre';
 
 @IonicPage()
 @Component({
@@ -22,6 +23,10 @@ export class ParticipantesPage {
       participantes: ['', [Validators.required]]
     });
 
+  }
+
+  pasarNombre(){
+    this.navCtrl.push(NombrePage);
   }
 
   ionViewDidLoad() {

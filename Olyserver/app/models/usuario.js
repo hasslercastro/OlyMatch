@@ -6,13 +6,17 @@ var UsuarioSchema = new Schema({
     username :{type: String, required: true, unique: true},
     correo :{type: String, required: true, unique: true},
     contrasena :{type: String, required: true},
+    codigo: {type: String, required},
   	telefono :{type: String, required: true},
   	calificacion: {type: Number, required: true},
   	nombre: {type: String, required: true},
   	primerApellido: {type: String, required: true},
   	segundoApellido: {type: String, required: false},
   	imagen_usuario: {type: String, default:'ruta' , required: true},
-  	comentarios: {type: [String], required: false}
+    comentarios: {type: [String], required: false},
+    carrera: {type: String, required: true},
+    
+      
 });
 
 UsuarioSchema.pre('save', function (next) {

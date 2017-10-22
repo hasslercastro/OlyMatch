@@ -1,14 +1,14 @@
 webpackJsonp([1],{
 
-/***/ 272:
+/***/ 274:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MomentoPageModule", function() { return MomentoPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NombrePageModule", function() { return NombrePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__momento__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__nombre__ = __webpack_require__(105);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var MomentoPageModule = (function () {
-    function MomentoPageModule() {
+var NombrePageModule = (function () {
+    function NombrePageModule() {
     }
-    return MomentoPageModule;
+    return NombrePageModule;
 }());
-MomentoPageModule = __decorate([
+NombrePageModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__momento__["a" /* MomentoPage */],
+            __WEBPACK_IMPORTED_MODULE_2__nombre__["a" /* NombrePage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__momento__["a" /* MomentoPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__nombre__["a" /* NombrePage */]),
         ],
     })
-], MomentoPageModule);
+], NombrePageModule);
 
-//# sourceMappingURL=momento.module.js.map
+//# sourceMappingURL=nombre.module.js.map
 
 /***/ })
 

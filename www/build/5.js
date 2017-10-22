@@ -1,14 +1,14 @@
 webpackJsonp([5],{
 
-/***/ 276:
+/***/ 280:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EscenarioPageModule", function() { return EscenarioPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FormularioPageModule", function() { return FormularioPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__escenario__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__formulario__ = __webpack_require__(106);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var EscenarioPageModule = (function () {
-    function EscenarioPageModule() {
+var FormularioPageModule = (function () {
+    function FormularioPageModule() {
     }
-    return EscenarioPageModule;
+    return FormularioPageModule;
 }());
-EscenarioPageModule = __decorate([
+FormularioPageModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__escenario__["a" /* EscenarioPage */],
+            __WEBPACK_IMPORTED_MODULE_2__formulario__["a" /* FormularioPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__escenario__["a" /* EscenarioPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__formulario__["a" /* FormularioPage */]),
         ],
     })
-], EscenarioPageModule);
+], FormularioPageModule);
 
-//# sourceMappingURL=escenario.module.js.map
+//# sourceMappingURL=formulario.module.js.map
 
 /***/ })
 

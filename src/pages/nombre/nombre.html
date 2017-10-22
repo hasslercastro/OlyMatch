@@ -1,10 +1,23 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>nombre</ion-title>
+    <ion-title>Nombra al evento</ion-title>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
+  <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>
+    <ion-item>
+      <ion-input formControlName="nombre" type="text" placeholder="Nombre del evento"></ion-input>
+    </ion-item>
 
+    <!-->Manejo de error<-->
+    <ion-item *ngIf="myForm.get('nombre').errors && myForm.get('nombre').dirty">
+      <p color="danger" ion-text *ngIf="myForm.get('nombre').hasError('required')">Nombre es requerido</p>
+    </ion-item>
+
+    <ion-item>
+        <button ion-button block type="submit" [disabled]="myForm.invalid" (click)="volverEvento()">Finalizar</button>
+    </ion-item>
+  </form>
 </ion-content>
