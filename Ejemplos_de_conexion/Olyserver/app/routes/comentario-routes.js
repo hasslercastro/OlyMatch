@@ -56,7 +56,8 @@ app.delete('/comentario/:comId', function (req, res) {
             "msg": "Error, you need to send the Id of comment",
             "error": err
         });
-    }
+	}
+	
     Comen.findByIdAndRemove(lectionId, function (err, removed) {
         if (err) {
             return res.json({

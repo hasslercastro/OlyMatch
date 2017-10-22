@@ -18,12 +18,12 @@ var EventSchema = new Schema({
     nivelExigencia: {type: number, required: true},
     admin :{type: String, required: true},
     lugar :{type: String, required: true},
-    fecha :{type: String, required: true},
+    fecha :{type: String, required: true}, 
     hora :{type:String,required:true},
     participantes :{type :[String], required: false},
     numMaxParticipantes : {type : Number,required: true},
     publico: {type:Boolean, required: true},
-    deporte : {type:DeporteSchema,required:true}
+    deporte : {type: DeporteSchema, required:true}
 });
 
 module.exports = mongoose.model('Evento', EventSchema);

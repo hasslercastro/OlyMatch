@@ -19,6 +19,7 @@ app.get('/escenario', function (req, res) {
     });
 });
 
+app.get()
 //create a place                                                           
 app.post('/escenario', function (req, res) {
     if (req.body.id == null || req.body.id == '' || req.body.escenario == null || req.body.escenario == '' || req.body.deportes == null || req.body.deportes == ''|| req.body.imagen_escenario == null || req.body.imagen_escenario == '') {

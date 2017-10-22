@@ -4,7 +4,7 @@ var evento = require('../models/evento');
 
 //get all events
 app.get('/events', function (req, res) {
-    evento.find({}, function (err, esce) {
+    evento.find({}, function (err, event) {
         if (err) {
             return res.json({
                 "success": false,
@@ -14,8 +14,7 @@ app.get('/events', function (req, res) {
         }
         res.status(200).send({
             "success": true,
-            "result": esce
+            "result": event
         });
     });
 });
-
