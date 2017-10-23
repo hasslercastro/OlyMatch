@@ -15,6 +15,7 @@ var DeporteSchema = new Schema({
 });
 
 var EventSchema = new Schema({
+    nombre: { type: String, required: true },
     admin: { type: String, required: true },
     lugar: { type: String, required: true },
     fecha: { type: String, required: true },

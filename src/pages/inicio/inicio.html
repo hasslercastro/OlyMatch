@@ -7,26 +7,36 @@
 </ion-header>
 
 <ion-content padding>
-  <h1 text-center>
-    ¡Bienvenidos a OlyMatch!
-  </h1>
+  <ion-list>
+    <ion-item *ngFor="let event of eventos |  async">
 
-  {{ nombreUsuario }}
+      <ion-card>
+        <img src="http://www.vanguardia.com/sites/default/files/imagecache/Noticia_600x400/foto_grandes_400x300_noticia/2015/04/19/lista_la_cancha_de_la_juventud.jpg"
+        />
+        <ion-card-content>
+          <ion-card-title text-center>
+            <h1>
+              {{ event.nombre }}
+            </h1>
+          </ion-card-title>
+          <h2>
+            <ion-icon name="football"></ion-icon> {{ event.deporte.nombre }}
+          </h2>
+          <h2>
+            <ion-icon name="calendar"></ion-icon> {{ event.fecha }}
+          </h2>
+          <h2>
+            <ion-icon name="time"></ion-icon> {{ event.hora }}
+          </h2>
+          <h2>
+            <ion-icon name="locate"></ion-icon> {{ event.lugar }}
+          </h2>
+          <h2>
+            <ion-icon name="clipboard"></ion-icon> {{ event.numMaxParticipantes }}
+          </h2>
 
-  
-  
-  <h3 text-center>
-    Una aplicación donde podrás crear y/o participar de un evento deportivo
-  </h3>
-
-  <h4 text-center>
-    ¡Únete al juego!
-  </h4>
-
-  <img src="../assets/img/logo.jpg">
-
-  <h3 text-center>
-    ¡Apartado para ver los eventos creados!
-  </h3>
-
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-list>
 </ion-content>

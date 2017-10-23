@@ -34,7 +34,26 @@ app.get('/escenario/:deporte', function(req, res){
             "success": true,
             "result": esce
         });
-    }).$where;
+    }).select('nombre').select('ruta');
+});
+
+
+app.get('/escenario/lugar/:lugar/:dia', function(req, res){
+    var lugar = req.params.lugar;
+    var dia = req.params.dia;
+    Esce.find({ "nombre": lugar, "disponibilidad.dia" : dia , 'disponibilidad.disponible' : true }, function (err, esce) {
+        if (err) {
+            return res.json({
+                "success": false,
+                "msg": "Error while retrieving places",
+                "error": err
+            });
+        }
+        res.status(200).send({
+            "success": true,
+            "result": esce
+        });
+    }).select('disponibilidad.hora');
 });
 //create a place                                                           
 app.post('/escenario', function (req, res) {
@@ -49,7 +68,7 @@ app.post('/escenario', function (req, res) {
         nombre : req.body.nombre,
         deportes: req.body.deportes,
         imagen_escenario : req.body.imagen_escenario,
-        disponibilidad : { dia: req.body.disponibilidad.dia, hora : req.body.disponibilidad.hora, disponible : req.body.disponibilidad.disponible }
+        disponibilidad :  { dia: req.body.disponibilidad.dia, hora : req.body.disponibilidad.hora, disponible : req.body.disponibilidad.disponible }
     });
 
     newEsce.save(function (err) {
