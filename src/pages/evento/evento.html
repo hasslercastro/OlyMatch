@@ -1,134 +1,52 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Crear evento</ion-title>
+    <ion-title>Evento</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h1 text-center>
-    ¡Vamos a jugar!
-  </h1>
 
-  <!-->Slides para la creación de eventos<-->
-  <ion-slides pager>
-    
-      <!-->Slide 1: Instrucciones o motivación<-->
-      <ion-slide>
-        <h2>Bienvenido a la creación de eventos</h2>
-
-        Aquí
-        van
-        las instrucciones
+    <ion-card>
         
-      </ion-slide>
-    
-      <!-->Slide 2: Deporte que se va a jugar -> (deporteEvento)<-->
-      <ion-slide>
-        <h2>¿Qué vamos a jugar?</h2>
+        <img src={{imagen}}/>
+        
+        <ion-card-content>  
+          <ion-card-title text-center>
+            <h1>
+                {{ nombreEvento }}
+            </h1>
+        </ion-card-title>
 
-        <ion-item>
-          <ion-label>¿Qué vas a jugar?</ion-label>
-            <ion-select [(ngModel)]="deporteEvento">
-              <ion-option value="Fútbol">Fútbol</ion-option>
-              <ion-option value="Basketball">Basketball</ion-option>
-              <ion-option value="Tennis">Tennis</ion-option>
-              <ion-option value="Karate">Karate</ion-option>
-              <ion-option value="Ajedréz">Ajedrez</ion-option>
-              <ion-option value="Natación">Natación</ion-option>
-              <ion-option value="Tenis de mesa">Tenis de mesa</ion-option>
-            </ion-select>
-        </ion-item>
+        <h2>
+            <ion-icon name="football"></ion-icon> {{ deporteEvento }}
+        </h2>
 
-      </ion-slide>
+        <h2>
+            <ion-icon name="game-controller-a"></ion-icon> {{ exigenciaEvento }}
+        </h2>
+        
+        <h2>
+            <ion-icon name="calendar"></ion-icon> {{ fechaEvento }}
+        </h2>
+          
+        <h2>
+            <ion-icon name="time"></ion-icon> {{ horarioEvento }}
+        </h2>
 
-      <!-->Slide 3: Nivel de exigencia -> (exigenciaEvento)<-->
-      <ion-slide>
-        <h2>¿Qué nivel de exigencia quieres enfrentar?</h2>
+        <h2>
+            <ion-icon name="locate"></ion-icon> {{ lugarEvento }}
+        </h2>
 
-        <ion-item>
-          <ion-label>Nivel de exigencia?</ion-label>
-            <ion-select [(ngModel)]="exigenciaEvento">
-              <ion-option value="Principiante">Principiante</ion-option>
-              <ion-option value="Profesional">Profesional</ion-option>
-              <ion-option value="Leyenda">Leyenda</ion-option>
-            </ion-select>
-        </ion-item>
+        <h2>
+            <ion-icon name="clipboard"></ion-icon> {{ numeroParticipantesEvento }}
+        </h2>
 
-      </ion-slide>
+        </ion-card-content>
+      </ion-card>
 
-      <!-->Slide 4: Número de participantes -> (numeroParticipantesEvento)<-->
-      <ion-slide>
-        <h2>¿Cuántos van a jugar?</h2>
-
-        <!-->Va de acuerdo al deporte que se va a jugar<-->
-        <ion-item>
-          <ion-label>¿Cuántos?</ion-label>
-            <ion-select [(ngModel)]="numeroParticipantesEvento">
-              <ion-option value="1">1</ion-option>
-              <ion-option value="2">2</ion-option>
-              <ion-option value="3">3</ion-option>
-              <ion-option value="4">4</ion-option>
-              <ion-option value="5">5</ion-option>
-              <ion-option value="6">6</ion-option>
-              <ion-option value="7">7</ion-option>
-              <ion-option value="8">8</ion-option>
-              <ion-option value="9">9</ion-option>
-              <ion-option value="10">10</ion-option>
-            </ion-select>
-        </ion-item>
-
-      </ion-slide>
-
-      <!-->Slide 5: Fecha de evento -> (fechaEvento, horarioEvento)<-->
-      <ion-slide>
-        <h2>¿Cuándo vamos a jugar?</h2>
-
-        <!-->Fecha del evento<-->
-        <ion-item>
-          <ion-label>¿Cuándo?</ion-label>
-          <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="fechaEvento"></ion-datetime>
-        </ion-item>
-
-        <!-->Horario del evento<-->
-        <ion-item>
-          <ion-label>¿Hora?</ion-label>
-          <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="horarioEvento"></ion-datetime>
-        </ion-item>
-      </ion-slide>
-    
-      <!-->Slide 6: Lugar de evento -> (lugarEvento)<-->
-      <ion-slide>
-        <h2>¿Dónde vamos a jugar?</h2>
-
-        <ion-item>
-          <ion-label>¿Dónde?</ion-label>
-            <ion-select [(ngModel)]="lugarEvento">
-              <ion-option value="Placa # 1">Placa # 1</ion-option>
-              <ion-option value="Placa # 2">Placa # 2</ion-option>
-              <ion-option value="Placa # 3">Placa # 3</ion-option>
-              <ion-option value="Coliseo">Coliseo</ion-option>
-              <ion-option value="Mesa de tennis # 1">Mesa de tennis # 1</ion-option>
-              <ion-option value="Mesa de tennis # 2">Mesa de tennis # 2</ion-option>
-              <ion-option value="Mesa de tennis cemento">Mesa de tennis cemento</ion-option>
-            </ion-select>
-         </ion-item>
-
-      </ion-slide>
-
-      <!-->Slide 7: Nombre de evento -> (nombreEvento)<-->
-      <ion-slide>
-        <h2>Nombre del evento</h2>
-
-        <ion-item>
-          <ion-input placeholder="Nombre" [(ngModel)]="nombreEvento"></ion-input>
-        </ion-item>
-
-        <button ion-button block (click)="crear()">Crear evento</button>
-
-      </ion-slide>
-
-    </ion-slides>
- 
-    
-  
+      <ion-fab right bottom>
+        <button ion-fab color="primary" (click)="cargarPaginaEvento()">
+            <ion-icon name="add"></ion-icon>
+        </button>
+      </ion-fab>
 </ion-content>

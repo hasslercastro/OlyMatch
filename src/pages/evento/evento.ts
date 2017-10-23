@@ -1,23 +1,17 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
-import { CreacionPage } from '../creacion/creacion';
+import { MomentoPage } from '../momento/momento';
+import { DeportePage } from '../deporte/deporte';
 
-/**
- * Generated class for the EventoPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
-@IonicPage()
 @Component({
   selector: 'page-evento',
-  templateUrl: 'evento.html',
+  templateUrl: 'evento.html'
 })
+
 export class EventoPage {
 
-  // Variables que enviamos
+  //Variables que enviamos y recibimos
 
   fechaEvento='';
   horarioEvento='';
@@ -30,28 +24,20 @@ export class EventoPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
+    this.nombreEvento=navParams.data;
+    this.fechaEvento=navParams.get('fechaEvento');
+    this.horarioEvento=navParams.get('horarioEvento');
+    this.deporteEvento=navParams.get('deporteEvento');
+    this.lugarEvento=navParams.get('lugarEvento');
+    this.nombreEvento=navParams.get('nombreEvento');
+    this.numeroParticipantesEvento=navParams.get('numeroParticipantesEvento');
+    this.exigenciaEvento=navParams.get('exigenciaEvento');
+    this.imagen=navParams.get('imagen');
+  
   }
 
-  public crear(){
-    this.navCtrl.setRoot(CreacionPage,  {fechaEvento:this.fechaEvento, 
-                                        horarioEvento:this.horarioEvento,
-                                        deporteEvento:this.deporteEvento,
-                                        lugarEvento:this.lugarEvento, 
-                                        nombreEvento:this.nombreEvento,
-                                        numeroParticipantesEvento:this.numeroParticipantesEvento,
-                                        exigenciaEvento:this.exigenciaEvento,
-                                        imagen:this.imagen
-                                        });
+  public cargarPaginaEvento(){
+    this.navCtrl.push(DeportePage);
   }
-
-  public fecha = {
-    month: '1990-02-19',
-    timeStarts: '07:43',
-    timeEnds: '1990-02-20'
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad EventoPage');
-  }
-
+  
 }

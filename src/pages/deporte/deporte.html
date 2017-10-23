@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Escoger deporte</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>
+      
+    <ion-item>
+      <ion-label>¿Qué vas a jugar?</ion-label>  
+      <ion-select formControlName="deporte" placeholder="Seleccionar deporte">
+        <ion-option value="futbol">Fútbol</ion-option>
+        <ion-option value="basketball">Basketball</ion-option>
+        <ion-option value="tennis">Tennis</ion-option>
+        <ion-option value="karate">Karate</ion-option>
+        <ion-option value="ajedrez">Ajedrez</ion-option>
+        <ion-option value="natacion">Natación</ion-option>
+        <ion-option value="tenisDeMesa">Tenis de mesa</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <!-->Manejo de error<-->
+    <ion-item *ngIf="myForm.get('deporte').errors && myForm.get('deporte').dirty">
+      <p color="danger" ion-text *ngIf="myForm.get('deporte').hasError('required')">El deporte es requerido</p>
+    </ion-item>
+
+    <ion-item>
+      {{ myForm.get('deporte').value }}
+    </ion-item>
+
+    <button ion-button block type="submit" [disabled]="myForm.invalid" (click)="pasarEscenario()">Continuar</button>
+  </form>
+</ion-content>

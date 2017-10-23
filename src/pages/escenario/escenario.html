@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Escoger escenario</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>
+    <ion-item>
+      <ion-label>¿Dónde?</ion-label>
+      <ion-select formControlName="escenario" placeholder="Seleccionar deporte">
+        <ion-option value="Placa # 1">Placa # 1</ion-option>
+        <ion-option value="Placa # 2">Placa # 2</ion-option>
+        <ion-option value="Placa # 3">Placa # 3</ion-option>
+        <ion-option value="Coliseo">Coliseo</ion-option>
+        <ion-option value="Mesa de tennis # 1">Mesa de tennis # 1</ion-option>
+        <ion-option value="Mesa de tennis # 2">Mesa de tennis # 2</ion-option>
+        <ion-option value="Mesa de tennis cemento">Mesa de tennis cemento</ion-option>
+      </ion-select>   
+    </ion-item>
+
+    <!-->Manejo de error<-->
+    <ion-item *ngIf="myForm.get('escenario').errors && myForm.get('escenario').dirty">
+        <p color="danger" ion-text *ngIf="myForm.get('escenario').hasError('required')">El escenario es requerido</p>
+    </ion-item>
+
+    <button ion-button block type="submit" [disabled]="myForm.invalid" (click)="pasarDia()">Continuar</button>
+
+  </form>
+</ion-content>
