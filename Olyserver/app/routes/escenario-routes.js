@@ -1,7 +1,7 @@
 var express = require('express');
 var app = module.exports = express.Router();
 var Esce = require('../models/escenario');
-
+    
 //get all places
 app.get('/escenario', function (req, res) {
     Esce.find({}, function (err, esce) {
@@ -19,21 +19,37 @@ app.get('/escenario', function (req, res) {
     });
 });
 
-app.get()
+
+app.get('/escenario/:deporte', function(req, res){
+    var deporte = req.params.deporte;
+    Esce.find({ "deportes.nombre": deporte, "disponibilidad.disponible" : "true" }, function (err, esce) {
+        if (err) {
+            return res.json({
+                "success": false,
+                "msg": "Error while retrieving places",
+                "error": err
+            });
+        }
+        res.status(200).send({
+            "success": true,
+            "result": esce
+        });
+    }).$where;
+});
 //create a place                                                           
 app.post('/escenario', function (req, res) {
-    if (req.body.id == null || req.body.id == '' || req.body.escenario == null || req.body.escenario == '' || req.body.deportes == null || req.body.deportes == ''|| req.body.imagen_escenario == null || req.body.imagen_escenario == '') {
+    if (req.body.deportes == null || req.body.deportes == '') {
         return res.status(400).send({
             "success": false,
-            "msg": "Error you need to provide all fields"
+            "msg": "Error you need to provide all fields of escenario"
         });
     }
 
     var newEsce = new Esce({
-        id: req.body.id,
-        escenario: req.body.escenario,
-        imagen_escenario: req.body.imagen_escenario,
-        deportes: req.body.deportes
+        nombre : req.body.nombre,
+        deportes: req.body.deportes,
+        imagen_escenario : req.body.imagen_escenario,
+        disponibilidad : { dia: req.body.disponibilidad.dia, hora : req.body.disponibilidad.hora, disponible : req.body.disponibilidad.disponible }
     });
 
     newEsce.save(function (err) {

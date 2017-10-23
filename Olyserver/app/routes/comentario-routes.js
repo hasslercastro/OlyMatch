@@ -24,7 +24,7 @@ app.post('/comentario', function (req, res) {
 	if (req.body.id == null || req.body.id == '' || req.body.coment == null || req.body.coment == '' || req.body.valor == null || req.body.valor == '') {
 		return res.status(400).send({
 			"success": false,
-			"msg": "Error you need to provide all fields"
+			"msg": "Error you need to provide all fields of coment"
 		});
 	}
 
