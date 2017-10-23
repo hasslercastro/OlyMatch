@@ -9,7 +9,7 @@
       
     <ion-item>
       <ion-label>¿Qué vas a jugar?</ion-label>  
-      <ion-select formControlName="deporte" placeholder="Seleccionar deporte">
+      <ion-select formControlName="deporte" placeholder="Seleccionar deporte" [(ngModel)]="deporte">
         <ion-option value="futbol">Fútbol</ion-option>
         <ion-option value="basketball">Basketball</ion-option>
         <ion-option value="tennis">Tennis</ion-option>

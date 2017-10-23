@@ -30,12 +30,13 @@ var DeportePage = (function () {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.fb = fb;
+        this.deporte = '';
         this.myForm = this.fb.group({
             deporte: ['', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required]]
         });
     }
     DeportePage.prototype.pasarEscenario = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__escenario_escenario__["a" /* EscenarioPage */]);
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__escenario_escenario__["a" /* EscenarioPage */], { deporte: this.deporte });
     };
     DeportePage.prototype.saveData = function () {
         alert(JSON.stringify(this.myForm.value));
@@ -48,11 +49,12 @@ var DeportePage = (function () {
 DeportePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-deporte',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/OlyMatch/src/pages/deporte/deporte.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Escoger deporte</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>\n      \n    <ion-item>\n      <ion-label>¿Qué vas a jugar?</ion-label>  \n      <ion-select formControlName="deporte" placeholder="Seleccionar deporte">\n        <ion-option value="futbol">Fútbol</ion-option>\n        <ion-option value="basketball">Basketball</ion-option>\n        <ion-option value="tennis">Tennis</ion-option>\n        <ion-option value="karate">Karate</ion-option>\n        <ion-option value="ajedrez">Ajedrez</ion-option>\n        <ion-option value="natacion">Natación</ion-option>\n        <ion-option value="tenisDeMesa">Tenis de mesa</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <!-->Manejo de error<-->\n    <ion-item *ngIf="myForm.get(\'deporte\').errors && myForm.get(\'deporte\').dirty">\n      <p color="danger" ion-text *ngIf="myForm.get(\'deporte\').hasError(\'required\')">El deporte es requerido</p>\n    </ion-item>\n\n    <ion-item>\n      {{ myForm.get(\'deporte\').value }}\n    </ion-item>\n\n    <button ion-button block type="submit" [disabled]="myForm.invalid" (click)="pasarEscenario()">Continuar</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/OlyMatch/src/pages/deporte/deporte.html"*/,
+        selector: 'page-deporte',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/OlyMatch/src/pages/deporte/deporte.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Escoger deporte</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>\n      \n    <ion-item>\n      <ion-label>¿Qué vas a jugar?</ion-label>  \n      <ion-select formControlName="deporte" placeholder="Seleccionar deporte" [(ngModel)]="deporte">\n        <ion-option value="futbol">Fútbol</ion-option>\n        <ion-option value="basketball">Basketball</ion-option>\n        <ion-option value="tennis">Tennis</ion-option>\n        <ion-option value="karate">Karate</ion-option>\n        <ion-option value="ajedrez">Ajedrez</ion-option>\n        <ion-option value="natacion">Natación</ion-option>\n        <ion-option value="tenisDeMesa">Tenis de mesa</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <!-->Manejo de error<-->\n    <ion-item *ngIf="myForm.get(\'deporte\').errors && myForm.get(\'deporte\').dirty">\n      <p color="danger" ion-text *ngIf="myForm.get(\'deporte\').hasError(\'required\')">El deporte es requerido</p>\n    </ion-item>\n\n    <ion-item>\n      {{ myForm.get(\'deporte\').value }}\n    </ion-item>\n\n    <button ion-button block type="submit" [disabled]="myForm.invalid" (click)="pasarEscenario()">Continuar</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/OlyMatch/src/pages/deporte/deporte.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */]) === "function" && _c || Object])
 ], DeportePage);
 
+var _a, _b, _c;
 //# sourceMappingURL=deporte.js.map
 
 /***/ }),
@@ -87,12 +89,17 @@ var EscenarioPage = (function () {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.fb = fb;
+        this.deporte = '';
+        this.escenario = '';
         this.myForm = this.fb.group({
             escenario: ['', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required]]
         });
+        //Variables que recibimos de ngModel
+        this.deporte = navParams.get('deporte');
     }
     EscenarioPage.prototype.pasarDia = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__dia_dia__["a" /* DiaPage */]);
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__dia_dia__["a" /* DiaPage */], { deporte: this.deporte,
+            escenario: this.escenario });
     };
     EscenarioPage.prototype.saveData = function () {
         alert(JSON.stringify(this.myForm.value));
@@ -105,7 +112,7 @@ var EscenarioPage = (function () {
 EscenarioPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-escenario',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/OlyMatch/src/pages/escenario/escenario.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Escoger escenario</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>\n    <ion-item>\n      <ion-label>¿Dónde?</ion-label>\n      <ion-select formControlName="escenario" placeholder="Seleccionar deporte">\n        <ion-option value="Placa # 1">Placa # 1</ion-option>\n        <ion-option value="Placa # 2">Placa # 2</ion-option>\n        <ion-option value="Placa # 3">Placa # 3</ion-option>\n        <ion-option value="Coliseo">Coliseo</ion-option>\n        <ion-option value="Mesa de tennis # 1">Mesa de tennis # 1</ion-option>\n        <ion-option value="Mesa de tennis # 2">Mesa de tennis # 2</ion-option>\n        <ion-option value="Mesa de tennis cemento">Mesa de tennis cemento</ion-option>\n      </ion-select>   \n    </ion-item>\n\n    <!-->Manejo de error<-->\n    <ion-item *ngIf="myForm.get(\'escenario\').errors && myForm.get(\'escenario\').dirty">\n        <p color="danger" ion-text *ngIf="myForm.get(\'escenario\').hasError(\'required\')">El escenario es requerido</p>\n    </ion-item>\n\n    <button ion-button block type="submit" [disabled]="myForm.invalid" (click)="pasarDia()">Continuar</button>\n\n  </form>\n</ion-content>\n'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/OlyMatch/src/pages/escenario/escenario.html"*/,
+        selector: 'page-escenario',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/OlyMatch/src/pages/escenario/escenario.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Escoger escenario</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>\n    <ion-item>\n      <ion-label>¿Dónde?</ion-label>\n      <ion-select formControlName="escenario" placeholder="Seleccionar deporte" [(ngModel)]="escenario">\n        <ion-option value="Placa # 1">Placa # 1</ion-option>\n        <ion-option value="Placa # 2">Placa # 2</ion-option>\n        <ion-option value="Placa # 3">Placa # 3</ion-option>\n        <ion-option value="Coliseo">Coliseo</ion-option>\n        <ion-option value="Mesa de tennis # 1">Mesa de tennis # 1</ion-option>\n        <ion-option value="Mesa de tennis # 2">Mesa de tennis # 2</ion-option>\n        <ion-option value="Mesa de tennis cemento">Mesa de tennis cemento</ion-option>\n      </ion-select>   \n    </ion-item>\n\n    <!-->Manejo de error<-->\n    <ion-item *ngIf="myForm.get(\'escenario\').errors && myForm.get(\'escenario\').dirty">\n        <p color="danger" ion-text *ngIf="myForm.get(\'escenario\').hasError(\'required\')">El escenario es requerido</p>\n    </ion-item>\n\n    <button ion-button block type="submit" [disabled]="myForm.invalid" (click)="pasarDia()">Continuar</button>\n\n  </form>\n</ion-content>\n'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/OlyMatch/src/pages/escenario/escenario.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */]])
 ], EscenarioPage);
@@ -144,12 +151,20 @@ var DiaPage = (function () {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.fb = fb;
+        this.deporte = '';
+        this.escenario = '';
+        this.dia = '';
         this.myForm = this.fb.group({
             dia: ['', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required]]
         });
+        //Variables que recibimos de ngModel
+        this.deporte = navParams.get('deporte');
+        this.escenario = navParams.get('escenario');
     }
     DiaPage.prototype.pasarHorario = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__horario_horario__["a" /* HorarioPage */]);
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__horario_horario__["a" /* HorarioPage */], { deporte: this.deporte,
+            escenario: this.escenario,
+            dia: this.dia });
     };
     DiaPage.prototype.saveData = function () {
         alert(JSON.stringify(this.myForm.value));
@@ -162,7 +177,7 @@ var DiaPage = (function () {
 DiaPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-dia',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/OlyMatch/src/pages/dia/dia.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Escoger día</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n  <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>\n        \n    <ion-item>\n      <ion-label>¿Qué día vas a jugar?</ion-label>  \n      <ion-select formControlName="dia" placeholder="Seleccionar día">\n        <ion-option value="lunes">Lunes</ion-option>\n        <ion-option value="martes">Martes</ion-option>\n        <ion-option value="miercoles">Miércoles</ion-option>\n        <ion-option value="jueves">Jueves</ion-option>\n        <ion-option value="viernes">Viernes</ion-option>\n        <ion-option value="sabado">Sábado</ion-option>\n      </ion-select>\n    </ion-item>\n  \n    <!-->Manejo de error<-->\n    <ion-item *ngIf="myForm.get(\'dia\').errors && myForm.get(\'dia\').dirty">\n      <p color="danger" ion-text *ngIf="myForm.get(\'dia\').hasError(\'required\')">El día es requerido</p>\n    </ion-item>\n\n    <ion-item>\n      {{ myForm.get(\'dia\').value }}\n    </ion-item>\n  \n    <button ion-button block type="submit" [disabled]="myForm.invalid" (click)="pasarHorario()">Continuar</button>\n    </form>\n</ion-content>\n'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/OlyMatch/src/pages/dia/dia.html"*/,
+        selector: 'page-dia',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/OlyMatch/src/pages/dia/dia.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Escoger día</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n  <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>\n        \n    <ion-item>\n      <ion-label>¿Qué día vas a jugar?</ion-label>  \n      <ion-select formControlName="dia" placeholder="Seleccionar día" [(ngModel)]="dia">\n        <ion-option value="lunes">Lunes</ion-option>\n        <ion-option value="martes">Martes</ion-option>\n        <ion-option value="miercoles">Miércoles</ion-option>\n        <ion-option value="jueves">Jueves</ion-option>\n        <ion-option value="viernes">Viernes</ion-option>\n        <ion-option value="sabado">Sábado</ion-option>\n      </ion-select>\n    </ion-item>\n  \n    <!-->Manejo de error<-->\n    <ion-item *ngIf="myForm.get(\'dia\').errors && myForm.get(\'dia\').dirty">\n      <p color="danger" ion-text *ngIf="myForm.get(\'dia\').hasError(\'required\')">El día es requerido</p>\n    </ion-item>\n\n    <ion-item>\n      {{ myForm.get(\'dia\').value }}\n    </ion-item>\n  \n    <button ion-button block type="submit" [disabled]="myForm.invalid" (click)="pasarHorario()">Continuar</button>\n    </form>\n</ion-content>\n'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/OlyMatch/src/pages/dia/dia.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */]])
 ], DiaPage);
@@ -201,12 +216,23 @@ var HorarioPage = (function () {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.fb = fb;
+        this.deporte = '';
+        this.escenario = '';
+        this.dia = '';
+        this.horario = '';
         this.myForm = this.fb.group({
             horario: ['', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required]]
         });
+        //Variables que recibimos de ngModel
+        this.deporte = navParams.get('deporte');
+        this.escenario = navParams.get('escenario');
+        this.dia = navParams.get('dia');
     }
     HorarioPage.prototype.pasarParticipantes = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__participantes_participantes__["a" /* ParticipantesPage */]);
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__participantes_participantes__["a" /* ParticipantesPage */], { deporte: this.deporte,
+            escenario: this.escenario,
+            dia: this.dia,
+            horario: this.horario });
     };
     HorarioPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad HorarioPage');
@@ -219,7 +245,7 @@ var HorarioPage = (function () {
 HorarioPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-horario',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/OlyMatch/src/pages/horario/horario.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Escoger horario</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>\n\n    <ion-item>\n      <ion-label>¿A qué horas?</ion-label>\n      <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" formControlName="horario"></ion-datetime>\n    </ion-item>\n\n    <!-->Manejo de error<-->\n    <ion-item *ngIf="myForm.get(\'horario\').errors && myForm.get(\'horario\').dirty">\n        <p color="danger" ion-text *ngIf="myForm.get(\'horario\').hasError(\'required\')">El horario es requerido</p>\n    </ion-item>\n\n    <ion-item>\n        {{ myForm.get(\'horario\').value }}\n    </ion-item>\n\n    <button ion-button block type="submit" [disabled]="myForm.invalid" (click)="pasarParticipantes()">Continuar</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/OlyMatch/src/pages/horario/horario.html"*/,
+        selector: 'page-horario',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/OlyMatch/src/pages/horario/horario.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Escoger horario</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>\n\n    <ion-item>\n      <ion-label>¿A qué horas?</ion-label>\n      <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" formControlName="horario" [(ngModel)]="horario"></ion-datetime>\n    </ion-item>\n\n    <!-->Manejo de error<-->\n    <ion-item *ngIf="myForm.get(\'horario\').errors && myForm.get(\'horario\').dirty">\n        <p color="danger" ion-text *ngIf="myForm.get(\'horario\').hasError(\'required\')">El horario es requerido</p>\n    </ion-item>\n\n    <ion-item>\n        {{ myForm.get(\'horario\').value }}\n    </ion-item>\n\n    <button ion-button block type="submit" [disabled]="myForm.invalid" (click)="pasarParticipantes()">Continuar</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/OlyMatch/src/pages/horario/horario.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */]])
 ], HorarioPage);
@@ -258,12 +284,26 @@ var ParticipantesPage = (function () {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.fb = fb;
+        this.deporte = '';
+        this.escenario = '';
+        this.dia = '';
+        this.horario = '';
+        this.participantes = '';
         this.myForm = this.fb.group({
             participantes: ['', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required]]
         });
+        //Variables que recibimos
+        this.deporte = navParams.get('deporte');
+        this.escenario = navParams.get('escenario');
+        this.dia = navParams.get('dia');
+        this.horario = navParams.get('horario');
     }
     ParticipantesPage.prototype.pasarNombre = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__nombre_nombre__["a" /* NombrePage */]);
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__nombre_nombre__["a" /* NombrePage */], { deporte: this.deporte,
+            escenario: this.escenario,
+            dia: this.dia,
+            horario: this.horario,
+            participantes: this.participantes });
     };
     ParticipantesPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad ParticipantesPage');
@@ -276,7 +316,7 @@ var ParticipantesPage = (function () {
 ParticipantesPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-participantes',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/OlyMatch/src/pages/participantes/participantes.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Escoger número de participantes</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>\n    <ion-item>\n      <ion-label>¿Cuántos?</ion-label>\n        <ion-select formControlName="participantes" placeholder="Seleccionar participantes">\n          <ion-option value="1">1</ion-option>\n          <ion-option value="2">2</ion-option>\n          <ion-option value="3">3</ion-option>\n          <ion-option value="4">4</ion-option>\n          <ion-option value="5">5</ion-option>\n          <ion-option value="6">6</ion-option>\n          <ion-option value="7">7</ion-option>\n          <ion-option value="8">8</ion-option>\n          <ion-option value="9">9</ion-option>\n          <ion-option value="10">10</ion-option>\n        </ion-select>\n    </ion-item>\n\n    <!-->Manejo de error<-->\n    <ion-item *ngIf="myForm.get(\'participantes\').errors && myForm.get(\'participantes\').dirty">\n      <p color="danger" ion-text *ngIf="myForm.get(\'participantes\').hasError(\'required\')">El número de participantes es requerido</p>\n    </ion-item>\n\n    <ion-item>\n        {{ myForm.get(\'participantes\').value }}\n    </ion-item>\n\n    <button ion-button block type="submit" [disabled]="myForm.invalid" (click)="pasarNombre()">Continuar</button>\n\n  </form>\n</ion-content>\n'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/OlyMatch/src/pages/participantes/participantes.html"*/,
+        selector: 'page-participantes',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/OlyMatch/src/pages/participantes/participantes.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Escoger número de participantes</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>\n    <ion-item>\n      <ion-label>¿Cuántos?</ion-label>\n        <ion-select formControlName="participantes" placeholder="Seleccionar participantes" [(ngModel)]="participantes">\n          <ion-option value="1">1</ion-option>\n          <ion-option value="2">2</ion-option>\n          <ion-option value="3">3</ion-option>\n          <ion-option value="4">4</ion-option>\n          <ion-option value="5">5</ion-option>\n          <ion-option value="6">6</ion-option>\n          <ion-option value="7">7</ion-option>\n          <ion-option value="8">8</ion-option>\n          <ion-option value="9">9</ion-option>\n          <ion-option value="10">10</ion-option>\n        </ion-select>\n    </ion-item>\n\n    <!-->Manejo de error<-->\n    <ion-item *ngIf="myForm.get(\'participantes\').errors && myForm.get(\'participantes\').dirty">\n      <p color="danger" ion-text *ngIf="myForm.get(\'participantes\').hasError(\'required\')">El número de participantes es requerido</p>\n    </ion-item>\n\n    <ion-item>\n        {{ myForm.get(\'participantes\').value }}\n    </ion-item>\n\n    <button ion-button block type="submit" [disabled]="myForm.invalid" (click)="pasarNombre()">Continuar</button>\n\n  </form>\n</ion-content>\n'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/OlyMatch/src/pages/participantes/participantes.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */]])
 ], ParticipantesPage);
@@ -293,7 +333,7 @@ ParticipantesPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__evento_evento__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__inicio_inicio__ = __webpack_require__(159);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -315,12 +355,29 @@ var NombrePage = (function () {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.fb = fb;
+        this.deporte = '';
+        this.escenario = '';
+        this.dia = '';
+        this.horario = '';
+        this.participantes = '';
+        this.nombre = '';
         this.myForm = this.fb.group({
             nombre: ['', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required]]
         });
+        //Variables que recibimos
+        this.deporte = navParams.get('deporte');
+        this.escenario = navParams.get('escenario');
+        this.dia = navParams.get('dia');
+        this.horario = navParams.get('horario');
+        this.participantes = navParams.get('participantes');
     }
     NombrePage.prototype.volverEvento = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__evento_evento__["a" /* EventoPage */]);
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__inicio_inicio__["a" /* InicioPage */], { deporte: this.deporte,
+            escenario: this.escenario,
+            dia: this.dia,
+            horario: this.horario,
+            participantes: this.participantes,
+            nombre: this.nombre });
     };
     NombrePage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad NombrePage');
@@ -333,7 +390,7 @@ var NombrePage = (function () {
 NombrePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-nombre',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/OlyMatch/src/pages/nombre/nombre.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Nombra al evento</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n  <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>\n    <ion-item>\n      <ion-input formControlName="nombre" type="text" placeholder="Nombre del evento"></ion-input>\n    </ion-item>\n\n    <!-->Manejo de error<-->\n    <ion-item *ngIf="myForm.get(\'nombre\').errors && myForm.get(\'nombre\').dirty">\n      <p color="danger" ion-text *ngIf="myForm.get(\'nombre\').hasError(\'required\')">Nombre es requerido</p>\n    </ion-item>\n\n    <ion-item>\n        <button ion-button block type="submit" [disabled]="myForm.invalid" (click)="volverEvento()">Finalizar</button>\n    </ion-item>\n  </form>\n</ion-content>\n'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/OlyMatch/src/pages/nombre/nombre.html"*/,
+        selector: 'page-nombre',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/OlyMatch/src/pages/nombre/nombre.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Nombra al evento</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n  <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>\n    <ion-item>\n      <ion-input formControlName="nombre" type="text" placeholder="Nombre del evento" [(ngModel)]="nombre"></ion-input>\n    </ion-item>\n\n    <!-->Manejo de error<-->\n    <ion-item *ngIf="myForm.get(\'nombre\').errors && myForm.get(\'nombre\').dirty">\n      <p color="danger" ion-text *ngIf="myForm.get(\'nombre\').hasError(\'required\')">Nombre es requerido</p>\n    </ion-item>\n\n    <ion-item>\n        <button ion-button block type="submit" [disabled]="myForm.invalid" (click)="volverEvento()">Finalizar</button>\n    </ion-item>\n  </form>\n</ion-content>\n'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/OlyMatch/src/pages/nombre/nombre.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */]])
 ], NombrePage);
@@ -586,13 +643,26 @@ var InicioPage = (function () {
         this.navParams = navParams;
         //Variables que recibimos
         this.nombreUsuario = '';
+        this.deporte = '';
+        this.escenario = '';
+        this.dia = '';
+        this.horario = '';
+        this.participantes = '';
+        this.nombre = '';
         this.nombreUsuario = navParams.data;
+        //Variables que recibimos
+        this.deporte = navParams.get('deporte');
+        this.escenario = navParams.get('escenario');
+        this.dia = navParams.get('dia');
+        this.horario = navParams.get('horario');
+        this.participantes = navParams.get('participantes');
+        this.nombre = navParams.get('nombre');
     }
     return InicioPage;
 }());
 InicioPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-inicio',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/OlyMatch/src/pages/inicio/inicio.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      ¡Hora de jugar!\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <h1 text-center>\n    ¡Bienvenidos a OlyMatch!\n  </h1>\n\n  {{ nombreUsuario }}\n  \n  <h3 text-center>\n    Una aplicación donde podrás crear y/o participar de un evento deportivo\n  </h3>\n\n  <h4 text-center>\n    ¡Únete al juego!\n  </h4>\n\n  <img src="../assets/img/logo.jpg">\n\n  <h3 text-center>\n    ¡Apartado para ver los eventos creados!\n  </h3>\n\n</ion-content>\n'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/OlyMatch/src/pages/inicio/inicio.html"*/
+        selector: 'page-inicio',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/OlyMatch/src/pages/inicio/inicio.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      ¡Hora de jugar!\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <h1 text-center>\n    ¡Bienvenidos a OlyMatch!\n  </h1>\n\n  {{ nombreUsuario }}\n\n  {{ deporte }}\n  {{ escenario }}\n  {{ dia }}\n  {{ horario }}\n  {{ participantes }}\n  {{ nombre }}\n  \n  <h3 text-center>\n    Una aplicación donde podrás crear y/o participar de un evento deportivo\n  </h3>\n\n  <h4 text-center>\n    ¡Únete al juego!\n  </h4>\n\n  <img src="../assets/img/logo.jpg">\n\n  <h3 text-center>\n    ¡Apartado para ver los eventos creados!\n  </h3>\n\n</ion-content>\n'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/OlyMatch/src/pages/inicio/inicio.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
 ], InicioPage);
@@ -621,12 +691,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-/**
- * Generated class for the EventoPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 var MomentoPage = (function () {
     function MomentoPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;

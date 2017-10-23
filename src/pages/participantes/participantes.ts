@@ -17,16 +17,32 @@ export class ParticipantesPage {
 
   myForm: FormGroup;
 
+  deporte = '';
+  escenario = '';
+  dia = '';
+  horario = '';
+  participantes = '';
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public fb: FormBuilder) {
 
     this.myForm = this.fb.group({
       participantes: ['', [Validators.required]]
     });
 
+    //Variables que recibimos
+    this.deporte = navParams.get('deporte');
+    this.escenario = navParams.get('escenario');
+    this.dia = navParams.get('dia');
+    this.horario = navParams.get('horario');
+
   }
 
   pasarNombre(){
-    this.navCtrl.push(NombrePage);
+    this.navCtrl.push(NombrePage, {deporte:this.deporte,
+                                  escenario:this.escenario,
+                                  dia:this.dia,
+                                  horario:this.horario,
+                                  participantes:this.participantes});
   }
 
   ionViewDidLoad() {

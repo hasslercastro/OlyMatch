@@ -18,16 +18,23 @@ export class EscenarioPage {
 
   myForm: FormGroup;
 
+  deporte = '';
+  escenario = '';
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public fb: FormBuilder) {
 
     this.myForm = this.fb.group({
       escenario: ['', [Validators.required]]
     });
 
+    //Variables que recibimos de ngModel
+    this.deporte = navParams.get('deporte');
+
   }
 
   pasarDia(){
-    this.navCtrl.push(DiaPage);
+    this.navCtrl.push(DiaPage, {deporte:this.deporte,
+                                escenario:this.escenario});
   }
 
   saveData(){

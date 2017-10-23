@@ -18,6 +18,8 @@ export class DeportePage {
 
   myForm: FormGroup;
 
+  deporte='';
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public fb: FormBuilder) {
 
     this.myForm = this.fb.group({
@@ -29,7 +31,7 @@ export class DeportePage {
   }
 
   pasarEscenario(){
-    this.navCtrl.push(EscenarioPage);
+    this.navCtrl.push(EscenarioPage, {deporte:this.deporte});
   }
 
   saveData(){
