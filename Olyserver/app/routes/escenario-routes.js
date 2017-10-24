@@ -79,7 +79,7 @@ app.get('/escenario/:deporte', function(req, res){
             "success": true,
             "result": esce
         });
-    }).select('nombre').select('ruta');
+    }).select('nombre').select('imagen_escenario');
 });
 
 
@@ -121,12 +121,12 @@ app.get('/escenario/lugar/fecha/:lugar/:fecha', function(req, res){
 });
 //create a place                                                           
 app.post('/escenario', function (req, res) {
-    if (req.body.deportes == null || req.body.deportes == '') {
-        return res.status(400).send({
-            "success": false,
-            "msg": "Error you need to provide all fields of escenario"
-        });
-    }
+    // if (req.body.deportes == null || req.body.deportes == '') {
+    //     return res.status(400).send({
+    //         "success": false,
+    //         "msg": "Error you need to provide all fields of escenario"
+    //     });
+    // }
 
     var newEsce = new Esce({
         nombre : req.body.nombre,

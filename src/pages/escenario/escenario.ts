@@ -5,8 +5,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
-
 import { DiaPage } from '../dia/dia';
+import { EscenarioServiceProvider } from '../../providers/escenario-service/escenario-service';
+import { Observable } from 'rxjs/Observable';
 
 @IonicPage()
 @Component({
@@ -15,13 +16,16 @@ import { DiaPage } from '../dia/dia';
 })
 
 export class EscenarioPage {
-
+  escenarios:Observable<any>;
   myForm: FormGroup;
 
   deporte = '';
   escenario = '';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public fb: FormBuilder) {
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public fb: FormBuilder,
+    public escenarioServiceProvider: EscenarioServiceProvider ) {
 
     this.myForm = this.fb.group({
       escenario: ['', [Validators.required]]
@@ -29,7 +33,11 @@ export class EscenarioPage {
 
     //Variables que recibimos de ngModel
     this.deporte = navParams.get('deporte');
+    this.mostrarEscenarios();
+  }
 
+  public mostrarEscenarios(){
+    this.escenarios = this.escenarioServiceProvider.traerEscenariosPorDeporte(this.deporte);
   }
 
   pasarDia(){

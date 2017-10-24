@@ -1,18 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { EscenarioSettingsProvider } from '../escenario-settings/escenario-settings'
 
-/*
-  Generated class for the EscenarioServiceProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class EscenarioServiceProvider {
+  apiUrl = this.escenarioSettingsProvider.getApiUrl();
+  constructor(public http: Http, public escenarioSettingsProvider:EscenarioSettingsProvider) {
+  }
 
-  constructor(public http: Http) {
-    console.log('Hello EscenarioServiceProvider Provider');
+  public traerEscenariosPorDeporte(deporte){
+    return this.http.get(this.apiUrl+'escenario/'+deporte)
+    .map(response => response.json().result);
   }
 
 }
