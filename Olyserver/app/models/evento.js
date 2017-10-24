@@ -23,7 +23,8 @@ var EventSchema = new Schema({
     numMaxParticipantes: { type: Number, required: true },
     hora: { type: String, required: true },
     publico: { type: Boolean, required: false },
-    deporte: { type: DeporteSchema, required: true }
+    deporte: { type: DeporteSchema, required: true },
+    imagen: {type: String,required:true}
 });
 
 module.exports = mongoose.model('Evento', EventSchema);

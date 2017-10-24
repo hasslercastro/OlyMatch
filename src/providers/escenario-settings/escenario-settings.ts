@@ -2,17 +2,17 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
-/*
-  Generated class for the EscenarioSettingsProvider provider.
+const CONFIG ={
+  apiUrl:'http://localhost:8080/'
+};
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class EscenarioSettingsProvider {
 
-  constructor(public http: Http) {
-    console.log('Hello EscenarioSettingsProvider Provider');
-  }
+  constructor() {}
+  
+    public getApiUrl(){
+      return CONFIG.apiUrl;
+    }
 
 }

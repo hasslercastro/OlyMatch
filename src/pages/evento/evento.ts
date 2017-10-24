@@ -22,6 +22,13 @@ export class EventoPage {
   exigenciaEvento='';
   imagen='assets/img/cancha.png';
 
+  deporte = '';
+  escenario = '';
+  dia = '';
+  horario = '';
+  participantes = '';
+  nombre = '';
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
     this.nombreEvento=navParams.data;
@@ -33,6 +40,13 @@ export class EventoPage {
     this.numeroParticipantesEvento=navParams.get('numeroParticipantesEvento');
     this.exigenciaEvento=navParams.get('exigenciaEvento');
     this.imagen=navParams.get('imagen');
+
+    this.deporte = navParams.get('deporte');
+    this.escenario = navParams.get('escenario');
+    this.dia = navParams.get('dia');
+    this.horario = navParams.get('horario');
+    this.participantes = navParams.get('participantes');
+    this.nombre = navParams.get('nombre');
   
   }
 
