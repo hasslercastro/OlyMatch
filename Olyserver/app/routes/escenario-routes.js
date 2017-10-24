@@ -2,6 +2,31 @@ var express = require('express');
 var app = module.exports = express.Router();
 var Esce = require('../models/escenario');
     
+
+
+app.put('/escenario', function(req, esce){
+    var lugar = req.body.nombre;
+    var dia = req.body.dia;
+    var hora = req.body.hora;
+    Esce.findOne({ nombre : lugar, "disponibilidad.dia" : dia, "disponibilidad.hora" : hora }, (err, stage) => {
+        
+        if(err){
+            esce.status(500).send(err);
+        }
+        else{
+            stage.disponibilidad.disponible = true;
+            
+        stage.save((err, stage) => {
+            if (err) {
+                esce.status(500).send(err)
+            }
+            esce.status(200).send(stage);
+        });
+    }
+        
+    })
+
+});
 //get all places
 app.get('/escenario', function (req, res) {
     Esce.find({}, function (err, esce) {
