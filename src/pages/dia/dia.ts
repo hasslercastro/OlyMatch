@@ -18,16 +18,27 @@ export class DiaPage {
 
   myForm: FormGroup;
 
+  deporte = '';
+  escenario = '';
+  dia = '';
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public fb: FormBuilder) {
 
     this.myForm = this.fb.group({
       dia: ['', [Validators.required]]
     });
 
+    //Variables que recibimos de ngModel
+
+    this.deporte = navParams.get('deporte');
+    this.escenario = navParams.get('escenario');
+
   }
 
   pasarHorario(){
-    this.navCtrl.push(HorarioPage);
+    this.navCtrl.push(HorarioPage, {deporte:this.deporte,
+                                    escenario:this.escenario,
+                                    dia:this.dia});
   }
 
   saveData(){

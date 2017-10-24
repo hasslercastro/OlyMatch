@@ -17,5 +17,5 @@ var EscenarioSchema = new Schema({
     imagen_escenario :{type: String, required: true},
     disponibilidad : {type: DisponibilidadSchema, required: true}
 });
-
+    
 module.exports = mongoose.model('Escenario', EscenarioSchema);

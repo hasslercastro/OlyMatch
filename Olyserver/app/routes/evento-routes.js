@@ -21,7 +21,7 @@ app.get('/evento', function (req, res) {
 
 // Crear evento en la base de datos
 app.post('/evento', function (req, res) {
-    if (req.body.admin == null || req.body.admin == '' || req.body.lugar == null || req.body.lugar == '' || req.body.fecha == null || req.body.fecha == ''|| req.body.participantes == null || req.body.participantes == ''|| req.body.numMaxParticipantes == null || req.body.numMaxParticipantes == ''|| req.body.hora == null || req.body.hora == ''|| req.body.deporte.nombre == null || req.body.deporte.nombre == ''|| req.body.deporte.exigencia == null || req.body.deporte.exigencia == '') {
+    if (req.body.nombre == null || req.body.nombre == '' ||req.body.admin == null || req.body.admin == '' || req.body.lugar == null || req.body.lugar == '' || req.body.fecha == null || req.body.fecha == ''|| req.body.participantes == null || req.body.participantes == ''|| req.body.numMaxParticipantes == null || req.body.numMaxParticipantes == ''|| req.body.hora == null || req.body.hora == ''|| req.body.deporte.nombre == null || req.body.deporte.nombre == ''|| req.body.deporte.exigencia == null || req.body.deporte.exigencia == '') {
         return res.status(400).send({
             "success": false,
             "msg": "Error you need to provide all fields"
@@ -29,6 +29,7 @@ app.post('/evento', function (req, res) {
     }
 
     var newEvent = new Evento({
+        nombre: req.body.nombre,
         admin: req.body.admin,
         lugar: req.body.lugar,
         fecha: req.body.fecha,
