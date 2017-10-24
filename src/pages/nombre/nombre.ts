@@ -40,7 +40,7 @@ export class NombrePage {
   }
 
   volverEvento(){
-    this.navCtrl.setRoot(InicioPage, {deporte:this.deporte,
+    this.navCtrl.setRoot(EventoPage, {deporte:this.deporte,
                                       escenario:this.escenario,
                                       dia:this.dia,
                                       horario:this.horario,

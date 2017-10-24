@@ -9,14 +9,10 @@ import { EventoServiceProvider } from '../../providers/evento-service/evento-ser
 })
 export class InicioPage {
   //Villa lo necesita
-  nombreUsuario='';
+  nombreUsuario = '';
   eventos: Observable<any>;
-  constructor(public navCtrl: NavController,
-    public eventService : EventoServiceProvider) {
-      this.loadEventos();
-  }
 
-<<<<<<< HEAD
+
   deporte = '';
   escenario = '';
   dia = '';
@@ -24,7 +20,8 @@ export class InicioPage {
   participantes = '';
   nombre = '';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public eventService: EventoServiceProvider) {
+
     this.nombreUsuario = navParams.data;
 
     //Variables que recibimos
@@ -34,11 +31,12 @@ export class InicioPage {
     this.horario = navParams.get('horario');
     this.participantes = navParams.get('participantes');
     this.nombre = navParams.get('nombre');
-=======
-  loadEventos(){
-  return this.eventos = this.eventService.getAllEvents();
->>>>>>> 2aed30e22a992f89039b6c463f6d26b2e475af72
+    this.loadEventos();
+  }
+  loadEventos() {
+    return this.eventos = this.eventService.getAllEvents();
   }
 
 
 }
+

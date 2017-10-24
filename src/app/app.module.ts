@@ -23,6 +23,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { EventoSettingsProvider } from '../providers/evento-settings/evento-settings';
 import { EventoServiceProvider } from '../providers/evento-service/evento-service';
+import { EscenarioSettingsProvider } from '../providers/escenario-settings/escenario-settings';
+import { EscenarioServiceProvider } from '../providers/escenario-service/escenario-service';
 
 @NgModule({
   declarations: [
@@ -67,7 +69,9 @@ import { EventoServiceProvider } from '../providers/evento-service/evento-servic
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     EventoSettingsProvider,
-    EventoServiceProvider
+    EventoServiceProvider,
+    EscenarioSettingsProvider,
+    EscenarioServiceProvider
   ]
 })
 export class AppModule {}
