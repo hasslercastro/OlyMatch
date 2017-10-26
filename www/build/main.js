@@ -404,7 +404,6 @@ var NombrePage = (function () {
         this.participantes = navParams.get('participantes');
     }
     NombrePage.prototype.confirmarReserva = function () {
-        console.log(this.escenario, this.dia, this.horario);
         this.escenarioServiceProvider.reservarEscenario(this.escenario, this.dia, this.horario);
     };
     NombrePage.prototype.volverEvento = function () {
@@ -795,7 +794,7 @@ var EventoServiceProvider = (function () {
 }());
 EventoServiceProvider = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_3__evento_settings_evento_settings__["a" /* EventoSettingsProvider */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */], __WEBPACK_IMPORTED_MODULE_3__evento_settings_evento_settings__["a" /* EventoSettingsProvider */]])
 ], EventoServiceProvider);
 
 //# sourceMappingURL=evento-service.js.map
@@ -1015,7 +1014,7 @@ AppModule = __decorate([
                     { loadChildren: '../pages/formulario/formulario.module#FormularioPageModule', name: 'FormularioPage', segment: 'formulario', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/ingreso/ingreso.module#IngresoPageModule', name: 'IngresoPage', segment: 'ingreso', priority: 'low', defaultHistory: [] }
                 ]
-            }), __WEBPACK_IMPORTED_MODULE_4__angular_http__["c" /* HttpModule */]
+            }), __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* HttpModule */]
         ],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["a" /* IonicApp */]],
         entryComponents: [
@@ -1138,22 +1137,11 @@ var EscenarioServiceProvider = (function () {
         return this.http.get(this.apiUrl + 'escenario/lugar/fecha/' + lugar + '/' + fecha)
             .map(function (response) { return response.json().result; });
     };
-    //Aqui hay cosas horribles (Ojo revisar get -> put ) :v xsxsxsx jajsjsjjajsj
-    EscenarioServiceProvider.prototype.reservarEscenario = function (lugar, fecha, hora) {
-        console.log(lugar, fecha, hora);
-        console.log(typeof (lugar), typeof (fecha), typeof (hora));
-        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
-        headers.append('Content-Type', 'application/json');
-        var obj = JSON.stringify({ 'lugar': lugar, 'fecha': fecha, 'hora': hora });
-        //Revisar
-        return this.http.put(this.apiUrl + 'reservar', obj, { headers: headers })
-            .map(function (response) { return response.json(); });
-    };
     return EscenarioServiceProvider;
 }());
 EscenarioServiceProvider = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__escenario_settings_escenario_settings__["a" /* EscenarioSettingsProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__escenario_settings_escenario_settings__["a" /* EscenarioSettingsProvider */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__escenario_settings_escenario_settings__["a" /* EscenarioSettingsProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__escenario_settings_escenario_settings__["a" /* EscenarioSettingsProvider */]) === "function" && _b || Object])
 ], EscenarioServiceProvider);
 
 var _a, _b;

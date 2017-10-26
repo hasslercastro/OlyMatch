@@ -44,7 +44,6 @@ export class NombrePage {
   }
 
   public confirmarReserva(){
-    console.log(this.escenario,this.dia,this.horario);
     this.escenarioServiceProvider.reservarEscenario(this.escenario,this.dia,this.horario);
   }
 

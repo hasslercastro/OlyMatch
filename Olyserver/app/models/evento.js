@@ -24,7 +24,7 @@ var EventSchema = new Schema({
     hora: { type: String, required: true },
     publico: { type: Boolean, required: false },
     deporte: { type: DeporteSchema, required: true },
-    imagen: {type: String,required:true}
+    imagen: {type: String,required:false}
 });
 
 module.exports = mongoose.model('Evento', EventSchema);

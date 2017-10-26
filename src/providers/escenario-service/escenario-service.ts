@@ -23,17 +23,32 @@ export class EscenarioServiceProvider {
     return this.http.get(this.apiUrl+'escenario/lugar/fecha/'+lugar+'/'+fecha)
     .map(response => response.json().result);
   }
-  //Aqui hay cosas horribles (Ojo revisar get -> put ) :v xsxsxsx jajsjsjjajsj
-  public reservarEscenario(lugar,fecha,hora){
-    console.log(lugar,fecha,hora);
-    console.log(typeof(lugar),typeof(fecha),typeof(hora));
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    let obj = JSON.stringify({'lugar':lugar,'fecha':fecha,'hora':hora});
 
-    //Revisar
-    return this.http.put(this.apiUrl+'reservar',obj,{headers: headers})
-    .map(response => response.json());
-  }
+  public guardarEvento
+  //Aqui hay cosas horribles (Ojo revisar get -> put ) :v xsxsxsx jajsjsjjajsj
+  // public reservarEscenario(lugar,fecha,hora){
+  //   let headers = new Headers();
+  //   headers.append('Content-Type', 'application/json');
+  //   let obj = JSON.stringify({'lugar':lugar,'fecha':fecha,'hora':hora});
+  //   console.log("=======================");
+  //   console.log(obj);
+  //   return this.http.put(this.apiUrl+'reservar/',obj,{headers: headers}).map(res => res.json());
+    
+  //}
+
+
+
+  // private put(hero: Hero) {
+  //   let headers = new Headers();
+  //   headers.append('Content-Type', 'application/json');
+  
+  //   let url = `${this.heroesUrl}/${hero.id}`;
+  
+  //   return this.http
+  //              .put(url, JSON.stringify(hero), {headers: headers})
+  //              .map(res => res.json());
+  // }
+
+
 
 }
