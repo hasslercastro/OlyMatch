@@ -46,7 +46,7 @@ export class EscenarioPage {
   }
 
   saveData(){
-    alert(JSON.stringify(this.myForm.value));
+    JSON.stringify(this.myForm.value);
   }
 
   ionViewDidLoad() {

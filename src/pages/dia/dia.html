@@ -11,12 +11,7 @@
     <ion-item>
       <ion-label>¿Qué día vas a jugar?</ion-label>  
       <ion-select formControlName="dia" placeholder="Seleccionar día" [(ngModel)]="dia">
-        <ion-option value="lunes">Lunes</ion-option>
-        <ion-option value="martes">Martes</ion-option>
-        <ion-option value="miercoles">Miércoles</ion-option>
-        <ion-option value="jueves">Jueves</ion-option>
-        <ion-option value="viernes">Viernes</ion-option>
-        <ion-option value="sabado">Sábado</ion-option>
+        <ion-option *ngFor="let fecha of fechas |  async"  value="{{ fecha }}">{{ fecha }}</ion-option>
       </ion-select>
     </ion-item>
   

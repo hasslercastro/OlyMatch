@@ -9,7 +9,7 @@
     <ion-item>
       <ion-label>¿Dónde?</ion-label>
       <ion-select formControlName="escenario" placeholder="Seleccionar deporte" [(ngModel)]="escenario">
-        <ion-option *ngFor="let escenario of escenarios |  async" value= "{{ escenario.nombre }}"> {{ escenario.nombre }} </ion-option>
+        <ion-option *ngFor="let escenario of escenarios |  async" value= "{{ escenario }}"> {{ escenario }} </ion-option>
       </ion-select>  
     </ion-item>
 

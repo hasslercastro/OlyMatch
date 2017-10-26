@@ -5,51 +5,6 @@
 </ion-header>
 
 <ion-content padding>
-
-    <ion-card>
-        
-        <img src={{imagen}}/>
-        
-        <ion-card-content>  
-          <ion-card-title text-center>
-            <h1>
-                {{ nombreEvento }}
-                {{ deporte }}
-                {{ escenario }}
-                {{ dia }}
-                {{ horario }}
-                {{ participantes }}
-                {{ nombre }}
-            </h1>
-        </ion-card-title>
-
-        <h2>
-            <ion-icon name="football"></ion-icon> {{ deporteEvento }}
-        </h2>
-
-        <h2>
-            <ion-icon name="game-controller-a"></ion-icon> {{ exigenciaEvento }}
-        </h2>
-        
-        <h2>
-            <ion-icon name="calendar"></ion-icon> {{ fechaEvento }}
-        </h2>
-          
-        <h2>
-            <ion-icon name="time"></ion-icon> {{ horarioEvento }}
-        </h2>
-
-        <h2>
-            <ion-icon name="locate"></ion-icon> {{ lugarEvento }}
-        </h2>
-
-        <h2>
-            <ion-icon name="clipboard"></ion-icon> {{ numeroParticipantesEvento }}
-        </h2>
-
-        </ion-card-content>
-      </ion-card>
-
       <ion-fab right bottom>
         <button ion-fab color="primary" (click)="cargarPaginaEvento()">
             <ion-icon name="add"></ion-icon>

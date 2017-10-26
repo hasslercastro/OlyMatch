@@ -2,11 +2,12 @@ var express = require('express');
 var app = module.exports = express.Router();
 var Esce = require('../models/escenario');
    
-app.put('/escenario', function(req, esce){
-    var lugar = req.body.nombre;
-    var dia = req.body.dia;
+app.put('/reservar', function(req, esce){
+    var lugar = req.body.lugar;
+    var fecha = req.body.fecha;
     var hora = req.body.hora;
-    Esce.findOne({ nombre : lugar, "disponibilidad.dia" : dia, "disponibilidad.hora" : hora }, (err, stage) => {
+    console.log(lugar,fecha,hora)
+    Esce.findOne({ nombre : lugar, "disponibilidad.fecha" : fecha, "disponibilidad.hora" : hora }, (err, stage) => {
         
         if(err){
             esce.status(500).send(err);
@@ -67,7 +68,7 @@ app.get('/escenario', function (req, res) {
 
 app.get('/escenario/:deporte', function(req, res){
     var deporte = req.params.deporte;
-    Esce.find({ "deportes.nombre": deporte, "disponibilidad.disponible" : "true" }, function (err, esce) {
+    Esce.distinct('nombre',{ "deportes.nombre": deporte, "disponibilidad.disponible" : "true" }, function (err, esce) {
         if (err) {
             return res.json({
                 "success": false,
@@ -79,13 +80,14 @@ app.get('/escenario/:deporte', function(req, res){
             "success": true,
             "result": esce
         });
-    }).select('nombre').select('imagen_escenario');
+    }, function(err, nombre) {
+    })
 });
 
 
 app.get('/escenario/lugar/:lugar', function(req, res){
     var lugar = req.params.lugar;
-    Esce.find({ "nombre": lugar,  'disponibilidad.disponible' : true }, function (err, esce) {
+    Esce.distinct('disponibilidad.fecha',{ "nombre": lugar,  'disponibilidad.disponible' : true }, function (err, esce) {
         if (err) {
             return res.json({
                 "success": false,
@@ -97,7 +99,8 @@ app.get('/escenario/lugar/:lugar', function(req, res){
             "success": true,
             "result": esce
         });
-    }).select('disponibilidad.fecha');
+    },function(err, nombre) {
+    })
 });
 
 

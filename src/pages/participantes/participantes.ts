@@ -50,7 +50,7 @@ export class ParticipantesPage {
   }
 
   saveData(){
-    alert(JSON.stringify(this.myForm.value));
+    JSON.stringify(this.myForm.value);
   }
 
 }

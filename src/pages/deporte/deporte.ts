@@ -34,7 +34,7 @@ export class DeportePage {
   }
 
   saveData(){
-    alert(JSON.stringify(this.myForm.value));
+    JSON.stringify(this.myForm.value);
   }
 
   ionViewDidLoad() {
