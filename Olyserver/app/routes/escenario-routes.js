@@ -10,7 +10,7 @@ app.put('/reservar', function(req, esce){
     var lugar = req.body.lugar;
     var fecha = req.body.fecha;
     var hora = req.body.hora;
-    //console.log("estamos en reserva");
+    console.log("estamos en reserva");
     console.log(lugar,fecha,hora)
     Esce.findOne({ nombre : lugar, "disponibilidad.fecha" : fecha, "disponibilidad.hora" : hora }, (err, stage) => {
         
@@ -74,7 +74,7 @@ app.get('/escenario', function (req, res) {
 
 app.get('/escenario/:deporte', function(req, res){
     var deporte = req.params.deporte;
-    console.log("qooooooooooooooooooooooooooooooooooooooooooooo")
+    //console.log("qooooooooooooooooooooooooooooooooooooooooooooo")
     
     Esce.distinct('nombre',{ "deportes.nombre": deporte, "disponibilidad.disponible" : "true" }, function (err, esce) {
         if (err) {

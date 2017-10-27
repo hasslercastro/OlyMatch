@@ -8,6 +8,7 @@ import { EventoPage } from '../evento/evento';
 import { InicioPage } from '../inicio/inicio';
 import { EscenarioServiceProvider } from '../../providers/escenario-service/escenario-service';
 import { Observable } from 'rxjs/Observable';
+import { EventoServiceProvider } from '../../providers/evento-service/evento-service';
 
 @IonicPage()
 @Component({
@@ -18,6 +19,7 @@ import { Observable } from 'rxjs/Observable';
 export class NombrePage {
 
   myForm: FormGroup;
+  eventos: Observable<any>;
 
   deporte = '';
   escenario = '';
@@ -29,7 +31,8 @@ export class NombrePage {
   constructor(public navCtrl: NavController, 
     public navParams: NavParams, 
     public fb: FormBuilder,
-    public escenarioServiceProvider : EscenarioServiceProvider) {
+    public escenarioServiceProvider : EscenarioServiceProvider,
+    public eventoServiceProvider: EventoServiceProvider) {
 
     this.myForm = this.fb.group({
       nombre: ['', [Validators.required]]
@@ -43,12 +46,26 @@ export class NombrePage {
     this.participantes = navParams.get('participantes');
   }
 
+  public crearEvento(){
+    let administrador = 'villa';
+    let participante = ['josh','hassler','rengifo'];
+    let img = 'ruta';
+    this.eventoServiceProvider.crearEvento(this.nombre,administrador,this.escenario,this.dia,participante,this.participantes,this.horario,this.deporte,img).subscribe();
+  }
+
   public confirmarReserva(){
-    this.escenarioServiceProvider.reservarEscenario(this.escenario,this.dia,this.horario);
+    console.log("/////////////////////7 ")
+    this.escenarioServiceProvider.reservarEscenario(this.escenario,this.dia,this.horario).subscribe();
+  }
+
+  public loadEventos() {
+    return this.eventos = this.eventoServiceProvider.getAllEvents();
   }
 
   volverEvento(){
     this.confirmarReserva();
+    this.crearEvento();
+    this.loadEventos();
     this.navCtrl.setRoot(EventoPage, {deporte:this.deporte,
                                       escenario:this.escenario,
                                       dia:this.dia,

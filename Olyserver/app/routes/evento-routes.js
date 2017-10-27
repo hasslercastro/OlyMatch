@@ -22,32 +22,8 @@ app.get('/evento', function (req, res) {
 
 // Crear evento en la base de datos
 app.post('/evento', function (req, res) {
-
-
-    var lugar = req.body.lugar;
-    var fecha = req.body.fecha;
-    var hora = req.body.hora;
-
-    Esce.findOne({ nombre : lugar, "disponibilidad.fecha" : fecha, "disponibilidad.hora" : hora }, (err, stage) => {
-        
-        if(err){
-            res.status(500).send(err);
-        }
-        else{
-            stage.disponibilidad.disponible = false;
-            
-        stage.save((err, stage) => {
-            if (err) {
-                res.status(500).send(err)
-            }
-            res.status(200).send(stage);
-        });
-    }
-        
-    });
-
-
-    if (req.body.nombre == null || req.body.nombre == '' ||req.body.admin == null || req.body.admin == '' || req.body.lugar == null || req.body.lugar == '' || req.body.fecha == null || req.body.fecha == ''|| req.body.participantes == null || req.body.participantes == ''|| req.body.numMaxParticipantes == null || req.body.numMaxParticipantes == ''|| req.body.hora == null || req.body.hora == ''|| req.body.deporte.nombre == null || req.body.deporte.nombre == ''|| req.body.deporte.exigencia == null || req.body.deporte.exigencia == '') {
+    console.log('estamos en post de evento')
+    if (req.body.nombre == null || req.body.nombre == '' ||req.body.admin == null || req.body.admin == '' || req.body.lugar == null || req.body.lugar == '' || req.body.fecha == null || req.body.fecha == ''|| req.body.participantes == null || req.body.participantes == ''|| req.body.numMaxParticipantes == null || req.body.numMaxParticipantes == ''|| req.body.hora == null || req.body.hora == ''|| req.body.deporte.nombre == null || req.body.deporte.nombre == '') {
         return res.status(400).send({
             "success": false,
             "msg": "Error you need to provide all fields"
@@ -62,7 +38,8 @@ app.post('/evento', function (req, res) {
         participantes: req.body.participantes,
         numMaxParticipantes : req.body.numMaxParticipantes,
         hora: req.body.hora,
-        deporte :{nombre:req.body.deporte.nombre,exigencia:req.body.deporte.exigencia}
+        deporte :{nombre:req.body.deporte.nombre},
+        imagen : req.body.imagen
     });
 
     newEvent.save(function (err) {

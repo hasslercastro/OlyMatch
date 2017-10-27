@@ -24,17 +24,17 @@ export class EscenarioServiceProvider {
     .map(response => response.json().result);
   }
 
-  public guardarEvento
+  //public guardarEvento
   //Aqui hay cosas horribles (Ojo revisar get -> put ) :v xsxsxsx jajsjsjjajsj
-  // public reservarEscenario(lugar,fecha,hora){
-  //   let headers = new Headers();
-  //   headers.append('Content-Type', 'application/json');
-  //   let obj = JSON.stringify({'lugar':lugar,'fecha':fecha,'hora':hora});
-  //   console.log("=======================");
-  //   console.log(obj);
-  //   return this.http.put(this.apiUrl+'reservar/',obj,{headers: headers}).map(res => res.json());
+  public reservarEscenario(lugar,fecha,hora){
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    //let obj = JSON.stringify({'lugar':lugar,'fecha':fecha,'hora':hora});
+    console.log("=======================");
+    //console.log(obj);
+    return this.http.put(this.apiUrl+'reservar',{'lugar':lugar,'fecha':fecha,'hora':hora},{headers: headers}).map(res => res.json().result);
     
-  //}
+  }
 
 
 

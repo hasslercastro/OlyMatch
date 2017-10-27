@@ -9,7 +9,7 @@ var IndumentariaSchema = new Schema({
 
 var DeporteSchema = new Schema({
     nombre: { type: String, required: true },
-    exigencia: { type: Number, required: true },
+    exigencia: { type: Number, required: false },
     indumentaria: { type: IndumentariaSchema, required: false }
 
 });

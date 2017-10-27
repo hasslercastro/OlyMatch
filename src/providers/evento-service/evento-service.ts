@@ -14,4 +14,19 @@ export class EventoServiceProvider {
     .map(response => response.json().result);
   }
 
+  public crearEvento(nombre,admin,lugar,fecha,participantes,numMaxParticipantes,hora,deporte,imagen){
+    console.log(nombre,admin,lugar,fecha,participantes,numMaxParticipantes,hora,deporte,imagen);
+    console.log('estamos en crear evento');
+    return this.http.post(this.apiUrl+'evento',{'nombre':nombre,
+    'admin':admin,
+    'lugar':lugar,
+    'fecha':fecha,
+    'participantes':participantes,
+    'numMaxParticipantes':numMaxParticipantes,
+    'hora':hora,
+    'deporte':{'nombre':deporte},
+    'imagen':imagen})
+    .map(response => response.json());
+  }
+
 }
