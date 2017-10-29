@@ -50,7 +50,7 @@ export class NombrePage {
     let administrador = 'villa';
     let participante = ['josh','hassler','rengifo'];
     let img = 'ruta';
-    this.eventoServiceProvider.crearEvento(this.nombre,administrador,this.escenario,this.dia,participante,this.participantes,this.horario,this.deporte,img).subscribe();
+    this.eventoServiceProvider.crearEvento(this.nombre,administrador,this.escenario,this.dia,participante, this.participantes,this.horario,this.deporte,img).subscribe();
   }
 
   public confirmarReserva(){

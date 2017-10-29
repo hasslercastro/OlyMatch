@@ -19,7 +19,7 @@ var EventSchema = new Schema({
     admin: { type: String, required: true },
     lugar: { type: String, required: true },
     fecha: { type: String, required: true },
-    participantes: { type: [String], required: true },
+    participantes: { type: [String], required: false },
     numMaxParticipantes: { type: Number, required: true },
     hora: { type: String, required: true },
     publico: { type: Boolean, required: false },
