@@ -4,12 +4,11 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding class="contenido">
   <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>
-      
-    <ion-item>
-      <ion-label>¿Qué vas a jugar?</ion-label>  
-      <ion-select formControlName="deporte" placeholder="Seleccionar deporte" [(ngModel)]="deporte">
+    <ion-item class="formulario">
+      <ion-label class="label">¿Qué vas a jugar?</ion-label>  
+      <ion-select formControlName="deporte" [(ngModel)]="deporte">
         <ion-option value="futbol">Fútbol</ion-option>
         <ion-option value="baloncesto">Baloncesto</ion-option>
         <ion-option value="tennis">Tennis</ion-option>

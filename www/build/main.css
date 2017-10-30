@@ -25199,6 +25199,29 @@ ion-navbar.toolbar {
   }
 }
 
+page-deporte .contenido {
+  background-image: url("../assets/img/fondo_deporte.jpg");
+}
+
+page-deporte .formulario {
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+}
+
+page-ingreso h1, page-ingreso h3 {
+  text-align: center;
+  color: #00395B;
+}
+
+page-inicio .navbar {
+  background-color: #00395B;
+}
+
+page-inicio .contenido {
+  background-image: url("../assets/img/fondo_deporte.jpg");
+}
+
 page-perfil img {
   border-radius: 1000px;
 }
