@@ -16,7 +16,7 @@ import { NombrePage } from '../nombre/nombre';
 export class ParticipantesPage {
 
   myForm: FormGroup;
-  imagen = '';
+
   deporte = '';
   escenario = '';
   dia = '';
@@ -26,7 +26,7 @@ export class ParticipantesPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public fb: FormBuilder) {
 
     this.myForm = this.fb.group({
-      participantes: ['', [Validators.required]]
+      participantes: ['', [Validators.required, Validators.pattern(/^\d{1,2}(\.\d{1,2})?$/)]]
     });
 
     //Variables que recibimos
@@ -34,7 +34,7 @@ export class ParticipantesPage {
     this.escenario = navParams.get('escenario');
     this.dia = navParams.get('dia');
     this.horario = navParams.get('horario');
-    this.imagen = navParams.get('imagen');
+
   }
 
   pasarNombre(){
@@ -42,7 +42,6 @@ export class ParticipantesPage {
                                   escenario:this.escenario,
                                   dia:this.dia,
                                   horario:this.horario,
-                                  imagen : this.imagen,
                                   participantes:this.participantes});
   }
 

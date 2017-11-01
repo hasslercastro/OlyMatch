@@ -1,46 +1,52 @@
 <ion-header class="header">
-  <ion-navbar class="navbar">
-    <ion-title class="titulo">
-      ¡Hora de jugar!
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-
-<ion-content padding class="contenido">
-  <ion-list>
-    <ion-item *ngFor="let event of eventos |  async">
-
-      <ion-card>
-        <img src= '{{ event.imagen }}'
-        />
-        <ion-card-content>
-          <ion-card-title text-center>
-            <h1>
-              {{ event.nombre }}
-            </h1>
-          </ion-card-title>
-          <h2>
-            <ion-icon name="football"></ion-icon> {{ event.deporte.nombre }}
-          </h2>
-          <h2>
-            <ion-icon name="calendar"></ion-icon> {{ event.fecha }}
-          </h2>
-          <h2>
-            <ion-icon name="time"></ion-icon> {{ event.hora }}
-          </h2>
-          <h2>
-            <ion-icon name="locate"></ion-icon> {{ event.lugar }}
-          </h2>
-          <h2>
-            <ion-icon name="clipboard"></ion-icon> {{ event.numMaxParticipantes }}
-          </h2>
-
-          <ion-item>
-            <button ion-button full color="secondary">Unirse</button>
-          </ion-item>
-
-        </ion-card-content>
-      </ion-card>
-    </ion-item>
-  </ion-list>
-</ion-content>
+    <ion-navbar class="navbar">
+      <ion-title class="titulo">
+        ¡Hora de jugar!
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding class="contenido">
+  
+    <!-->Refrescar página para cargar eventos<-->
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    
+    <ion-list>
+      <ion-item *ngFor="let event of eventos |  async">
+  
+        <ion-card>
+          <img src="http://www.vanguardia.com/sites/default/files/imagecache/Noticia_600x400/foto_grandes_400x300_noticia/2015/04/19/lista_la_cancha_de_la_juventud.jpg"
+          />
+          <ion-card-content>
+            <ion-card-title text-center>
+              <h1>
+                {{ event.nombre }}
+              </h1>
+            </ion-card-title>
+            <h2>
+              <ion-icon name="football"></ion-icon> {{ event.deporte.nombre }}
+            </h2>
+            <h2>
+              <ion-icon name="calendar"></ion-icon> {{ event.fecha }}
+            </h2>
+            <h2>
+              <ion-icon name="time"></ion-icon> {{ event.hora }}
+            </h2>
+            <h2>
+              <ion-icon name="locate"></ion-icon> {{ event.lugar }}
+            </h2>
+            <h2>
+              <ion-icon name="clipboard"></ion-icon> {{ event.numMaxParticipantes }}
+            </h2>
+  
+            <ion-item>
+              <button ion-button full color="secondary">Unirse</button>
+            </ion-item>
+  
+          </ion-card-content>
+        </ion-card>
+      </ion-item>
+    </ion-list>
+  </ion-content>
