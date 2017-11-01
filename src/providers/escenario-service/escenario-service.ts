@@ -24,6 +24,12 @@ export class EscenarioServiceProvider {
     .map(response => response.json().result);
   }
 
+  public traerImagenEscenario(nombre){
+    return this.http.get(this.apiUrl+'escenario/imagen/'+nombre)
+    .map(response => response.json().result);
+    
+  }
+
   //public guardarEvento
   //Aqui hay cosas horribles (Ojo revisar get -> put ) :v xsxsxsx jajsjsjjajsj
   public reservarEscenario(lugar,fecha,hora){

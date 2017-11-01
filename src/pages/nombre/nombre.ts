@@ -27,6 +27,7 @@ export class NombrePage {
   horario = '';
   participantes = '';
   nombre = '';
+  imagen = '';
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams, 
@@ -43,14 +44,15 @@ export class NombrePage {
     this.escenario = navParams.get('escenario');
     this.dia = navParams.get('dia');
     this.horario = navParams.get('horario');
+    this.imagen = navParams.get('imagen');
     this.participantes = navParams.get('participantes');
   }
 
   public crearEvento(){
     let administrador = 'villa';
     let participante = ['josh','hassler','rengifo'];
-    let img = 'ruta';
-    this.eventoServiceProvider.crearEvento(this.nombre,administrador,this.escenario,this.dia,participante, this.participantes,this.horario,this.deporte,img).subscribe();
+    console.log(this.imagen)
+    this.eventoServiceProvider.crearEvento(this.nombre,administrador,this.escenario,this.dia,participante, this.participantes,this.horario,this.deporte,this.imagen).subscribe();
   }
 
   public confirmarReserva(){

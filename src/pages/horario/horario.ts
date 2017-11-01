@@ -18,6 +18,7 @@ export class HorarioPage {
   horas: Observable<any>;
   myForm: FormGroup;
 
+  imagen = '';
   deporte = '';
   escenario = '';
   dia = '';
@@ -37,6 +38,10 @@ export class HorarioPage {
     this.deporte = navParams.get('deporte');
     this.escenario = navParams.get('escenario');
     this.dia = navParams.get('dia');
+    this.imagen = navParams.get('imagen');
+    this.imagen = this.imagen[0];
+    console.log("desde lejos jeje");
+    console.log(this.imagen);
     this.mostrarHoras();
   }
 
@@ -48,6 +53,7 @@ export class HorarioPage {
     this.navCtrl.push(ParticipantesPage, {deporte:this.deporte,
                                           escenario:this.escenario,
                                           dia:this.dia,
+                                          imagen : this.imagen,
                                           horario:this.horario});
   }
 

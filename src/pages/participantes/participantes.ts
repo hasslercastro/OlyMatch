@@ -16,7 +16,7 @@ import { NombrePage } from '../nombre/nombre';
 export class ParticipantesPage {
 
   myForm: FormGroup;
-
+  imagen = '';
   deporte = '';
   escenario = '';
   dia = '';
@@ -34,7 +34,7 @@ export class ParticipantesPage {
     this.escenario = navParams.get('escenario');
     this.dia = navParams.get('dia');
     this.horario = navParams.get('horario');
-
+    this.imagen = navParams.get('imagen');
   }
 
   pasarNombre(){
@@ -42,6 +42,7 @@ export class ParticipantesPage {
                                   escenario:this.escenario,
                                   dia:this.dia,
                                   horario:this.horario,
+                                  imagen : this.imagen,
                                   participantes:this.participantes});
   }
 

@@ -7,7 +7,7 @@ var DeporteSchema = new Schema({
 
 var DisponibilidadSchema = new Schema({
     dia: {type: String, required: true},
-    hora: {type: String, required: true},
+    hora: {type: String, required  : true},
     fecha : {type: String , required: true},
     disponible: {type: Boolean, required: true}
 });

@@ -7,6 +7,7 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { HorarioPage } from '../horario/horario';
 import { EscenarioServiceProvider } from '../../providers/escenario-service/escenario-service';
 import { Observable } from 'rxjs/Observable';
+//import {Observable} from '@reactivex/rxjs/es6/Observable.js';   
 
 @IonicPage()
 @Component({
@@ -17,7 +18,8 @@ import { Observable } from 'rxjs/Observable';
 export class DiaPage {
   fechas: Observable<any>;
   myForm: FormGroup;
-
+  imagen : Observable<any>;
+  imagenRuta;
   deporte = '';
   escenario = '';
   dia = '';
@@ -36,7 +38,22 @@ export class DiaPage {
     this.deporte = navParams.get('deporte');
     this.escenario = navParams.get('escenario');
     this.mostrarFechas();
+    this.imagen = this.escenarioServiceProvider.traerImagenEscenario(navParams.get('escenario'));
+    this.imagen.subscribe(x => this.imagenRuta = x);
+    // this.imagen.subscribe(
+    //   function (x) { 
+    //     //console.log(x[0])
+    //     //console.log(typeof(x[0]))
+    //     this.imagenRuta = x[0];
+    //     //console.log(this.imagenRuta)
+    //  },
+    //   function (err) { console.log('Error: %s', err); },
+    //   function () { console.log('Completed'); });
+    console.log(this.imagenRuta);
+    console.log(this.imagen);
+
   }
+
 
   public mostrarFechas(){
     this.fechas = this.escenarioServiceProvider.traerFechasPorEscenario(this.escenario);
@@ -45,6 +62,7 @@ export class DiaPage {
   pasarHorario(){
     this.navCtrl.push(HorarioPage, {deporte:this.deporte,
                                     escenario:this.escenario,
+                                    imagen: this.imagenRuta,
                                     dia:this.dia});
   }
 

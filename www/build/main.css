@@ -25209,6 +25209,22 @@ page-deporte .formulario {
   align-content: center;
 }
 
+page-dia .contenido {
+  background-image: url("../assets/img/fondo_deporte.jpg");
+}
+
+page-escenario .contenido {
+  background-image: url("../assets/img/fondo_deporte.jpg");
+}
+
+page-evento .contenido {
+  background-image: url("../assets/img/fondo_deporte.jpg");
+}
+
+page-horario .contenido {
+  background-image: url("../assets/img/fondo_deporte.jpg");
+}
+
 page-ingreso h1, page-ingreso h3 {
   text-align: center;
   color: #00395B;
@@ -25222,6 +25238,18 @@ page-inicio .contenido {
   background-image: url("../assets/img/fondo_deporte.jpg");
 }
 
+page-nombre .contenido {
+  background-image: url("../assets/img/fondo_deporte.jpg");
+}
+
+page-participantes .contenido {
+  background-image: url("../assets/img/fondo_deporte.jpg");
+}
+
 page-perfil img {
   border-radius: 1000px;
+}
+
+page-perfil .contenido {
+  background-image: url("../assets/img/fondo_deporte.jpg");
 }
