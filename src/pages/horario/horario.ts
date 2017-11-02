@@ -39,7 +39,7 @@ export class HorarioPage {
     this.escenario = navParams.get('escenario');
     this.dia = navParams.get('dia');
     this.imagen = navParams.get('imagen');
-    this.imagen = this.imagen[0];
+    //this.imagen = this.imagen[0];
     console.log("desde lejos jeje");
     console.log(this.imagen);
     this.mostrarHoras();

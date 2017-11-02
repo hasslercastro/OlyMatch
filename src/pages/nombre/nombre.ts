@@ -51,8 +51,10 @@ export class NombrePage {
   public crearEvento(){
     let administrador = 'villa';
     let participante = ['josh','hassler','rengifo'];
-    console.log(this.imagen)
-    this.eventoServiceProvider.crearEvento(this.nombre,administrador,this.escenario,this.dia,participante, this.participantes,this.horario,this.deporte,this.imagen).subscribe();
+    console.log("desde antes (NOMBRE)")
+    console.log(this.imagen[0])
+    this.imagen = this.imagen[0];
+    this.eventoServiceProvider.crearEvento(this.nombre,administrador,this.escenario,this.dia,participante,this.participantes,this.horario,this.deporte,this.imagen).subscribe();
   }
 
   public confirmarReserva(){

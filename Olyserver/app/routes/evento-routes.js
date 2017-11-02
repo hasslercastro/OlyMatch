@@ -56,11 +56,12 @@ app.post('/evento', function (req, res) {
         admin: req.body.admin,
         lugar: req.body.lugar,
         fecha: req.body.fecha,
+        imagen: req.body.imagen,
         //participantes: req.body.participantes,
         numMaxParticipantes: req.body.numMaxParticipantes,
         hora: req.body.hora,
-        deporte: { nombre: req.body.deporte.nombre },
-        imagen: req.body.imagen
+        deporte: { nombre: req.body.deporte.nombre }
+        
     });
 
     newEvent.save(function (err) {
