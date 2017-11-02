@@ -335,28 +335,25 @@ var ParticipantesPage = (function () {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.fb = fb;
-        this.imagen = '';
         this.deporte = '';
         this.escenario = '';
         this.dia = '';
         this.horario = '';
         this.participantes = '';
         this.myForm = this.fb.group({
-            participantes: ['', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required]]
+            participantes: ['', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_2__angular_forms__["f" /* Validators */].pattern(/^\d{1,2}(\.\d{1,2})?$/)]]
         });
         //Variables que recibimos
         this.deporte = navParams.get('deporte');
         this.escenario = navParams.get('escenario');
         this.dia = navParams.get('dia');
         this.horario = navParams.get('horario');
-        this.imagen = navParams.get('imagen');
     }
     ParticipantesPage.prototype.pasarNombre = function () {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__nombre_nombre__["a" /* NombrePage */], { deporte: this.deporte,
             escenario: this.escenario,
             dia: this.dia,
             horario: this.horario,
-            imagen: this.imagen,
             participantes: this.participantes });
     };
     ParticipantesPage.prototype.ionViewDidLoad = function () {
@@ -370,11 +367,12 @@ var ParticipantesPage = (function () {
 ParticipantesPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-participantes',template:/*ion-inline-start:"C:\Users\Hassler\Documents\GitHub\OlyMatch\src\pages\participantes\participantes.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Escoger número de participantes</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="contenido">\n  <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>\n    <ion-item>\n      <ion-label>¿Cuántos?</ion-label>\n        <ion-select formControlName="participantes" placeholder="Seleccionar participantes" [(ngModel)]="participantes">\n          <ion-option value="1">1</ion-option>\n          <ion-option value="2">2</ion-option>\n          <ion-option value="3">3</ion-option>\n          <ion-option value="4">4</ion-option>\n          <ion-option value="5">5</ion-option>\n          <ion-option value="6">6</ion-option>\n          <ion-option value="7">7</ion-option>\n          <ion-option value="8">8</ion-option>\n          <ion-option value="9">9</ion-option>\n          <ion-option value="10">10</ion-option>\n        </ion-select>\n    </ion-item>\n\n    <!-->Manejo de error<-->\n    <ion-item *ngIf="myForm.get(\'participantes\').errors && myForm.get(\'participantes\').dirty">\n      <p color="danger" ion-text *ngIf="myForm.get(\'participantes\').hasError(\'required\')">El número de participantes es requerido</p>\n    </ion-item>\n\n    <ion-item>\n        {{ myForm.get(\'participantes\').value }}\n    </ion-item>\n\n    <button ion-button block type="submit" [disabled]="myForm.invalid" (click)="pasarNombre()">Continuar</button>\n\n  </form>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Hassler\Documents\GitHub\OlyMatch\src\pages\participantes\participantes.html"*/,
+        selector: 'page-participantes',template:/*ion-inline-start:"C:\Users\Hassler\Documents\GitHub\OlyMatch\src\pages\participantes\participantes.html"*/'<ion-header>\n    <ion-navbar>\n      <ion-title>Escoger número de participantes</ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content padding class="contenido">\n    <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>\n      <!-->\n      <ion-item>\n        <ion-label>¿Cuántos?</ion-label>\n          <ion-select formControlName="participantes" placeholder="Seleccionar participantes" [(ngModel)]="participantes">\n            <ion-option value="1">1</ion-option>\n            <ion-option value="2">2</ion-option>\n            <ion-option value="3">3</ion-option>\n            <ion-option value="4">4</ion-option>\n            <ion-option value="5">5</ion-option>\n            <ion-option value="6">6</ion-option>\n            <ion-option value="7">7</ion-option>\n            <ion-option value="8">8</ion-option>\n            <ion-option value="9">9</ion-option>\n            <ion-option value="10">10</ion-option>\n          </ion-select>\n      </ion-item>\n      <-->\n      <ion-item>\n        <ion-input formControlName="participantes" type="text" placeholder="Participantes" [(ngModel)]="participantes"></ion-input>\n      </ion-item>\n  \n      <!-->Manejo de error<-->\n      <ion-item *ngIf="myForm.get(\'participantes\').errors && myForm.get(\'participantes\').dirty">\n        <p color="danger" ion-text *ngIf="myForm.get(\'participantes\').hasError(\'required\')">El número de participantes es requerido</p>\n        <p color="danger" ion-text *ngIf="myForm.get(\'participantes\').hasError(\'pattern\')">No es un número pendejo dxdxdxdx</p>\n      </ion-item>\n  \n      <ion-item>\n          {{ myForm.get(\'participantes\').value }}\n      </ion-item>\n  \n      <button ion-button block type="submit" [disabled]="myForm.invalid" (click)="pasarNombre()">Continuar</button>\n  \n    </form>\n  </ion-content>'/*ion-inline-end:"C:\Users\Hassler\Documents\GitHub\OlyMatch\src\pages\participantes\participantes.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */]) === "function" && _c || Object])
 ], ParticipantesPage);
 
+var _a, _b, _c;
 //# sourceMappingURL=participantes.js.map
 
 /***/ }),
@@ -823,15 +821,24 @@ var InicioPage = (function () {
     InicioPage.prototype.loadEventos = function () {
         return this.eventos = this.eventService.getAllEvents();
     };
+    InicioPage.prototype.doRefresh = function (refresher) {
+        this.loadEventos();
+        console.log('Begin async operation', refresher);
+        setTimeout(function () {
+            console.log('Async operation has ended');
+            refresher.complete();
+        }, 2000);
+    };
     return InicioPage;
 }());
 InicioPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-inicio',template:/*ion-inline-start:"C:\Users\Hassler\Documents\GitHub\OlyMatch\src\pages\inicio\inicio.html"*/'<ion-header class="header">\n  <ion-navbar class="navbar">\n    <ion-title class="titulo">\n      ¡Hora de jugar!\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="contenido">\n  <ion-list>\n    <ion-item *ngFor="let event of eventos |  async">\n\n      <ion-card>\n        <img src= \'{{ event.imagen }}\'\n        />\n        <ion-card-content>\n          <ion-card-title text-center>\n            <h1>\n              {{ event.nombre }}\n            </h1>\n          </ion-card-title>\n          <h2>\n            <ion-icon name="football"></ion-icon> {{ event.deporte.nombre }}\n          </h2>\n          <h2>\n            <ion-icon name="calendar"></ion-icon> {{ event.fecha }}\n          </h2>\n          <h2>\n            <ion-icon name="time"></ion-icon> {{ event.hora }}\n          </h2>\n          <h2>\n            <ion-icon name="locate"></ion-icon> {{ event.lugar }}\n          </h2>\n          <h2>\n            <ion-icon name="clipboard"></ion-icon> {{ event.numMaxParticipantes }}\n          </h2>\n\n          <ion-item>\n            <button ion-button full color="secondary">Unirse</button>\n          </ion-item>\n\n        </ion-card-content>\n      </ion-card>\n    </ion-item>\n  </ion-list>\n</ion-content>'/*ion-inline-end:"C:\Users\Hassler\Documents\GitHub\OlyMatch\src\pages\inicio\inicio.html"*/
+        selector: 'page-inicio',template:/*ion-inline-start:"C:\Users\Hassler\Documents\GitHub\OlyMatch\src\pages\inicio\inicio.html"*/'<ion-header class="header">\n    <ion-navbar class="navbar">\n      <ion-title class="titulo">\n        ¡Hora de jugar!\n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content padding class="contenido">\n  \n    <!-->Refrescar página para cargar eventos<-->\n    <ion-refresher (ionRefresh)="doRefresh($event)">\n      <ion-refresher-content></ion-refresher-content>\n    </ion-refresher>\n    \n    <ion-list>\n      <ion-item *ngFor="let event of eventos |  async">\n  \n        <ion-card>\n          <img src= \'{{ event.ruta }}\'\n          />\n          <ion-card-content>\n            <ion-card-title text-center>\n              <h1>\n                {{ event.nombre }}\n              </h1>\n            </ion-card-title>\n            <h2>\n              <ion-icon name="football"></ion-icon> {{ event.deporte.nombre }}\n            </h2>\n            <h2>\n              <ion-icon name="calendar"></ion-icon> {{ event.fecha }}\n            </h2>\n            <h2>\n              <ion-icon name="time"></ion-icon> {{ event.hora }}\n            </h2>\n            <h2>\n              <ion-icon name="locate"></ion-icon> {{ event.lugar }}\n            </h2>\n            <h2>\n              <ion-icon name="clipboard"></ion-icon> {{ event.numMaxParticipantes }}\n            </h2>\n  \n            <ion-item>\n              <button ion-button full color="secondary">Unirse</button>\n            </ion-item>\n  \n          </ion-card-content>\n        </ion-card>\n      </ion-item>\n    </ion-list>\n  </ion-content>'/*ion-inline-end:"C:\Users\Hassler\Documents\GitHub\OlyMatch\src\pages\inicio\inicio.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_evento_service_evento_service__["a" /* EventoServiceProvider */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_evento_service_evento_service__["a" /* EventoServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_evento_service_evento_service__["a" /* EventoServiceProvider */]) === "function" && _c || Object])
 ], InicioPage);
 
+var _a, _b, _c;
 //# sourceMappingURL=inicio.js.map
 
 /***/ }),
