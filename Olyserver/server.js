@@ -38,6 +38,7 @@ app.use(require('./app/routes/comentario-routes'));
 //app.use(require('./app/routes/escenario-routes'));
 app.use(require('./app/routes/evento-routes'));
 app.use(require('./app/routes/escenario-routes'));
+app.use(require('./app/routes/usuario-routes'));
 
 
 

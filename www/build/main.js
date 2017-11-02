@@ -470,10 +470,13 @@ NombrePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-nombre',template:/*ion-inline-start:"C:\Users\Hassler\Documents\GitHub\OlyMatch\src\pages\nombre\nombre.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Nombra al evento</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding class="contenido">\n  <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>\n    <ion-item>\n      <ion-input formControlName="nombre" type="text" placeholder="Nombre del evento" [(ngModel)]="nombre"></ion-input>\n    </ion-item>\n\n    <!-->Manejo de error<-->\n    <ion-item *ngIf="myForm.get(\'nombre\').errors && myForm.get(\'nombre\').dirty">\n      <p color="danger" ion-text *ngIf="myForm.get(\'nombre\').hasError(\'required\')">Nombre es requerido</p>\n    </ion-item>\n\n    <ion-item>\n        <button ion-button block type="submit" [disabled]="myForm.invalid" (click)="volverEvento()">Finalizar</button>\n    </ion-item>\n\n    \n  </form>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Hassler\Documents\GitHub\OlyMatch\src\pages\nombre\nombre.html"*/,
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__providers_escenario_service_escenario_service__["a" /* EscenarioServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_escenario_service_escenario_service__["a" /* EscenarioServiceProvider */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__providers_evento_service_evento_service__["a" /* EventoServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__providers_evento_service_evento_service__["a" /* EventoServiceProvider */]) === "function" && _e || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */],
+        __WEBPACK_IMPORTED_MODULE_4__providers_escenario_service_escenario_service__["a" /* EscenarioServiceProvider */],
+        __WEBPACK_IMPORTED_MODULE_5__providers_evento_service_evento_service__["a" /* EventoServiceProvider */]])
 ], NombrePage);
 
-var _a, _b, _c, _d, _e;
 //# sourceMappingURL=nombre.js.map
 
 /***/ }),

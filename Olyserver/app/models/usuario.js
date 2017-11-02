@@ -3,27 +3,25 @@ var Schema = mongoose.Schema;
 var bcrypt = require('bcrypt-nodejs');
 
 var UsuarioSchema = new Schema({
-    username :{type: String, required: true, unique: true},
+    usuario :{type: String, required: true, unique: true},
     correo :{type: String, required: true, unique: true},
     contrasena :{type: String, required: true},
-    codigo: {type: String, required},
+    codigo: {type: String, required: true},
   	telefono :{type: String, required: true},
   	calificacion: {type: Number, required: true},
   	nombre: {type: String, required: true},
   	primerApellido: {type: String, required: true},
   	segundoApellido: {type: String, required: false},
-  	imagen_usuario: {type: String, default:'ruta' , required: true},
+  	imagen_usuario: {type: String, default:'ruta' , required:false},
     comentarios: {type: [String], required: false},
-    carrera: {type: String, required: true},
-    
-      
+    carrera: {type: String, required: true},    
 });
 
 UsuarioSchema.pre('save', function (next) {
-    var user = this;
-    bcrypt.hash(user.contrasena, null, null, function (err, hash) {
+    var unUsuario = this;
+    bcrypt.hash(unUsuario.contrasena, null, null, function (err, hash) {
         if (err) return next(err);
-        user.contrasena= hash;
+        unUsuario.contrasena= hash;
         next();
     });
 });
