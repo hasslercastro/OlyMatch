@@ -12,7 +12,6 @@ export class InicioPage {
   nombreUsuario = '';
   eventos: Observable<any>;
 
-
   deporte = '';
   escenario = '';
   dia = '';
@@ -25,7 +24,6 @@ export class InicioPage {
     this.nombreUsuario = navParams.data;
     this.loadEventos();
     
-
     //Variables que recibimos
     this.deporte = navParams.get('deporte');
     this.escenario = navParams.get('escenario');
@@ -39,7 +37,13 @@ export class InicioPage {
     return this.eventos = this.eventService.getAllEvents();
   }
 
-  
-
+  doRefresh(refresher) {
+    this.loadEventos();
+    console.log('Begin async operation', refresher);
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
+  }
 }
 
