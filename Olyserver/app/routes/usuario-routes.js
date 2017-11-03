@@ -8,7 +8,7 @@ app.get('/usuario', function (req, res) {
         if (err) {
             return res.json({
                 "success": false,
-                "msg": "Error while retrieving events",
+                "msg": "Error while retrieving users",
                 "error": err
             });
         }
@@ -17,6 +17,24 @@ app.get('/usuario', function (req, res) {
             "result": even
         });
     });
+});
+
+//Route para recuperar los datos de la pestaña de usuario.
+app.get('/usuario/:user', function (req, res) {
+    var user = req.params.user;
+    User.findOne({"usuario" : user}, function (err, even) {
+        if (err) {
+            return res.json({
+                "success": false,
+                "msg": "No se encontro el usuario",
+                "error": err
+            });
+        }
+        res.status(200).send({
+            "success": true,
+            "result": even
+        });
+    }).select('nombre').select('usuario').select('imagen_usuario');
 });
 
 app.get('/usuario/:username/:password', function (req, res) {
@@ -44,36 +62,30 @@ app.get('/usuario/:username/:password', function (req, res) {
 });
 
 
-
+//Route para crear un usuario
 app.post('/usuario', function (req, res) {
-    console.log('estamos en post de usuario')
-    if (req.body.usuario == ' ') {
+    if (req.body.usuario == ' '|| req.body.usuario == null||req.body.contrasena == ' '|| req.body.contrasena == null||req.body.codigo == ' '|| req.body.codigo == null||req.body.nombre == ' '|| req.body.nombre == null||req.body.primerApellido == ' '|| req.body.primerApellido == null) {
         return res.status(400).send({
             "success": false,
-            "msg": "Error you need to provide all fields"
+            "msg": "Error necesitas llenar todos los campos "
         });
-    }
 
+    }
     var newUsuario = new User({
         usuario: req.body.usuario,
-        correo: req.body.correo,
         contrasena : req.body.contrasena,
+        correo : req.body.usuario+'@eafit.edu.co',
         codigo: req.body.codigo,
         calificacion: 0,
-        telefono: req.body.telefono,
         nombre: req.body.nombre,
-        primerApellido: req.body.primerApellido,
-        segundoApellido : req.body.segundoApellido,
-        imagen_usuario : req.body.imagen_usuario,
-        carrera : req.body.carrera
+        primerApellido: req.body.primerApellido
     });
-
     newUsuario.save(function (err) {
         if (err) {
             console.log("Some error", err);
             return res.json({
                 "success": false,
-                "msg": " already exist",
+                "msg": "El usuario ya existe",
                 "error": err
             });
         }

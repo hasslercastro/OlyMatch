@@ -3,8 +3,9 @@
  */
 
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { LoginServiceProvider } from '../../providers/login-service/login-service'
 
 // Los datos serán envíados a la página IngresoPage
 import { IngresoPage } from '../ingreso/ingreso';
@@ -19,14 +20,23 @@ export class FormularioPage {
 
   myForm: FormGroup;
 
-  constructor(public navCtrl: NavController, public fb: FormBuilder, public navParams: NavParams) {
+  nombre = '';
+  primerApellido = '';
+  user = '';
+  codigo = '';
+  contrasena = '';
+
+  constructor(public navCtrl: NavController, 
+    public fb: FormBuilder, 
+    public navParams: NavParams, 
+    public loginServiceProvider:LoginServiceProvider) {
 
     this.myForm = this.fb.group({
 
       nombre: ['', [Validators.required]],
       primerApellido: ['', [Validators.required]],
-      segundoApellido: [''],
-      email: ['', [Validators.required, Validators.email]],
+      user: ['', [Validators.required]],
+      codigo: ['', [Validators.required]],
       contrasena: ['', [Validators.required]],
       confirmarContrasena: ['', [Validators.required]]
 
@@ -34,13 +44,24 @@ export class FormularioPage {
 
   }
 
+  public registrarUsuario(){
+    this.loginServiceProvider.crearUsuario(this.user,this.contrasena,this.codigo,this.nombre,this.primerApellido).subscribe();
+  }
+
   // Se obtiene la información luego de que todo esté validado
-  saveData(){
+  saveData() {
     alert(JSON.stringify(this.myForm.value));
   }
 
-  volver(){
-    this.navCtrl.setRoot(IngresoPage);
+  volver() {
+    this.registrarUsuario();
+    this.navCtrl.setRoot(IngresoPage, {
+      nombre: this.nombre,
+      primerApellido: this.primerApellido,
+      user: this.user,
+      codigo: this.codigo,
+      contrasena: this.contrasena
+    });
   }
 
   ionViewDidLoad() {

@@ -16,13 +16,22 @@ export class LoginServiceProvider {
   constructor(public http: Http,
     public loginSettingsProvider: LoginSettingsProvider
     ) {
-    console.log('Hello LoginServiceProvider Provider');
   }
 
   public comprobarUsuario(usuario, contrasena){
     console.log("validando usuario")
     return this.http.get(this.apiUrl+'usuario/'+usuario+'/'+contrasena)
     .map(response => response.json().result);
+  }
+
+  public crearUsuario(usuario,contrasena,codigo,nombre,primerApellido){
+    return this.http.post(this.apiUrl+'usuario',{'nombre':nombre,
+    'contrasena':contrasena,
+    'usuario':usuario,
+    'codigo':codigo,
+    'primerApellido':primerApellido})
+    .map(response => response.json()); 
+    
   }
 
 }

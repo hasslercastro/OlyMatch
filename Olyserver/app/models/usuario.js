@@ -4,17 +4,17 @@ var bcrypt = require('bcrypt-nodejs');
 
 var UsuarioSchema = new Schema({
     usuario :{type: String, required: true, unique: true},
-    correo :{type: String, required: true, unique: true},
+    correo :{type: String, required: false, unique: true},
     contrasena :{type: String, required: true},
     codigo: {type: String, required: true},
-  	telefono :{type: String, required: true},
-  	calificacion: {type: Number, required: true},
+  	telefono :{type: String, required: false},
+  	calificacion: {type: Number, required: false},
   	nombre: {type: String, required: true},
   	primerApellido: {type: String, required: true},
   	segundoApellido: {type: String, required: false},
   	imagen_usuario: {type: String, default:'ruta' , required:false},
     comentarios: {type: [String], required: false},
-    carrera: {type: String, required: true},    
+    carrera: {type: String, required: false},    
 });
 
 UsuarioSchema.pre('save', function (next) {
