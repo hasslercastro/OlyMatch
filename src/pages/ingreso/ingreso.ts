@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { LoginServiceProvider } from '../../providers/login-service/login-service';
 import { TabsPage } from '../tabs/tabs';
 import { FormularioPage } from '../formulario/formulario';
 /**
@@ -20,9 +20,18 @@ export class IngresoPage {
   //Variables que enviamos
 
   nombreUsuario='';
+  contrasena = '';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              public loginServiceProvider : LoginServiceProvider) {
+                this.validarUsuario();
 
+  }
+
+  validarUsuario(){
+    
+      let usuarioEncontrado  = this.loginServiceProvider.comprobarUsuario(this.nombreUsuario, this.contrasena).subscribe();
+      console.log(usuarioEncontrado)
   }
 
   iniciar(){

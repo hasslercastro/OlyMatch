@@ -25,6 +25,8 @@ import { EventoSettingsProvider } from '../providers/evento-settings/evento-sett
 import { EventoServiceProvider } from '../providers/evento-service/evento-service';
 import { EscenarioSettingsProvider } from '../providers/escenario-settings/escenario-settings';
 import { EscenarioServiceProvider } from '../providers/escenario-service/escenario-service';
+import { LoginSettingsProvider } from '../providers/login-settings/login-settings';
+import { LoginServiceProvider } from '../providers/login-service/login-service';
 
 @NgModule({
   declarations: [
@@ -71,7 +73,9 @@ import { EscenarioServiceProvider } from '../providers/escenario-service/escenar
     EventoSettingsProvider,
     EventoServiceProvider,
     EscenarioSettingsProvider,
-    EscenarioServiceProvider
+    EscenarioServiceProvider,
+    LoginSettingsProvider,
+    LoginServiceProvider
   ]
 })
 export class AppModule {}
