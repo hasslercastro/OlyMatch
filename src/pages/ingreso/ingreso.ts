@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LoginServiceProvider } from '../../providers/login-service/login-service';
 import { TabsPage } from '../tabs/tabs';
 import { FormularioPage } from '../formulario/formulario';
+import { PerfilPage } from '../perfil/perfil';
+
 /**
  * Generated class for the IngresoPage page.
  *
@@ -24,13 +26,16 @@ export class IngresoPage {
   mensajeError='';
   usuarioEncontrado;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams,
               public loginServiceProvider : LoginServiceProvider) {
+
+      //this.perfilPage.loadInfoUsuario();
 
   }
 
   validarUsuario(){
-    
+    console.log(this.nombreUsuario)
      this.usuarioEncontrado=this.loginServiceProvider.comprobarUsuario(this.nombreUsuario, this.contrasena);
      this.usuarioEncontrado.subscribe( x => {
         if (x  == 'true'){
@@ -43,12 +48,15 @@ export class IngresoPage {
      } 
     
     );
+
+    console.log(this.nombreUsuario)
       
 
   }
 
   iniciar(){
-    this.navCtrl.setRoot(TabsPage, {nombreUsuario:this.nombreUsuario});
+   
+    this.navCtrl.push(TabsPage,{ nombreUsuario:this.nombreUsuario} );
   }
 
   registrar(){

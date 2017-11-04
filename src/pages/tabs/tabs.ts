@@ -20,6 +20,8 @@ export class TabsPage {
   tab3Root = PerfilPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+   
     this.nombreUsuario = navParams.get('nombreUsuario');
+    console.log(this.nombreUsuario)
   }
 }

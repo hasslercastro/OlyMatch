@@ -390,7 +390,7 @@ ParticipantesPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__evento_evento__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_escenario_service_escenario_service__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_evento_service_evento_service__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_evento_service_evento_service__ = __webpack_require__(82);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -492,8 +492,8 @@ NombrePage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_login_service_login_service__ = __webpack_require__(82);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ingreso_ingreso__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_login_service_login_service__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ingreso_ingreso__ = __webpack_require__(54);
 /**
  * En esta clase se hace el formulario para la suscripción de un nuevo usuario
  */
@@ -788,11 +788,12 @@ var TabsPage = (function () {
         this.tab2Root = __WEBPACK_IMPORTED_MODULE_4__inicio_inicio__["a" /* InicioPage */];
         this.tab3Root = __WEBPACK_IMPORTED_MODULE_3__perfil_perfil__["a" /* PerfilPage */];
         this.nombreUsuario = navParams.get('nombreUsuario');
+        console.log(this.nombreUsuario);
     }
     return TabsPage;
 }());
 TabsPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/tabs/tabs.html"*/'<ion-tabs selectedIndex="1">\n  <ion-tab [root]="tab1Root" tabTitle="Evento" tabIcon="people"></ion-tab>\n  <ion-tab [root]="tab2Root" [rootParams]="nombreUsuario" tabTitle="Inicio" tabIcon="bonfire"></ion-tab>\n  <ion-tab [root]="tab3Root" tabTitle="Perfil" tabIcon="contact"></ion-tab>\n</ion-tabs>\n'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/tabs/tabs.html"*/
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/tabs/tabs.html"*/'<ion-tabs selectedIndex="1">\n  <ion-tab [root]="tab1Root" tabTitle="Evento" tabIcon="people"></ion-tab>\n  <ion-tab [root]="tab2Root" [rootParams]="nombreUsuario" tabTitle="Inicio" tabIcon="bonfire"></ion-tab>\n  <ion-tab [root]="tab3Root" [rootParams]="nombreUsuario" tabTitle="Perfil" tabIcon="contact"></ion-tab>\n</ion-tabs>\n'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/tabs/tabs.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
 ], TabsPage);
@@ -808,6 +809,7 @@ TabsPage = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PerfilPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_login_service_login_service__ = __webpack_require__(49);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -819,19 +821,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var PerfilPage = (function () {
-    function PerfilPage(navCtrl) {
+    function PerfilPage(navCtrl, navParams, loginServiceProvider) {
         this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.loginServiceProvider = loginServiceProvider;
+        this.nombreUsuario = '';
+        this.usuario = '';
+        this.nombreUsuario = navParams.data;
+        this.loadInfoUsuario();
     }
+    PerfilPage.prototype.loadInfoUsuario = function () {
+        var _this = this;
+        console.log('Estamos en loadInfoUsuario');
+        console.log(this.nombreUsuario);
+        this.informacion = this.loginServiceProvider.getInfoUsuario(this.nombreUsuario);
+        this.informacion.subscribe(function (x) { return _this.usuario = x.usuario; });
+    };
     return PerfilPage;
 }());
 PerfilPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-perfil',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/perfil/perfil.html"*/'<ion-header>\n  <ion-navbar>\n    <img src="../assets/img/logo_eafit_blanco.png" class="logo_navbar">\n    <ion-title>Perfil</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content class="contenido">\n  <ion-card>\n    <img src="assets/img/cr.jpg" class="imagen_usuario">\n    <ion-card-content>\n      <ion-card-title text-center>\n          <h1>Camilo Agustin Villa</h1>\n      </ion-card-title>\n      <h1 text-center>\n        cvillar4\n      </h1>\n\n      <h2 text-center>\n        Calificación\n      </h2>\n      \n      <img src="assets/img/5_estrellas.png">\n    </ion-card-content>\n  </ion-card>\n</ion-content>\n'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/perfil/perfil.html"*/
+        selector: 'page-perfil',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/perfil/perfil.html"*/'<ion-header>\n  <ion-navbar>\n    <img src="../assets/img/logo_eafit_blanco.png" class="logo_navbar">\n    <ion-title>Perfil</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content class="contenido">\n\n    <ion-list>   \n      \n                <ion-card>           \n                  <ion-card-content>\n                    <ion-card-title text-center>\n                      <h1>\n                        {{ usuario }}\n                      </h1> \n                    </ion-card-title>          \n                  </ion-card-content>\n                </ion-card>\n      \n    </ion-list>\n  \n  <!-- <ion-item *ngFor="let info of informacion |  async">\n  <ion-card >\n    <img src="assets/img/cr.jpg" class="imagen_usuario">\n    <ion-card-content>\n      <ion-card-title text-center>\n          <h1>{{ info.nombre }}</h1>\n      </ion-card-title>\n      <h1 text-center>\n        {{ info.usuario }}\n      </h1>\n\n      <h2 text-center>\n        Calificación\n      </h2>\n      \n      <img src="{{ info.imagen_usuario }}">\n    </ion-card-content>\n  </ion-card>\n</ion-item> -->\n\n\n</ion-content>\n'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/perfil/perfil.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_login_service_login_service__["a" /* LoginServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_login_service_login_service__["a" /* LoginServiceProvider */]) === "function" && _c || Object])
 ], PerfilPage);
 
+var _a, _b, _c;
 //# sourceMappingURL=perfil.js.map
 
 /***/ }),
@@ -843,7 +860,7 @@ PerfilPage = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InicioPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_evento_service_evento_service__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_evento_service_evento_service__ = __webpack_require__(82);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -895,7 +912,7 @@ var InicioPage = (function () {
 }());
 InicioPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-inicio',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/inicio/inicio.html"*/'<ion-header class="header">\n    <ion-navbar class="navbar">\n      <img src="../assets/img/logo_eafit_blanco.png" class="logo_navbar">\n      <ion-title class="titulo">\n        ¡Hora de jugar!\n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content padding class="contenido">\n  \n    <!-->Refrescar página para cargar eventos<-->\n    <ion-refresher (ionRefresh)="doRefresh($event)">\n      <ion-refresher-content></ion-refresher-content>\n    </ion-refresher>\n    \n    <ion-list>\n      <ion-item *ngFor="let event of eventos |  async">\n  \n        <ion-card>\n          <img src= \'{{ event.imagen }}\'\n          />\n          <ion-card-content>\n            <ion-card-title text-center>\n              <h1>\n                {{ event.nombre }}\n              </h1>\n            </ion-card-title>\n            <h2>\n              <ion-icon name="football"></ion-icon> {{ event.deporte.nombre }}\n            </h2>\n            <h2>\n              <ion-icon name="calendar"></ion-icon> {{ event.fecha }}\n            </h2>\n            <h2>\n              <ion-icon name="time"></ion-icon> {{ event.hora }}\n            </h2>\n            <h2>\n              <ion-icon name="locate"></ion-icon> {{ event.lugar }}\n            </h2>\n            <h2>\n              <ion-icon name="clipboard"></ion-icon> {{ event.numMaxParticipantes }}\n            </h2>\n  \n            <ion-item>\n              <button ion-button full color="secondary">Unirse</button>\n            </ion-item>\n  \n          </ion-card-content>\n        </ion-card>\n      </ion-item>\n    </ion-list>\n  </ion-content>'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/inicio/inicio.html"*/
+        selector: 'page-inicio',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/inicio/inicio.html"*/'<ion-header class="header">\n    <ion-navbar class="navbar">\n      <img src="../assets/img/logo_eafit_blanco.png" class="logo_navbar">\n      <ion-title class="titulo">\n        ¡Hora de jugar!\n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content padding class="contenido">\n  \n    <!-->Refrescar página para cargar eventos<-->\n    <ion-refresher (ionRefresh)="doRefresh($event)">\n      <ion-refresher-content></ion-refresher-content>\n    </ion-refresher>\n    \n    <ion-list>\n\n\n      <ion-item *ngFor="let event of eventos |  async">\n  \n        <ion-card>\n          <img src= \'{{ event.imagen }}\'\n          />\n          <ion-card-content>\n            <ion-card-title text-center>\n              <h1>\n                {{ event.nombre }}\n              </h1>\n            </ion-card-title>\n            <h2>\n              <ion-icon name="football"></ion-icon> {{ event.deporte.nombre }}\n            </h2>\n            <h2>\n              <ion-icon name="calendar"></ion-icon> {{ event.fecha }}\n            </h2>\n            <h2>\n              <ion-icon name="time"></ion-icon> {{ event.hora }}\n            </h2>\n            <h2>\n              <ion-icon name="locate"></ion-icon> {{ event.lugar }}\n            </h2>\n            <h2>\n              <ion-icon name="clipboard"></ion-icon> {{ event.numMaxParticipantes }}\n            </h2>\n  \n            <ion-item>\n              <button ion-button full color="secondary">Unirse</button>\n            </ion-item>\n  \n          </ion-card-content>\n        </ion-card>\n      </ion-item>\n    </ion-list>\n  </ion-content>'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/inicio/inicio.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_evento_service_evento_service__["a" /* EventoServiceProvider */]])
 ], InicioPage);
@@ -1000,7 +1017,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_evento_evento__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_tabs_tabs__ = __webpack_require__(166);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_momento_momento__ = __webpack_require__(212);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_ingreso_ingreso__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_ingreso_ingreso__ = __webpack_require__(54);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_formulario_formulario__ = __webpack_require__(111);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_deporte_deporte__ = __webpack_require__(105);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_escenario_escenario__ = __webpack_require__(106);
@@ -1011,11 +1028,11 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ionic_native_status_bar__ = __webpack_require__(208);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__ionic_native_splash_screen__ = __webpack_require__(211);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__providers_evento_settings_evento_settings__ = __webpack_require__(164);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__providers_evento_service_evento_service__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__providers_evento_service_evento_service__ = __webpack_require__(82);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__providers_escenario_settings_escenario_settings__ = __webpack_require__(163);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__providers_escenario_service_escenario_service__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__providers_login_settings_login_settings__ = __webpack_require__(165);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__providers_login_service_login_service__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__providers_login_service_login_service__ = __webpack_require__(49);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1131,7 +1148,7 @@ AppModule = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(208);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(211);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_ingreso_ingreso__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_ingreso_ingreso__ = __webpack_require__(54);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1306,14 +1323,80 @@ EventoPage = __decorate([
 
 /***/ }),
 
-/***/ 53:
+/***/ 49:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginServiceProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_settings_login_settings__ = __webpack_require__(165);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+/*
+  Generated class for the LoginServiceProvider provider.
+
+  See https://angular.io/guide/dependency-injection for more info on providers
+  and Angular DI.
+*/
+var LoginServiceProvider = (function () {
+    function LoginServiceProvider(http, loginSettingsProvider) {
+        this.http = http;
+        this.loginSettingsProvider = loginSettingsProvider;
+        this.apiUrl = this.loginSettingsProvider.getApiUrl();
+    }
+    LoginServiceProvider.prototype.comprobarUsuario = function (usuario, contrasena) {
+        console.log("validando usuario");
+        return this.http.get(this.apiUrl + 'usuario/' + usuario + '/' + contrasena)
+            .map(function (response) { return response.text(); });
+    };
+    LoginServiceProvider.prototype.crearUsuario = function (usuario, contrasena, codigo, nombre, primerApellido) {
+        return this.http.post(this.apiUrl + 'usuario', { 'nombre': nombre,
+            'contrasena': contrasena,
+            'usuario': usuario,
+            'codigo': codigo,
+            'primerApellido': primerApellido })
+            .map(function (response) { return response.json(); });
+    };
+    LoginServiceProvider.prototype.getInfoUsuario = function (usuario) {
+        console.log(usuario);
+        console.log("lo de arriba es desde loginservice");
+        return this.http.get(this.apiUrl + 'usuario' + '/' + usuario)
+            .map(function (response) { return response.json().result; });
+    };
+    return LoginServiceProvider;
+}());
+LoginServiceProvider = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */],
+        __WEBPACK_IMPORTED_MODULE_2__login_settings_login_settings__["a" /* LoginSettingsProvider */]])
+], LoginServiceProvider);
+
+//# sourceMappingURL=login-service.js.map
+
+/***/ }),
+
+/***/ 54:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IngresoPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_login_service_login_service__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_login_service_login_service__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tabs_tabs__ = __webpack_require__(166);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__formulario_formulario__ = __webpack_require__(111);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1338,6 +1421,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  */
 var IngresoPage = (function () {
     function IngresoPage(navCtrl, navParams, loginServiceProvider) {
+        //this.perfilPage.loadInfoUsuario();
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.loginServiceProvider = loginServiceProvider;
@@ -1348,6 +1432,7 @@ var IngresoPage = (function () {
     }
     IngresoPage.prototype.validarUsuario = function () {
         var _this = this;
+        console.log(this.nombreUsuario);
         this.usuarioEncontrado = this.loginServiceProvider.comprobarUsuario(this.nombreUsuario, this.contrasena);
         this.usuarioEncontrado.subscribe(function (x) {
             if (x == 'true') {
@@ -1358,9 +1443,10 @@ var IngresoPage = (function () {
                 console.log("contraseña o usuario invalido");
             }
         });
+        console.log(this.nombreUsuario);
     };
     IngresoPage.prototype.iniciar = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__tabs_tabs__["a" /* TabsPage */], { nombreUsuario: this.nombreUsuario });
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__tabs_tabs__["a" /* TabsPage */], { nombreUsuario: this.nombreUsuario });
     };
     IngresoPage.prototype.registrar = function () {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__formulario_formulario__["a" /* FormularioPage */]);
@@ -1375,7 +1461,8 @@ IngresoPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-ingreso',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/ingreso/ingreso.html"*/'<ion-header>\n  <ion-navbar>\n    <img src="../assets/img/logo_eafit_blanco.png" class="logo_navbar">\n    <ion-title>Ingreso</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="contenido">\n\n  <img src="../assets/img/nombre.png" class="nombre">\n\n  <h3 class="slogan">\n    ¡Únete al juego!\n  </h3>\n    \n  <ion-list class="lista">\n    <ion-item no-line>\n      <ion-input type="text" placeholder="Nombre de usuario" [(ngModel)]="nombreUsuario"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-input type="password" placeholder="Contraseña" [(ngModel)]="contrasena"></ion-input>\n    </ion-item>\n\n    <h6>\n      {{ mensajeError }}\n    </h6>\n\n    <br>\n\n    <button ion-button small round full color="secondaryb" (click)="validarUsuario()">Ingresar</button>\n\n    <button ion-button small round full color="secondaryg" (click)="registrar()">Crear cuenta nueva</button>\n    \n    <button ion-button small round full color="secondaryb" (click)="iniciar()">De visita</button>\n    \n  </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/ingreso/ingreso.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
         __WEBPACK_IMPORTED_MODULE_2__providers_login_service_login_service__["a" /* LoginServiceProvider */]])
 ], IngresoPage);
 
@@ -1383,7 +1470,7 @@ IngresoPage = __decorate([
 
 /***/ }),
 
-/***/ 81:
+/***/ 82:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1438,66 +1525,6 @@ EventoServiceProvider = __decorate([
 ], EventoServiceProvider);
 
 //# sourceMappingURL=evento-service.js.map
-
-/***/ }),
-
-/***/ 82:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginServiceProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_settings_login_settings__ = __webpack_require__(165);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-/*
-  Generated class for the LoginServiceProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
-var LoginServiceProvider = (function () {
-    function LoginServiceProvider(http, loginSettingsProvider) {
-        this.http = http;
-        this.loginSettingsProvider = loginSettingsProvider;
-        this.apiUrl = this.loginSettingsProvider.getApiUrl();
-    }
-    LoginServiceProvider.prototype.comprobarUsuario = function (usuario, contrasena) {
-        console.log("validando usuario");
-        return this.http.get(this.apiUrl + 'usuario/' + usuario + '/' + contrasena)
-            .map(function (response) { return response.text(); });
-    };
-    LoginServiceProvider.prototype.crearUsuario = function (usuario, contrasena, codigo, nombre, primerApellido) {
-        return this.http.post(this.apiUrl + 'usuario', { 'nombre': nombre,
-            'contrasena': contrasena,
-            'usuario': usuario,
-            'codigo': codigo,
-            'primerApellido': primerApellido })
-            .map(function (response) { return response.json(); });
-    };
-    return LoginServiceProvider;
-}());
-LoginServiceProvider = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */],
-        __WEBPACK_IMPORTED_MODULE_2__login_settings_login_settings__["a" /* LoginSettingsProvider */]])
-], LoginServiceProvider);
-
-//# sourceMappingURL=login-service.js.map
 
 /***/ })
 
