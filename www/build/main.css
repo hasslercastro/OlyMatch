@@ -27568,8 +27568,12 @@ page-ingreso .slogan {
 
 page-ingreso .lista {
   position: absolute;
-  top: 220px;
+  top: 230px;
   left: 30px;
+}
+
+page-ingreso .cuenta_nueva {
+  text-align: center;
 }
 
 page-ingreso .usuario {
@@ -27585,6 +27589,10 @@ page-ingreso .logo_navbar {
 page-ingreso h1, page-ingreso h3 {
   text-align: center;
   color: #00395B;
+}
+
+page-ingreso h6 {
+  color: red;
 }
 
 page-inicio .navbar {

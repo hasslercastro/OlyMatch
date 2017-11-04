@@ -33,8 +33,12 @@ page-ingreso {
 
     .lista{
         position: absolute;
-        top: 220px;
+        top: 230px;
         left: 30px;
+    }
+
+    .cuenta_nueva{
+        text-align: center;
     }
 
     .usuario{
@@ -50,5 +54,9 @@ page-ingreso {
     h1, h3{
         text-align: center;
         color: #00395B;
+    }
+
+    h6{
+        color: red;
     }
 }

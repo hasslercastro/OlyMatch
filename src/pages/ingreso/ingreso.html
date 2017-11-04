@@ -22,20 +22,18 @@
       <ion-input type="password" placeholder="Contraseña" [(ngModel)]="contrasena"></ion-input>
     </ion-item>
 
-    <ion-item>
-      <button ion-button full color="secondaryb" (click)="iniciar()">Ingresar</button>
-    </ion-item>
+    <h6>
+      {{ mensajeError }}
+    </h6>
 
-    <ion-item>
-      <button ion-button full color="secondary" (click)="registrar()">Crear cuenta nueva</button>
-    </ion-item>
+    <br>
 
-    <ion-item>
-      <button ion-button full (click)="iniciar()">
-        De visita
-        <ion-icon name="home"></ion-icon>
-      </button>
-    </ion-item>
+    <button ion-button small round full color="secondaryb" (click)="validarUsuario()">Ingresar</button>
+
+    <button ion-button small round full color="secondaryg" (click)="registrar()">Crear cuenta nueva</button>
+    
+    <button ion-button small round full color="secondaryb" (click)="iniciar()">De visita</button>
+    
   </ion-list>
 
 </ion-content>

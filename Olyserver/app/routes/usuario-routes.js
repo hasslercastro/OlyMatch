@@ -45,7 +45,7 @@ app.get('/usuario/:username/:password', function (req, res) {
         if (err) {
             return res.json({
                 "success": false,
-                "msg": "Error while retrieving events",
+                "msg": "Error while retrieving user",
                 "error": err
             });
         }
