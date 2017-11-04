@@ -1,6 +1,6 @@
 webpackJsonp([9],{
 
-/***/ 104:
+/***/ 105:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ webpackJsonp([9],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__escenario_escenario__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__escenario_escenario__ = __webpack_require__(106);
 /**
  * En esta clase se escoge el deporte del evento
  */
@@ -58,7 +58,7 @@ DeportePage = __decorate([
 
 /***/ }),
 
-/***/ 105:
+/***/ 106:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -66,7 +66,7 @@ DeportePage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__dia_dia__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__dia_dia__ = __webpack_require__(107);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_escenario_service_escenario_service__ = __webpack_require__(39);
 /**
  * Esta clase selecciona el escenario deportivo
@@ -130,7 +130,7 @@ EscenarioPage = __decorate([
 
 /***/ }),
 
-/***/ 106:
+/***/ 107:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -138,7 +138,7 @@ EscenarioPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__horario_horario__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__horario_horario__ = __webpack_require__(108);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_escenario_service_escenario_service__ = __webpack_require__(39);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -221,7 +221,7 @@ DiaPage = __decorate([
 
 /***/ }),
 
-/***/ 107:
+/***/ 108:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -229,7 +229,7 @@ DiaPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__participantes_participantes__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__participantes_participantes__ = __webpack_require__(109);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_escenario_service_escenario_service__ = __webpack_require__(39);
 /**
  * En esta clase se selecciona el horario
@@ -305,7 +305,7 @@ HorarioPage = __decorate([
 
 /***/ }),
 
-/***/ 108:
+/***/ 109:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -313,7 +313,7 @@ HorarioPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__nombre_nombre__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__nombre_nombre__ = __webpack_require__(110);
 /**
  * En esta clase se escogen el número de participantes
  */
@@ -380,7 +380,7 @@ ParticipantesPage = __decorate([
 
 /***/ }),
 
-/***/ 109:
+/***/ 110:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -484,7 +484,7 @@ NombrePage = __decorate([
 
 /***/ }),
 
-/***/ 110:
+/***/ 111:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -492,7 +492,7 @@ NombrePage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_login_service_login_service__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_login_service_login_service__ = __webpack_require__(82);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ingreso_ingreso__ = __webpack_require__(53);
 /**
  * En esta clase se hace el formulario para la suscripción de un nuevo usuario
@@ -559,15 +559,17 @@ FormularioPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-formulario',template:/*ion-inline-start:"/home/josh/Documentos/U.SlV/Proyecto_Integrador_1/OlyMatch/OlyMatch/src/pages/formulario/formulario.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Formulario</ion-title>\n  </ion-navbar>\n</ion-header>\n\n  <ion-content padding>\n    <!-->Solicita toda la información<-->\n    <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>\n      <ion-slides pager>\n\n        <!-->Slide de bienvenida<-->\n        <ion-slide>\n          <h2>Bienvenido a OlyMatch</h2>\n          <img src="../assets/img/logo_nue.png">\n        </ion-slide>\n          \n        <!-->Slide de nombre, primerApellido y segundoApellido<-->\n        <ion-slide>\n          <h2>Información personal</h2>\n          <ion-list>\n                  \n            <ion-item>\n              <ion-input formControlName="nombre" type="text" placeholder="Nombre" [(ngModel)]="nombre" ></ion-input>\n            </ion-item>\n                \n            <!-->Manejo de error<-->\n            <ion-item *ngIf="myForm.get(\'nombre\').errors && myForm.get(\'nombre\').dirty">\n              <p color="danger" ion-text *ngIf="myForm.get(\'nombre\').hasError(\'required\')">Nombre es requerido</p>\n            </ion-item>\n\n            <ion-item>\n              <ion-input formControlName="primerApellido" type="text" placeholder="Primer apellido" [(ngModel)]="primerApellido"></ion-input>\n            </ion-item>\n\n            <!-->Manejo de error<-->\n            <ion-item *ngIf="myForm.get(\'primerApellido\').errors && myForm.get(\'primerApellido\').dirty">\n              <p color="danger" ion-text *ngIf="myForm.get(\'primerApellido\').hasError(\'required\')">Primer apellido es requerido</p>\n            </ion-item>\n\n          </ion-list>\n        </ion-slide>\n        \n        <!-->Slide de email, contrasena y confirmarContrasena<-->\n        <ion-slide>\n          <h2>Validar información</h2>\n          <ion-list>\n            <ion-item>\n              <ion-input formControlName="user" type="text" placeholder="Nombre de usuario" [(ngModel)]="user"></ion-input>\n            </ion-item>\n\n            <!-->Manejo de error<-->\n            <ion-item *ngIf="myForm.get(\'user\').errors && myForm.get(\'user\').dirty">\n              <p color="danger" ion-text *ngIf="myForm.get(\'user\').hasError(\'required\')">Nombre de usuario es requerido</p>\n            </ion-item>\n\n\n            <ion-item>\n              <ion-input formControlName="codigo" type="text" placeholder="Codigo" [(ngModel)]="codigo"></ion-input>\n            </ion-item>\n\n            <!-->Manejo de error<-->\n            <ion-item *ngIf="myForm.get(\'codigo\').errors && myForm.get(\'codigo\').dirty">\n              <p color="danger" ion-text *ngIf="myForm.get(\'codigo\').hasError(\'required\')">Codigo es requerida</p>\n            </ion-item>\n\n            <ion-item>\n              <ion-input formControlName="contrasena" type="password" placeholder="Contraseña" [(ngModel)]="contrasena"></ion-input>\n            </ion-item>\n\n            <!-->Manejo de error<-->\n            <ion-item *ngIf="myForm.get(\'contrasena\').errors && myForm.get(\'contrasena\').dirty">\n              <p color="danger" ion-text *ngIf="myForm.get(\'contrasena\').hasError(\'required\')">Contraseña es requerida</p>\n            </ion-item>\n\n            <ion-item>\n              <ion-input formControlName="confirmarContrasena" type="password" placeholder="Confirmar contraseña"></ion-input>\n            </ion-item>\n\n            <!-->Manejo de error<-->\n            <ion-item *ngIf="myForm.get(\'confirmarContrasena\').errors && myForm.get(\'confirmarContrasena\').dirty">\n              <p color="danger" ion-text *ngIf="myForm.get(\'confirmarContrasena\').hasError(\'required\')">Contraseña es requerida</p>\n            </ion-item>\n\n            <ion-item>\n              <button ion-button block type="submit" [disabled]="myForm.invalid" (click)="volver()">¡Únete al juego!</button>\n            </ion-item>\n          </ion-list>\n        </ion-slide>\n      </ion-slides>\n    </form>\n  </ion-content>\n\n'/*ion-inline-end:"/home/josh/Documentos/U.SlV/Proyecto_Integrador_1/OlyMatch/OlyMatch/src/pages/formulario/formulario.html"*/,
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__providers_login_service_login_service__["a" /* LoginServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_login_service_login_service__["a" /* LoginServiceProvider */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */],
+        __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_3__providers_login_service_login_service__["a" /* LoginServiceProvider */]])
 ], FormularioPage);
 
-var _a, _b, _c, _d;
 //# sourceMappingURL=formulario.js.map
 
 /***/ }),
 
-/***/ 119:
+/***/ 120:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -580,11 +582,11 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 119;
+webpackEmptyAsyncContext.id = 120;
 
 /***/ }),
 
-/***/ 161:
+/***/ 162:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -636,12 +638,12 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 161;
+webpackAsyncContext.id = 162;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 162:
+/***/ 163:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -680,7 +682,7 @@ EscenarioSettingsProvider = __decorate([
 
 /***/ }),
 
-/***/ 163:
+/***/ 164:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -713,66 +715,6 @@ EventoSettingsProvider = __decorate([
 ], EventoSettingsProvider);
 
 //# sourceMappingURL=evento-settings.js.map
-
-/***/ }),
-
-/***/ 164:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginServiceProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_settings_login_settings__ = __webpack_require__(165);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-/*
-  Generated class for the LoginServiceProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
-var LoginServiceProvider = (function () {
-    function LoginServiceProvider(http, loginSettingsProvider) {
-        this.http = http;
-        this.loginSettingsProvider = loginSettingsProvider;
-        this.apiUrl = this.loginSettingsProvider.getApiUrl();
-    }
-    LoginServiceProvider.prototype.comprobarUsuario = function (usuario, contrasena) {
-        console.log("validando usuario");
-        return this.http.get(this.apiUrl + 'usuario/' + usuario + '/' + contrasena)
-            .map(function (response) { return response.json().result; });
-    };
-    LoginServiceProvider.prototype.crearUsuario = function (usuario, contrasena, codigo, nombre, primerApellido) {
-        return this.http.post(this.apiUrl + 'usuario', { 'nombre': nombre,
-            'contrasena': contrasena,
-            'usuario': usuario,
-            'codigo': codigo,
-            'primerApellido': primerApellido })
-            .map(function (response) { return response.json(); });
-    };
-    return LoginServiceProvider;
-}());
-LoginServiceProvider = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__login_settings_login_settings__["a" /* LoginSettingsProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__login_settings_login_settings__["a" /* LoginSettingsProvider */]) === "function" && _b || Object])
-], LoginServiceProvider);
-
-var _a, _b;
-//# sourceMappingURL=login-service.js.map
 
 /***/ }),
 
@@ -1059,21 +1001,21 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_tabs_tabs__ = __webpack_require__(166);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_momento_momento__ = __webpack_require__(212);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_ingreso_ingreso__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_formulario_formulario__ = __webpack_require__(110);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_deporte_deporte__ = __webpack_require__(104);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_escenario_escenario__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_dia_dia__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_horario_horario__ = __webpack_require__(107);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_participantes_participantes__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_nombre_nombre__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_formulario_formulario__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_deporte_deporte__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_escenario_escenario__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_dia_dia__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_horario_horario__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_participantes_participantes__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_nombre_nombre__ = __webpack_require__(110);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ionic_native_status_bar__ = __webpack_require__(208);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__ionic_native_splash_screen__ = __webpack_require__(211);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__providers_evento_settings_evento_settings__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__providers_evento_settings_evento_settings__ = __webpack_require__(164);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__providers_evento_service_evento_service__ = __webpack_require__(81);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__providers_escenario_settings_escenario_settings__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__providers_escenario_settings_escenario_settings__ = __webpack_require__(163);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__providers_escenario_service_escenario_service__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__providers_login_settings_login_settings__ = __webpack_require__(165);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__providers_login_service_login_service__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__providers_login_service_login_service__ = __webpack_require__(82);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1236,7 +1178,7 @@ MyApp = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__escenario_settings_escenario_settings__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__escenario_settings_escenario_settings__ = __webpack_require__(163);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1300,7 +1242,7 @@ EscenarioServiceProvider = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EventoPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__deporte_deporte__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__deporte_deporte__ = __webpack_require__(105);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1371,9 +1313,9 @@ EventoPage = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IngresoPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_login_service_login_service__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_login_service_login_service__ = __webpack_require__(82);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tabs_tabs__ = __webpack_require__(166);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__formulario_formulario__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__formulario_formulario__ = __webpack_require__(111);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1441,7 +1383,7 @@ IngresoPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__evento_settings_evento_settings__ = __webpack_require__(163);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__evento_settings_evento_settings__ = __webpack_require__(164);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1487,6 +1429,66 @@ EventoServiceProvider = __decorate([
 ], EventoServiceProvider);
 
 //# sourceMappingURL=evento-service.js.map
+
+/***/ }),
+
+/***/ 82:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginServiceProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_settings_login_settings__ = __webpack_require__(165);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+/*
+  Generated class for the LoginServiceProvider provider.
+
+  See https://angular.io/guide/dependency-injection for more info on providers
+  and Angular DI.
+*/
+var LoginServiceProvider = (function () {
+    function LoginServiceProvider(http, loginSettingsProvider) {
+        this.http = http;
+        this.loginSettingsProvider = loginSettingsProvider;
+        this.apiUrl = this.loginSettingsProvider.getApiUrl();
+    }
+    LoginServiceProvider.prototype.comprobarUsuario = function (usuario, contrasena) {
+        console.log("validando usuario");
+        return this.http.get(this.apiUrl + 'usuario/' + usuario + '/' + contrasena)
+            .map(function (response) { return response.json().result; });
+    };
+    LoginServiceProvider.prototype.crearUsuario = function (usuario, contrasena, codigo, nombre, primerApellido) {
+        return this.http.post(this.apiUrl + 'usuario', { 'nombre': nombre,
+            'contrasena': contrasena,
+            'usuario': usuario,
+            'codigo': codigo,
+            'primerApellido': primerApellido })
+            .map(function (response) { return response.json(); });
+    };
+    return LoginServiceProvider;
+}());
+LoginServiceProvider = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */],
+        __WEBPACK_IMPORTED_MODULE_2__login_settings_login_settings__["a" /* LoginSettingsProvider */]])
+], LoginServiceProvider);
+
+//# sourceMappingURL=login-service.js.map
 
 /***/ })
 
