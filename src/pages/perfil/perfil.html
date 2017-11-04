@@ -5,22 +5,42 @@
   </ion-navbar>
 </ion-header>
 
+
 <ion-content class="contenido">
-  <ion-card>
+
+    <ion-list>   
+      
+                <ion-card>           
+                  <ion-card-content>
+                    <ion-card-title text-center>
+                      <h1>
+                        {{ usuario }}
+                      </h1> 
+                    </ion-card-title>          
+                  </ion-card-content>
+                </ion-card>
+      
+    </ion-list>
+  
+  <!-- <ion-item *ngFor="let info of informacion |  async">
+  <ion-card >
     <img src="assets/img/cr.jpg" class="imagen_usuario">
     <ion-card-content>
       <ion-card-title text-center>
-          <h1>Camilo Agustin Villa</h1>
+          <h1>{{ info.nombre }}</h1>
       </ion-card-title>
       <h1 text-center>
-        cvillar4
+        {{ info.usuario }}
       </h1>
 
       <h2 text-center>
         Calificación
       </h2>
       
-      <img src="assets/img/5_estrellas.png">
+      <img src="{{ info.imagen_usuario }}">
     </ion-card-content>
   </ion-card>
+</ion-item> -->
+
+
 </ion-content>

@@ -2,9 +2,47 @@ page-ingreso {
 
     .contenido{
         background-image: url("../assets/img/fondo_login.jpg");
-        background-position: center;
-        background-attachment: fixed;
-        background: 10px;
+        //background-size: 325px 850px;
+        background-position-x: -30px;
+        background-position-y: 40px;
+        background-size: cover;
+    }
+
+    .scroll-content{
+        align-content: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+
+    .nombre{
+        position: absolute;
+        width: 200px;
+        height: 125px;
+        top: 80px;
+        left: 60px;
+    }
+
+    .slogan{
+        position: absolute;
+        top: 160px;
+        left: 80px;
+    }
+
+    .lista{
+        position: absolute;
+        top: 230px;
+        left: 30px;
+    }
+
+    .cuenta_nueva{
+        text-align: center;
+    }
+
+    .usuario{
+        text-align: center;
     }
 
     .logo_navbar{
@@ -21,7 +59,10 @@ page-ingreso {
     h6{
         color: red;
     }
+<<<<<<< HEAD
     .error{
        color : red;
     }
+=======
+>>>>>>> 948df8e85974bb507fe0e0ce1a43f45b511bc46b
 }

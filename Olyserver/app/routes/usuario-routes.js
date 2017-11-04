@@ -22,7 +22,7 @@ app.get('/usuario', function (req, res) {
 //Route para recuperar los datos de la pestaña de usuario.
 app.get('/usuario/:user', function (req, res) {
     var user = req.params.user;
-    User.findOne({"usuario" : user}, function (err, even) {
+    User.find({"usuario" : user}, function (err, even) {
         if (err) {
             return res.json({
                 "success": false,
@@ -34,7 +34,7 @@ app.get('/usuario/:user', function (req, res) {
             "success": true,
             "result": even
         });
-    }).select('nombre').select('usuario').select('imagen_usuario');
+    });
 });
 
 app.get('/usuario/:username/:password', function (req, res) {
@@ -45,7 +45,7 @@ app.get('/usuario/:username/:password', function (req, res) {
         if (err) {
             return res.json({
                 "success": false,
-                "msg": "Error while retrieving events",
+                "msg": "Error while retrieving user",
                 "error": err
             });
         }

@@ -34,4 +34,11 @@ export class LoginServiceProvider {
     
   }
 
+  public getInfoUsuario(usuario){
+    console.log(usuario)
+    console.log("lo de arriba es desde loginservice")
+    return this.http.get(this.apiUrl+'usuario'+'/'+usuario)
+    .map(response => response.json().result);
+  }
+
 }

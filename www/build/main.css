@@ -27527,9 +27527,57 @@ page-horario .contenido {
 
 page-ingreso .contenido {
   background-image: url("../assets/img/fondo_login.jpg");
-  background-position: center;
-  background-attachment: fixed;
-  background: 10px;
+  background-position-x: -30px;
+  background-position-y: 40px;
+  background-size: cover;
+}
+
+page-ingreso .scroll-content {
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+}
+
+page-ingreso .nombre {
+  position: absolute;
+  width: 200px;
+  height: 125px;
+  top: 80px;
+  left: 60px;
+}
+
+page-ingreso .slogan {
+  position: absolute;
+  top: 160px;
+  left: 80px;
+}
+
+page-ingreso .lista {
+  position: absolute;
+  top: 230px;
+  left: 30px;
+}
+
+page-ingreso .cuenta_nueva {
+  text-align: center;
+}
+
+page-ingreso .usuario {
+  text-align: center;
 }
 
 page-ingreso .logo_navbar {
@@ -27547,10 +27595,13 @@ page-ingreso h6 {
   color: red;
 }
 
+<<<<<<< HEAD
 page-ingreso .error {
   color: red;
 }
 
+=======
+>>>>>>> 948df8e85974bb507fe0e0ce1a43f45b511bc46b
 page-inicio .navbar {
   background-color: #00395B;
 }
