@@ -1,8 +1,16 @@
 page-perfil {
-    img{
+
+    .logo_navbar{
+        height: 30px;
+        float: left;
+        margin-left: 5px;
+    }
+
+    .imagen_usuario{
         border-radius: 1000px;
     }
+    
     .contenido{
-        background-image: url("../assets/img/fondo_deporte.jpg");    
+        background-image: url("../assets/img/fondo_app.jpg");    
     }
 }

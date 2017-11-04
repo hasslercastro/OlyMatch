@@ -1,5 +1,18 @@
 page-ingreso {
 
+    .contenido{
+        background-image: url("../assets/img/fondo_login.jpg");
+        background-position: center;
+        background-attachment: fixed;
+        background: 10px;
+    }
+
+    .logo_navbar{
+        height: 30px;
+        float: left;
+        margin-left: 5px;
+    }
+    
     h1, h3{
         text-align: center;
         color: #00395B;
