@@ -22,6 +22,7 @@ export class IngresoPage {
   nombreUsuario='';
   contrasena = '';
   usuarioEncontrado;
+  msgError='';
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public loginServiceProvider : LoginServiceProvider) {
@@ -36,6 +37,8 @@ export class IngresoPage {
           this.iniciar()
         }
         else {
+          this.msgError = "Usuario o contraseña invalido"
+
           console.log("contraseña o usuario invalido")
         }
      } 

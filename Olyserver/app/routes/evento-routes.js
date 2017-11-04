@@ -20,8 +20,44 @@ app.get('/evento', function (req, res) {
     });
 });
 
+app.put('/unirse/:username/:lugar/:fecha/:hora',(req, res) =>{
+    lugar = req.params.lugar;
+    fecha = req.params.fecha;
+    hora = req.params.hora;
+    username = req.params.username;
+    console.log(lugar, fecha, hora, username)
 
+    Evento.findOne({lugar: lugar, fecha : fecha, hora : hora}, (err, even) => {
+        if(err){
+            res.status(500).send(err);
+        }
 
+        else{
+            console.log("Even: ",even)
+            if(even.numMaxParticipantes > 0){
+
+            even.participantes.push(username);
+            even.numMaxParticipantes = even.numMaxParticipantes -1;
+            
+            even.save((err, even) => {
+                if (err) {
+                    res.status(500).send(err)
+                }
+                res.status(200).send(even);
+            });
+
+            }
+
+            else{
+                res.status(500).send("No se pueden agregar mas jugadores");
+            }
+            
+        }
+
+      
+    });
+
+});
 
 app.get('/escenario/imagen/:nombre', function (req, res) {
     var nombre = req.params.nombre;

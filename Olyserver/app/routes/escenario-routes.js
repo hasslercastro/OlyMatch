@@ -20,6 +20,7 @@ app.put('/reservar', function(req, esce){
         else{
             stage.disponibilidad.disponible = false;
             
+        
         stage.save((err, stage) => {
             if (err) {
                 esce.status(500).send(err)

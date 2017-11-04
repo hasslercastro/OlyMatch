@@ -27543,6 +27543,14 @@ page-ingreso h1, page-ingreso h3 {
   color: #00395B;
 }
 
+page-ingreso h6 {
+  color: red;
+}
+
+page-ingreso .error {
+  color: red;
+}
+
 page-inicio .navbar {
   background-color: #00395B;
 }
