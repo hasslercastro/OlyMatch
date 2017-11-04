@@ -7,17 +7,14 @@
 
 <ion-content padding class="contenido">
 
-  <h1>
-    OlyMatch
-  </h1>
+  <img src="../assets/img/nombre.png" class="nombre">
 
-  <h3>
+  <h3 class="slogan">
     ¡Únete al juego!
   </h3>
     
-  <ion-list>
-
-    <ion-item>
+  <ion-list class="lista">
+    <ion-item no-line>
       <ion-input type="text" placeholder="Nombre de usuario" [(ngModel)]="nombreUsuario"></ion-input>
     </ion-item>
 
@@ -26,7 +23,7 @@
     </ion-item>
 
     <ion-item>
-      <button ion-button full color="primary" (click)="iniciar()">Ingresar</button>
+      <button ion-button full color="secondaryb" (click)="iniciar()">Ingresar</button>
     </ion-item>
 
     <ion-item>
@@ -39,7 +36,6 @@
         <ion-icon name="home"></ion-icon>
       </button>
     </ion-item>
-
   </ion-list>
 
 </ion-content>
