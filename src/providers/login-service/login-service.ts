@@ -21,7 +21,7 @@ export class LoginServiceProvider {
   public comprobarUsuario(usuario, contrasena){
     console.log("validando usuario")
     return this.http.get(this.apiUrl+'usuario/'+usuario+'/'+contrasena)
-    .map(response => response.json().result);
+    .map(response => response.text());
   }
 
   public crearUsuario(usuario,contrasena,codigo,nombre,primerApellido){

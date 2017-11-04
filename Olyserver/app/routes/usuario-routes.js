@@ -54,15 +54,13 @@ app.get('/usuario/:username/:password', function (req, res) {
         if(even != null){
             console.log("adentro del even")
         bcrypt.compare(pass, even.contrasena ,function(err,eq){
-            res.status(200).send({
-                "satisfactorio": eq
-            });
+            res.status(200).send(eq);
     
           });
        }
        else{
            res.status(200).send({
-               "satisfactorio   ": false 
+               "satisfactorio": false 
            })
        }
 

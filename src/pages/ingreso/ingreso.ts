@@ -21,17 +21,28 @@ export class IngresoPage {
 
   nombreUsuario='';
   contrasena = '';
+  usuarioEncontrado;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public loginServiceProvider : LoginServiceProvider) {
-                this.validarUsuario();
 
   }
 
   validarUsuario(){
     
-      let usuarioEncontrado  = this.loginServiceProvider.comprobarUsuario(this.nombreUsuario, this.contrasena).subscribe();
-      console.log(usuarioEncontrado)
+     this.usuarioEncontrado=this.loginServiceProvider.comprobarUsuario(this.nombreUsuario, this.contrasena);
+     this.usuarioEncontrado.subscribe( x => {
+        if (x  == 'true'){
+          this.iniciar()
+        }
+        else {
+          console.log("contraseña o usuario invalido")
+        }
+     } 
+    
+    );
+      
+
   }
 
   iniciar(){
