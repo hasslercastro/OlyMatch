@@ -37,6 +37,12 @@ export class InicioPage {
     return this.eventos = this.eventService.getAllEvents();
   }
 
+  unirParticipante(lugar, fecha, hora){
+    console.log("unir", this.nombreUsuario,lugar,fecha,hora);
+    return this.eventService.putParticipante(this.nombreUsuario, lugar, fecha, hora).subscribe();
+
+  }
+
   doRefresh(refresher) {
     this.loadEventos();
     console.log('Begin async operation', refresher);

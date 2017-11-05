@@ -29,4 +29,9 @@ export class EventoServiceProvider {
     .map(response => response.json());
   }
 
+  public putParticipante(nombreUsuario, lugar, fecha, hora){
+    
+    return this.http.put(this.apiUrl+'unirse/'+nombreUsuario+'/'+lugar+'/'+fecha+'/'+hora, {}).map(Response => Response.json().result);
+
+  }
 }

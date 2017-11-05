@@ -43,12 +43,7 @@ export class IngresoPage {
           this.iniciar()
         }
         else {
-<<<<<<< HEAD
-          this.msgError = "Usuario o contraseña invalido"
-
-=======
           this.mensajeError = "El usuario o la contraseña son inválidos";
->>>>>>> 948df8e85974bb507fe0e0ce1a43f45b511bc46b
           console.log("contraseña o usuario invalido")
         }
      } 
