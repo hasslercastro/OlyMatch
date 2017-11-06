@@ -1,27 +1,23 @@
 <ion-header class="header">
-    <ion-navbar class="navbar">
-      <img src="../assets/img/logo_eafit_blanco.png" class="logo_navbar">
-      <ion-title class="titulo">
-        ¡Hora de jugar!
-      </ion-title>
-    </ion-navbar>
-  </ion-header>
-  
-  <ion-content padding class="contenido">
-  
-    <!-->Refrescar página para cargar eventos<-->
-    <ion-refresher (ionRefresh)="doRefresh($event)">
-      <ion-refresher-content></ion-refresher-content>
+  <ion-navbar class="navbar">
+    <img src="../assets/img/logo_eafit_blanco.png" class="logo_navbar">
+    <ion-title class="titulo">
+      ¡Hora de jugar!
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="contenido">
+  <!-->Refrescar página para cargar eventos
+  <-->
+    <ion-refresher (ionRefresh)="doRefresh($event)" class="contenido">
+      <ion-refresher-content class="contenido"></ion-refresher-content>
     </ion-refresher>
-    
-    <ion-list>
 
-
-      <ion-item *ngFor="let event of eventos |  async">
-  
-        <ion-card>
-          <img src= '{{ event.imagen }}'
-          />
+    <ion-list class="lista">
+      <ion-item *ngFor="let event of eventos |  async" class="contenido">
+        <ion-card class="card">
+          <img src='{{ event.imagen }}'/>
           <ion-card-content>
             <ion-card-title text-center>
               <h1>
@@ -29,27 +25,29 @@
               </h1>
             </ion-card-title>
             <h2>
-              <ion-icon name="football"></ion-icon> {{ event.deporte.nombre }}
+              <ion-icon name="football" class="balon"></ion-icon> {{ event.deporte.nombre }}
             </h2>
             <h2>
-              <ion-icon name="calendar"></ion-icon> {{ event.fecha }}
+              <ion-icon name="calendar" class="calendario"></ion-icon> {{ event.fecha }}
             </h2>
             <h2>
-              <ion-icon name="time"></ion-icon> {{ event.hora }}
+              <ion-icon name="time" class="reloj"></ion-icon> {{ event.hora }}
             </h2>
             <h2>
-              <ion-icon name="locate"></ion-icon> {{ event.lugar }}
+              <ion-icon name="locate" class="ubicacion"></ion-icon> {{ event.lugar }}
             </h2>
             <h2>
-              <ion-icon name="clipboard"></ion-icon> {{ event.numMaxParticipantes }}
+              <ion-icon name="clipboard" class="planilla"></ion-icon> {{ event.numMaxParticipantes }}
             </h2>
-  
-            <ion-item>
-              <button ion-button full color="secondary" (click)="unirParticipante(event.lugar,event.fecha, event.hora)">Unirse</button>
-            </ion-item>
-  
+
+            <button ion-button full small color="secondaryb" (click)="unirParticipante(event.lugar,event.fecha, event.hora)">Unirse</button>
+            <button ion-button full small icon-start color="secondaryg">
+              <ion-icon name="information-circle"></ion-icon>
+              Información
+            </button>
+
           </ion-card-content>
         </ion-card>
       </ion-item>
     </ion-list>
-  </ion-content>
+</ion-content>

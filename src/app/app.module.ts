@@ -16,8 +16,9 @@ import { EscenarioPage } from '../pages/escenario/escenario';
 import { DiaPage } from '../pages/dia/dia';
 import { HorarioPage } from '../pages/horario/horario';
 import { ParticipantesPage } from '../pages/participantes/participantes';
-import { NombrePage} from '../pages/nombre/nombre';
-
+import { NombrePage } from '../pages/nombre/nombre';
+import { ConfiguracionPage } from '../pages/configuracion/configuracion';
+import { AcercaPage } from '../pages/acerca/acerca';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -43,7 +44,9 @@ import { LoginServiceProvider } from '../providers/login-service/login-service';
     DiaPage,
     HorarioPage,
     ParticipantesPage,
-    NombrePage
+    NombrePage,
+    ConfiguracionPage,
+    AcercaPage
   ],
   imports: [
     BrowserModule,
@@ -64,7 +67,9 @@ import { LoginServiceProvider } from '../providers/login-service/login-service';
     DiaPage,
     HorarioPage,
     ParticipantesPage,
-    NombrePage
+    NombrePage,
+    ConfiguracionPage,
+    AcercaPage
   ],
   providers: [
     StatusBar,

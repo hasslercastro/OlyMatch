@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Configuración</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="contenido">
+  <ion-content>
+    <ion-list no-border>
+
+      <ion-list-header>
+        Acerca de...
+      </ion-list-header>
+
+      <ion-item>
+        <ion-icon name='information-circle' item-start class="acerca"></ion-icon>
+        <ion-note item-end>
+          <button ion-button full small color="secondaryg" (click)="pasarAcerca()">
+            ¿Quiénes somos?
+          </button>
+        </ion-note>
+      </ion-item>
+
+      <ion-list-header>
+        Salir
+      </ion-list-header>
+
+      <ion-item>
+        <ion-icon name='walk' item-start class="salir"></ion-icon>
+        <ion-note item-end>
+          <button ion-button full small color="danger" (click)="salir()">
+            ¡Vuelve pronto!
+          </button>
+        </ion-note>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-content>

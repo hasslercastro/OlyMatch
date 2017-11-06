@@ -1,0 +1,15 @@
+page-acerca {
+
+    .contenido{
+        background-image: url("../assets/img/fondo_app.jpg");    
+    }
+
+    .list-avatar-page {
+        background-image: url("../assets/img/fondo_app.jpg");    
+        ion-note {
+          font-size: 10px;
+          align-self: flex-start;
+          margin-top: 14px;
+        }
+      }
+}

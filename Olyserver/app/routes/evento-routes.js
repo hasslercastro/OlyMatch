@@ -34,7 +34,7 @@ app.put('/unirse/:username/:lugar/:fecha/:hora',(req, res) =>{
 
         else{
             console.log("Even: ",even)
-            if(even.numMaxParticipantes > 0){
+            if(even.numMaxParticipantes > 0 && even.participantes.indexOf(username) < 0){
 
             even.participantes.push(username);
             even.numMaxParticipantes = even.numMaxParticipantes -1;
@@ -49,14 +49,10 @@ app.put('/unirse/:username/:lugar/:fecha/:hora',(req, res) =>{
             }
 
             else{
-                res.status(500).send("No se pueden agregar mas jugadores");
-            }
-            
+                res.status(500).send("No se pueden agregar mas jugadores o ya te has unido al evento");
+            }   
         }
-
-      
     });
-
 });
 
 app.get('/escenario/imagen/:nombre', function (req, res) {

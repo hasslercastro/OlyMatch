@@ -4,6 +4,7 @@ import { LoginServiceProvider } from '../../providers/login-service/login-servic
 import { IngresoPage } from '../ingreso/ingreso';
 import { Observable } from 'rxjs/Observable';
 import { TabsPage } from '../tabs/tabs';
+import { ConfiguracionPage } from '../configuracion/configuracion';
 
 @Component({
   selector: 'page-perfil',
@@ -11,10 +12,8 @@ import { TabsPage } from '../tabs/tabs';
 })
 export class PerfilPage {
 
-
   nombreUsuario='';
   usuario = '';
-
 
   informacion: Observable<any>;
 
@@ -33,7 +32,12 @@ export class PerfilPage {
     console.log('Estamos en loadInfoUsuario');
     console.log(this.nombreUsuario);
     this.informacion = this.loginServiceProvider.getInfoUsuario(this.nombreUsuario);
-    this.informacion.subscribe(x => this.usuario = x.usuario);
+    this.informacion.subscribe(x => this.usuario = x[0].usuario);
+
+  }
+
+  pasarConfiguracion(){
+    this.navCtrl.push(ConfiguracionPage);
   }
 
 }
