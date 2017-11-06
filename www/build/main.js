@@ -919,10 +919,9 @@ InicioPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-inicio',template:/*ion-inline-start:"/mnt/c/Users/ER/Documents/Integrador/OlyMatch/src/pages/inicio/inicio.html"*/'<ion-header class="header">\n    <ion-navbar class="navbar">\n      <img src="../assets/img/logo_eafit_blanco.png" class="logo_navbar">\n      <ion-title class="titulo">\n        ¡Hora de jugar!\n      </ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content padding class="contenido">\n  \n    <!-->Refrescar página para cargar eventos<-->\n    <ion-refresher (ionRefresh)="doRefresh($event)">\n      <ion-refresher-content></ion-refresher-content>\n    </ion-refresher>\n    \n    <ion-list>\n\n\n      <ion-item *ngFor="let event of eventos |  async">\n  \n        <ion-card>\n          <img src= \'{{ event.imagen }}\'\n          />\n          <ion-card-content>\n            <ion-card-title text-center>\n              <h1>\n                {{ event.nombre }}\n              </h1>\n            </ion-card-title>\n            <h2>\n              <ion-icon name="football"></ion-icon> {{ event.deporte.nombre }}\n            </h2>\n            <h2>\n              <ion-icon name="calendar"></ion-icon> {{ event.fecha }}\n            </h2>\n            <h2>\n              <ion-icon name="time"></ion-icon> {{ event.hora }}\n            </h2>\n            <h2>\n              <ion-icon name="locate"></ion-icon> {{ event.lugar }}\n            </h2>\n            <h2>\n              <ion-icon name="clipboard"></ion-icon> {{ event.numMaxParticipantes }}\n            </h2>\n  \n            <ion-item>\n              <button ion-button full color="secondary" (click)="unirParticipante(event.lugar,event.fecha, event.hora)">Unirse</button>\n            </ion-item>\n  \n          </ion-card-content>\n        </ion-card>\n      </ion-item>\n    </ion-list>\n  </ion-content>'/*ion-inline-end:"/mnt/c/Users/ER/Documents/Integrador/OlyMatch/src/pages/inicio/inicio.html"*/
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_evento_service_evento_service__["a" /* EventoServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_evento_service_evento_service__["a" /* EventoServiceProvider */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_evento_service_evento_service__["a" /* EventoServiceProvider */]])
 ], InicioPage);
 
-var _a, _b, _c;
 //# sourceMappingURL=inicio.js.map
 
 /***/ }),
@@ -1531,10 +1530,9 @@ var EventoServiceProvider = (function () {
 }());
 EventoServiceProvider = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__evento_settings_evento_settings__["a" /* EventoSettingsProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__evento_settings_evento_settings__["a" /* EventoSettingsProvider */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_3__evento_settings_evento_settings__["a" /* EventoSettingsProvider */]])
 ], EventoServiceProvider);
 
-var _a, _b;
 //# sourceMappingURL=evento-service.js.map
 
 /***/ })
