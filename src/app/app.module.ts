@@ -30,6 +30,8 @@ import { LoginSettingsProvider } from '../providers/login-settings/login-setting
 import { LoginServiceProvider } from '../providers/login-service/login-service';
 import { ImageServiceProvider } from '../providers/image-service/image-service';
 import { ImageSettingsProvider } from '../providers/image-settings/image-settings';
+import { UsuarioServiceProvider } from '../providers/usuario-service/usuario-service';
+import { UsuarioSettingsProvider } from '../providers/usuario-settings/usuario-settings';
 
 @NgModule({
   declarations: [
@@ -84,7 +86,9 @@ import { ImageSettingsProvider } from '../providers/image-settings/image-setting
     LoginSettingsProvider,
     LoginServiceProvider,
     ImageServiceProvider,
-    ImageSettingsProvider
+    ImageSettingsProvider,
+    UsuarioServiceProvider,
+    UsuarioSettingsProvider
   ]
 })
 export class AppModule {}
