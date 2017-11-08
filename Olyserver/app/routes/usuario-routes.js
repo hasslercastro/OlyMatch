@@ -30,6 +30,7 @@ app.get('/usuario/:user', function (req, res) {
                 "error": err
             });
         }
+
         res.status(200).send({
             "success": true,
             "result": even
@@ -109,3 +110,54 @@ app.post('/usuario', function (req, res) {
     });
 
 });
+
+
+app.get('/calificar/:fecha', function(req, res){
+    var fecha = req.params.fecha;
+    var fechaActual = Date.now();
+    fecha = fecha.split("-");
+    var newFecha = fecha[1]+"/"+fecha[0]+"/"+fecha[2];
+    var newDate = new Date(newFecha).getTime() + 86400000;
+
+    if(fechaActual > newDate){
+        res.status(200).send(true);
+    }
+    else{
+        res.status(200).send(false);
+    }    
+});
+
+
+app.put('/calificar/:username/:nota', function(req, res){
+    var username = req.params.username;
+    var nota = req.params.nota;
+    User.findOne({"usuario": username}, function(err, usuario){
+        if (err) {
+            return res.json({
+                "success": false,
+                "msg": "No se encontro el usuario",
+                "error": err
+            });
+        }
+    
+        else{
+    
+            usuario.comentarios.push(nota);
+            var notas = usuario.comentarios;
+            var promedio = 0;
+    
+            for (var i = 0; i < notas.length; i++) {
+                promedio = promedio + notas[i];
+            }
+    
+            promedio = promedio / notas.length;
+            usuario.calificacion = promedio;
+            usuario.save((err, usuario) => {
+                if (err) {
+                    res.status(500).send(err)
+                }
+                res.status(200).send(usuario);
+            });
+        }
+    });
+    });
