@@ -1,65 +1,4 @@
-webpackJsonp([11],{
-
-/***/ 108:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EventoServiceProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__evento_settings_evento_settings__ = __webpack_require__(200);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var EventoServiceProvider = (function () {
-    function EventoServiceProvider(http, eventoSettingsProvider) {
-        this.http = http;
-        this.eventoSettingsProvider = eventoSettingsProvider;
-        this.apiUrl = this.eventoSettingsProvider.getApiUrl();
-    }
-    EventoServiceProvider.prototype.getAllEvents = function () {
-        return this.http.get(this.apiUrl + 'evento')
-            .map(function (response) { return response.json().result; });
-    };
-    EventoServiceProvider.prototype.crearEvento = function (nombre, admin, lugar, fecha, participantes, numMaxParticipantes, hora, deporte, imagen) {
-        console.log(nombre, admin, lugar, fecha, participantes, numMaxParticipantes, hora, deporte, imagen);
-        console.log('estamos en crear evento');
-        return this.http.post(this.apiUrl + 'evento', { 'nombre': nombre,
-            'admin': admin,
-            'lugar': lugar,
-            'fecha': fecha,
-            'participantes': participantes,
-            'numMaxParticipantes': numMaxParticipantes,
-            'hora': hora,
-            'deporte': { 'nombre': deporte },
-            'imagen': imagen })
-            .map(function (response) { return response.json(); });
-    };
-    EventoServiceProvider.prototype.putParticipante = function (nombreUsuario, lugar, fecha, hora) {
-        return this.http.put(this.apiUrl + 'unirse/' + nombreUsuario + '/' + lugar + '/' + fecha + '/' + hora, {}).map(function (Response) { return Response.json().result; });
-    };
-    return EventoServiceProvider;
-}());
-EventoServiceProvider = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_3__evento_settings_evento_settings__["a" /* EventoSettingsProvider */]])
-], EventoServiceProvider);
-
-//# sourceMappingURL=evento-service.js.map
-
-/***/ }),
+webpackJsonp([12],{
 
 /***/ 136:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -67,7 +6,7 @@ EventoServiceProvider = __decorate([
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DeportePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__escenario_escenario__ = __webpack_require__(137);
 /**
@@ -110,7 +49,7 @@ var DeportePage = (function () {
 DeportePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-deporte',template:/*ion-inline-start:"/home/josh/Documentos/U.SlV/Proyecto_Integrador_1/OlyMatch/OlyMatch/src/pages/deporte/deporte.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Escoger deporte</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="contenido">\n  <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>\n    <ion-item class="formulario">\n      <ion-label class="label">¿Qué vas a jugar?</ion-label>  \n      <ion-select formControlName="deporte" [(ngModel)]="deporte">\n        <ion-option value="futbol">Fútbol</ion-option>\n        <ion-option value="baloncesto">Baloncesto</ion-option>\n        <ion-option value="tennis">Tennis</ion-option>\n        <ion-option value="karate">Karate</ion-option>\n        <ion-option value="ajedrez">Ajedrez</ion-option>\n        <ion-option value="natacion">Natación</ion-option>\n        <ion-option value="tenisDeMesa">Tenis de mesa</ion-option>\n        <ion-option value="ultimate">Ultimate</ion-option>\n        <ion-option value="micro">Micro Fútbol</ion-option>\n      </ion-select>\n    </ion-item>\n    \n    <!-->Manejo de error<-->\n    <ion-item *ngIf="myForm.get(\'deporte\').errors && myForm.get(\'deporte\').dirty">\n      <p color="danger" ion-text *ngIf="myForm.get(\'deporte\').hasError(\'required\')">El deporte es requerido</p>\n    </ion-item>\n\n    <button ion-button block type="submit" [disabled]="myForm.invalid" (click)="pasarEscenario()">Continuar</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"/home/josh/Documentos/U.SlV/Proyecto_Integrador_1/OlyMatch/OlyMatch/src/pages/deporte/deporte.html"*/,
+        selector: 'page-deporte',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/deporte/deporte.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Escoger deporte</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="contenido">\n  <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>\n    <ion-item class="formulario">\n      <ion-label class="label">¿Qué vas a jugar?</ion-label>  \n      <ion-select formControlName="deporte" [(ngModel)]="deporte">\n        <ion-option value="futbol">Fútbol</ion-option>\n        <ion-option value="baloncesto">Baloncesto</ion-option>\n        <ion-option value="tennis">Tennis</ion-option>\n        <ion-option value="karate">Karate</ion-option>\n        <ion-option value="ajedrez">Ajedrez</ion-option>\n        <ion-option value="natacion">Natación</ion-option>\n        <ion-option value="tenisDeMesa">Tenis de mesa</ion-option>\n        <ion-option value="ultimate">Ultimate</ion-option>\n        <ion-option value="micro">Micro Fútbol</ion-option>\n      </ion-select>\n    </ion-item>\n    \n    <!-->Manejo de error<-->\n    <ion-item *ngIf="myForm.get(\'deporte\').errors && myForm.get(\'deporte\').dirty">\n      <p color="danger" ion-text *ngIf="myForm.get(\'deporte\').hasError(\'required\')">El deporte es requerido</p>\n    </ion-item>\n\n    <button ion-button block type="submit" [disabled]="myForm.invalid" (click)="pasarEscenario()">Continuar</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/deporte/deporte.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */]])
 ], DeportePage);
@@ -125,7 +64,7 @@ DeportePage = __decorate([
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EscenarioPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__dia_dia__ = __webpack_require__(138);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_escenario_service_escenario_service__ = __webpack_require__(52);
@@ -179,7 +118,7 @@ var EscenarioPage = (function () {
 EscenarioPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-escenario',template:/*ion-inline-start:"/home/josh/Documentos/U.SlV/Proyecto_Integrador_1/OlyMatch/OlyMatch/src/pages/escenario/escenario.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Escoger escenario</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="contenido">\n  <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>\n    <ion-item>\n      <ion-label>¿Dónde?</ion-label>\n      <ion-select formControlName="escenario" placeholder="Seleccionar deporte" [(ngModel)]="escenario">\n        <ion-option *ngFor="let escenario of escenarios |  async" value= "{{ escenario }}"> {{ escenario }} </ion-option>\n      </ion-select>  \n    </ion-item>\n\n    <!-->Manejo de error<-->\n    <ion-item *ngIf="myForm.get(\'escenario\').errors && myForm.get(\'escenario\').dirty">\n        <p color="danger" ion-text *ngIf="myForm.get(\'escenario\').hasError(\'required\')">El escenario es requerido</p>\n    </ion-item>\n\n    <button ion-button block type="submit" [disabled]="myForm.invalid" (click)="pasarDia()">Continuar</button>\n\n  </form>\n</ion-content>\n'/*ion-inline-end:"/home/josh/Documentos/U.SlV/Proyecto_Integrador_1/OlyMatch/OlyMatch/src/pages/escenario/escenario.html"*/,
+        selector: 'page-escenario',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/escenario/escenario.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Escoger escenario</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="contenido">\n  <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>\n    <ion-item>\n      <ion-label>¿Dónde?</ion-label>\n      <ion-select formControlName="escenario" placeholder="Seleccionar deporte" [(ngModel)]="escenario">\n        <ion-option *ngFor="let escenario of escenarios |  async" value= "{{ escenario }}"> {{ escenario }} </ion-option>\n      </ion-select>  \n    </ion-item>\n\n    <!-->Manejo de error<-->\n    <ion-item *ngIf="myForm.get(\'escenario\').errors && myForm.get(\'escenario\').dirty">\n        <p color="danger" ion-text *ngIf="myForm.get(\'escenario\').hasError(\'required\')">El escenario es requerido</p>\n    </ion-item>\n\n    <button ion-button block type="submit" [disabled]="myForm.invalid" (click)="pasarDia()">Continuar</button>\n\n  </form>\n</ion-content>\n'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/escenario/escenario.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
@@ -197,7 +136,7 @@ EscenarioPage = __decorate([
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DiaPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__horario_horario__ = __webpack_require__(139);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_escenario_service_escenario_service__ = __webpack_require__(52);
@@ -270,7 +209,7 @@ var DiaPage = (function () {
 DiaPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-dia',template:/*ion-inline-start:"/home/josh/Documentos/U.SlV/Proyecto_Integrador_1/OlyMatch/OlyMatch/src/pages/dia/dia.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Escoger día</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding class="contenido">\n  <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>\n        \n    <ion-item>\n      <ion-label>¿Qué día vas a jugar?</ion-label>  \n      <ion-select formControlName="dia" placeholder="Seleccionar día" [(ngModel)]="dia">\n        <ion-option *ngFor="let fecha of fechas |  async"  value="{{ fecha }}">{{ fecha }}</ion-option>\n      </ion-select>\n    </ion-item>\n  \n    <!-->Manejo de error<-->\n    <ion-item *ngIf="myForm.get(\'dia\').errors && myForm.get(\'dia\').dirty">\n      <p color="danger" ion-text *ngIf="myForm.get(\'dia\').hasError(\'required\')">El día es requerido</p>\n    </ion-item>\n\n    <ion-item>\n      {{ myForm.get(\'dia\').value }}\n    </ion-item>\n  \n    <button ion-button block type="submit" [disabled]="myForm.invalid" (click)="pasarHorario()">Continuar</button>\n    </form>\n</ion-content>\n'/*ion-inline-end:"/home/josh/Documentos/U.SlV/Proyecto_Integrador_1/OlyMatch/OlyMatch/src/pages/dia/dia.html"*/,
+        selector: 'page-dia',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/dia/dia.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Escoger día</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding class="contenido">\n  <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>\n        \n    <ion-item>\n      <ion-label>¿Qué día vas a jugar?</ion-label>  \n      <ion-select formControlName="dia" placeholder="Seleccionar día" [(ngModel)]="dia">\n        <ion-option *ngFor="let fecha of fechas |  async"  value="{{ fecha }}">{{ fecha }}</ion-option>\n      </ion-select>\n    </ion-item>\n  \n    <!-->Manejo de error<-->\n    <ion-item *ngIf="myForm.get(\'dia\').errors && myForm.get(\'dia\').dirty">\n      <p color="danger" ion-text *ngIf="myForm.get(\'dia\').hasError(\'required\')">El día es requerido</p>\n    </ion-item>\n\n    <ion-item>\n      {{ myForm.get(\'dia\').value }}\n    </ion-item>\n  \n    <button ion-button block type="submit" [disabled]="myForm.invalid" (click)="pasarHorario()">Continuar</button>\n    </form>\n</ion-content>\n'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/dia/dia.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
@@ -288,7 +227,7 @@ DiaPage = __decorate([
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HorarioPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__participantes_participantes__ = __webpack_require__(140);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_escenario_service_escenario_service__ = __webpack_require__(52);
@@ -354,7 +293,7 @@ var HorarioPage = (function () {
 HorarioPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-horario',template:/*ion-inline-start:"/home/josh/Documentos/U.SlV/Proyecto_Integrador_1/OlyMatch/OlyMatch/src/pages/horario/horario.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Escoger horario</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="contenido">\n  <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>\n\n    \n    <ion-item>\n      <ion-label>¿A qué hora vas a jugar?</ion-label>  \n      <ion-select formControlName="horario" placeholder="Seleccionar hora" [(ngModel)]="horario">\n        <ion-option *ngFor="let hora of horas |  async"  value="{{ hora.disponibilidad.hora }}">{{ hora.disponibilidad.hora }}</ion-option>\n      </ion-select>\n    </ion-item>\n    <!-->Manejo de error<-->\n    <ion-item *ngIf="myForm.get(\'horario\').errors && myForm.get(\'horario\').dirty">\n        <p color="danger" ion-text *ngIf="myForm.get(\'horario\').hasError(\'required\')">El horario es requerido</p>\n    </ion-item>\n\n    <ion-item>\n        {{ myForm.get(\'horario\').value }}\n    </ion-item>\n\n    <button ion-button block type="submit" [disabled]="myForm.invalid" (click)="pasarParticipantes()">Continuar</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"/home/josh/Documentos/U.SlV/Proyecto_Integrador_1/OlyMatch/OlyMatch/src/pages/horario/horario.html"*/,
+        selector: 'page-horario',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/horario/horario.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Escoger horario</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="contenido">\n  <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>\n\n    \n    <ion-item>\n      <ion-label>¿A qué hora vas a jugar?</ion-label>  \n      <ion-select formControlName="horario" placeholder="Seleccionar hora" [(ngModel)]="horario">\n        <ion-option *ngFor="let hora of horas |  async"  value="{{ hora.disponibilidad.hora }}">{{ hora.disponibilidad.hora }}</ion-option>\n      </ion-select>\n    </ion-item>\n    <!-->Manejo de error<-->\n    <ion-item *ngIf="myForm.get(\'horario\').errors && myForm.get(\'horario\').dirty">\n        <p color="danger" ion-text *ngIf="myForm.get(\'horario\').hasError(\'required\')">El horario es requerido</p>\n    </ion-item>\n\n    <ion-item>\n        {{ myForm.get(\'horario\').value }}\n    </ion-item>\n\n    <button ion-button block type="submit" [disabled]="myForm.invalid" (click)="pasarParticipantes()">Continuar</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/horario/horario.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
@@ -372,7 +311,7 @@ HorarioPage = __decorate([
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ParticipantesPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__nombre_nombre__ = __webpack_require__(141);
 /**
@@ -432,7 +371,7 @@ var ParticipantesPage = (function () {
 ParticipantesPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-participantes',template:/*ion-inline-start:"/home/josh/Documentos/U.SlV/Proyecto_Integrador_1/OlyMatch/OlyMatch/src/pages/participantes/participantes.html"*/'<ion-header>\n    <ion-navbar>\n      <ion-title>Escoger número de participantes</ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content padding class="contenido">\n    <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>\n   \n      <ion-item>\n        <ion-input formControlName="participantes" type="text" placeholder="Participantes" [(ngModel)]="participantes"></ion-input>\n      </ion-item>\n  \n      <!-->Manejo de error<-->\n      <ion-item *ngIf="myForm.get(\'participantes\').errors && myForm.get(\'participantes\').dirty">\n        <p color="danger" ion-text *ngIf="myForm.get(\'participantes\').hasError(\'required\')">El número de participantes es requerido</p>\n        <p color="danger" ion-text *ngIf="myForm.get(\'participantes\').hasError(\'pattern\')">No es un número pendejo dxdxdxdx</p>\n      </ion-item>\n  \n      <ion-item>\n          {{ myForm.get(\'participantes\').value }}\n      </ion-item>\n  \n      <button ion-button block type="submit" [disabled]="myForm.invalid" (click)="pasarNombre()">Continuar</button>\n  \n    </form>\n  </ion-content>'/*ion-inline-end:"/home/josh/Documentos/U.SlV/Proyecto_Integrador_1/OlyMatch/OlyMatch/src/pages/participantes/participantes.html"*/,
+        selector: 'page-participantes',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/participantes/participantes.html"*/'<ion-header>\n    <ion-navbar>\n      <ion-title>Escoger número de participantes</ion-title>\n    </ion-navbar>\n  </ion-header>\n  \n  <ion-content padding class="contenido">\n    <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>\n   \n      <ion-item>\n        <ion-input formControlName="participantes" type="text" placeholder="Participantes" [(ngModel)]="participantes"></ion-input>\n      </ion-item>\n  \n      <!-->Manejo de error<-->\n      <ion-item *ngIf="myForm.get(\'participantes\').errors && myForm.get(\'participantes\').dirty">\n        <p color="danger" ion-text *ngIf="myForm.get(\'participantes\').hasError(\'required\')">El número de participantes es requerido</p>\n        <p color="danger" ion-text *ngIf="myForm.get(\'participantes\').hasError(\'pattern\')">No es un número pendejo dxdxdxdx</p>\n      </ion-item>\n  \n      <ion-item>\n          {{ myForm.get(\'participantes\').value }}\n      </ion-item>\n  \n      <button ion-button block type="submit" [disabled]="myForm.invalid" (click)="pasarNombre()">Continuar</button>\n  \n    </form>\n  </ion-content>'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/participantes/participantes.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */]])
 ], ParticipantesPage);
@@ -447,11 +386,11 @@ ParticipantesPage = __decorate([
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NombrePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__evento_evento__ = __webpack_require__(70);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_escenario_service_escenario_service__ = __webpack_require__(52);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_evento_service_evento_service__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_evento_service_evento_service__ = __webpack_require__(71);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -532,7 +471,7 @@ var NombrePage = (function () {
 NombrePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-nombre',template:/*ion-inline-start:"/home/josh/Documentos/U.SlV/Proyecto_Integrador_1/OlyMatch/OlyMatch/src/pages/nombre/nombre.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Nombra al evento</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding class="contenido">\n  <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>\n    <ion-item>\n      <ion-input formControlName="nombre" type="text" placeholder="Nombre del evento" [(ngModel)]="nombre"></ion-input>\n    </ion-item>\n\n    <!-->Manejo de error<-->\n    <ion-item *ngIf="myForm.get(\'nombre\').errors && myForm.get(\'nombre\').dirty">\n      <p color="danger" ion-text *ngIf="myForm.get(\'nombre\').hasError(\'required\')">Nombre es requerido</p>\n    </ion-item>\n\n    <ion-item>\n        <button ion-button block type="submit" [disabled]="myForm.invalid" (click)="volverEvento()">Finalizar</button>\n    </ion-item>\n\n    \n  </form>\n</ion-content>\n'/*ion-inline-end:"/home/josh/Documentos/U.SlV/Proyecto_Integrador_1/OlyMatch/OlyMatch/src/pages/nombre/nombre.html"*/,
+        selector: 'page-nombre',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/nombre/nombre.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Nombra al evento</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding class="contenido">\n  <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>\n    <ion-item>\n      <ion-input formControlName="nombre" type="text" placeholder="Nombre del evento" [(ngModel)]="nombre"></ion-input>\n    </ion-item>\n\n    <!-->Manejo de error<-->\n    <ion-item *ngIf="myForm.get(\'nombre\').errors && myForm.get(\'nombre\').dirty">\n      <p color="danger" ion-text *ngIf="myForm.get(\'nombre\').hasError(\'required\')">Nombre es requerido</p>\n    </ion-item>\n\n    <ion-item>\n        <button ion-button block type="submit" [disabled]="myForm.invalid" (click)="volverEvento()">Finalizar</button>\n    </ion-item>\n\n    \n  </form>\n</ion-content>\n'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/nombre/nombre.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
@@ -549,9 +488,78 @@ NombrePage = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InformacionPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_evento_service_evento_service__ = __webpack_require__(71);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var InformacionPage = (function () {
+    function InformacionPage(navCtrl, navParams, eventoServiceProvider) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.eventoServiceProvider = eventoServiceProvider;
+        this.nombreUsuario = '';
+        this.deporte = '';
+        this.escenario = '';
+        this.dia = '';
+        this.horario = '';
+        this.participantes = '';
+        this.nombre = '';
+        this.integrantes = '';
+        this.nombreUsuario = navParams.get('nombreUsuario');
+        this.deporte = navParams.get('deporte');
+        this.escenario = navParams.get('escenario');
+        this.dia = navParams.get('dia');
+        this.horario = navParams.get('horario');
+        this.participantes = navParams.get('participantes');
+        this.nombre = navParams.get('nombre');
+        this.integrantes = navParams.get('integrantes');
+    }
+    InformacionPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad InformacionPage');
+    };
+    InformacionPage.prototype.unirParticipante = function (lugar, fecha, hora) {
+        // console.log("unir", this.nombreUsuario,lugar,fecha,hora);
+        console.log('PARAMETROS');
+        console.log(lugar, fecha, hora);
+        console.log('this');
+        console.log(this.nombreUsuario, this.escenario, this.dia, this.horario);
+        return this.eventoServiceProvider.putParticipante(this.nombreUsuario, this.escenario, this.dia, this.horario).subscribe();
+    };
+    return InformacionPage;
+}());
+InformacionPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-informacion',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/informacion/informacion.html"*/'<ion-header class="header">\n  <ion-navbar class="navbar">\n    <ion-title class="titulo">\n      Información\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="contenido">\n\n  <ion-list class="lista">\n    <!-- <ion-item *ngFor="let event of eventos |  async" class="contenido"> -->\n      <ion-card class="card">\n        <!-- <img src=\'{{ event.imagen }}\' /> -->\n        <ion-card-content>\n          <ion-card-title text-center>\n            <h1>\n              {{ nombre }}\n            </h1>\n          </ion-card-title>\n          <h2>\n            <ion-icon name="football" class="balon"></ion-icon> {{ deporte }}\n          </h2>\n          <h2>\n            <ion-icon name="calendar" class="calendario"></ion-icon> {{ dia }}\n          </h2>\n          <h2>\n            <ion-icon name="time" class="reloj"></ion-icon> {{ horario }}\n          </h2>\n          <h2>\n            <ion-icon name="locate" class="ubicacion"></ion-icon> {{ escenario }} \n          </h2>\n          <h2>\n            <ion-icon name="clipboard" class="planilla"></ion-icon> {{ participantes }}\n          </h2>\n          <h2>\n              <ion-icon name="clipboard" class="planilla"></ion-icon> {{ integrantes }}\n            </h2>\n\n          <!-- Hasta acá funcionaba el botón de unirse -->\n          <button ion-button full small color="secondaryb" (click)="unirParticipante(escenario,dia, horario)">Unirse</button>\n         \n        </ion-card-content>\n      </ion-card>\n    <!-- </ion-item> -->\n  </ion-list>\n</ion-content>'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/informacion/informacion.html"*/,
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_2__providers_evento_service_evento_service__["a" /* EventoServiceProvider */]])
+], InformacionPage);
+
+//# sourceMappingURL=informacion.js.map
+
+/***/ }),
+
+/***/ 143:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AcercaPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -582,7 +590,7 @@ var AcercaPage = (function () {
 AcercaPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-acerca',template:/*ion-inline-start:"/home/josh/Documentos/U.SlV/Proyecto_Integrador_1/OlyMatch/OlyMatch/src/pages/acerca/acerca.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Acerca de...</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<!-- <ion-content padding class="contenido"> -->\n  <ion-content class="list-avatar-page">\n    <ion-list>\n\n      <ion-list-header>Desarrolladores</ion-list-header>\n\n      <ion-item>\n        <ion-avatar item-start>\n          <img src="assets/img/crocker.png">\n        </ion-avatar>\n        <h2>Villa</h2>\n        <p>front-end</p>\n        <ion-note item-end>¡Melo!</ion-note>\n      </ion-item>\n\n      <ion-item>\n        <ion-avatar item-start>\n          <img src="assets/img/cj.png">\n        </ion-avatar>\n        <h2>Hass</h2>\n        <p>black-end</p>\n        <ion-note item-end>¡Hey no jodás!</ion-note>\n      </ion-item>\n\n      <ion-item>\n        <ion-avatar item-start>\n          <img src="assets/img/linux.png">\n        </ion-avatar>\n        <h2>Josh</h2>\n        <p>back-end</p>\n        <ion-note item-end>Vavava!</ion-note>\n      </ion-item>\n\n      <ion-item>\n        <ion-avatar item-start>\n          <img src="assets/img/castor.png">\n        </ion-avatar>\n        <h2>Edwin</h2>\n        <p>back-end</p>\n        <ion-note item-end>¡Máquinola!</ion-note>\n      </ion-item>\n\n    </ion-list>\n  </ion-content>\n<!-- </ion-content> -->'/*ion-inline-end:"/home/josh/Documentos/U.SlV/Proyecto_Integrador_1/OlyMatch/OlyMatch/src/pages/acerca/acerca.html"*/,
+        selector: 'page-acerca',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/acerca/acerca.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Acerca de...</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<!-- <ion-content padding class="contenido"> -->\n  <ion-content class="list-avatar-page">\n    <ion-list>\n\n      <ion-list-header>Desarrolladores</ion-list-header>\n\n      <ion-item>\n        <ion-avatar item-start>\n          <img src="assets/img/crocker.png">\n        </ion-avatar>\n        <h2>Villa</h2>\n        <p>front-end</p>\n        <ion-note item-end>¡Melo!</ion-note>\n      </ion-item>\n\n      <ion-item>\n        <ion-avatar item-start>\n          <img src="assets/img/cj.png">\n        </ion-avatar>\n        <h2>Hass</h2>\n        <p>black-end</p>\n        <ion-note item-end>¡Hey no jodás!</ion-note>\n      </ion-item>\n\n      <ion-item>\n        <ion-avatar item-start>\n          <img src="assets/img/linux.png">\n        </ion-avatar>\n        <h2>Josh</h2>\n        <p>back-end</p>\n        <ion-note item-end>Vavava!</ion-note>\n      </ion-item>\n\n      <ion-item>\n        <ion-avatar item-start>\n          <img src="assets/img/castor.png">\n        </ion-avatar>\n        <h2>Edwin</h2>\n        <p>back-end</p>\n        <ion-note item-end>¡Máquinola!</ion-note>\n      </ion-item>\n\n    </ion-list>\n  </ion-content>\n<!-- </ion-content> -->'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/acerca/acerca.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
 ], AcercaPage);
@@ -591,14 +599,14 @@ AcercaPage = __decorate([
 
 /***/ }),
 
-/***/ 143:
+/***/ 144:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ConfiguracionPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__acerca_acerca__ = __webpack_require__(142);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__acerca_acerca__ = __webpack_require__(143);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -632,7 +640,7 @@ var ConfiguracionPage = (function () {
 ConfiguracionPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-configuracion',template:/*ion-inline-start:"/home/josh/Documentos/U.SlV/Proyecto_Integrador_1/OlyMatch/OlyMatch/src/pages/configuracion/configuracion.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Configuración</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="contenido">\n  <ion-content>\n    <ion-list no-border>\n\n      <ion-list-header>\n        Acerca de...\n      </ion-list-header>\n\n      <ion-item>\n        <ion-icon name=\'information-circle\' item-start class="acerca"></ion-icon>\n        <ion-note item-end>\n          <button ion-button full small color="secondaryg" (click)="pasarAcerca()">\n            ¿Quiénes somos?\n          </button>\n        </ion-note>\n      </ion-item>\n\n      <ion-list-header>\n        Salir\n      </ion-list-header>\n\n      <ion-item>\n        <ion-icon name=\'walk\' item-start class="salir"></ion-icon>\n        <ion-note item-end>\n          <button ion-button full small color="danger" (click)="salir()">\n            ¡Vuelve pronto!\n          </button>\n        </ion-note>\n      </ion-item>\n    </ion-list>\n  </ion-content>\n</ion-content>'/*ion-inline-end:"/home/josh/Documentos/U.SlV/Proyecto_Integrador_1/OlyMatch/OlyMatch/src/pages/configuracion/configuracion.html"*/,
+        selector: 'page-configuracion',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/configuracion/configuracion.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Configuración</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="contenido">\n  <ion-content>\n    <ion-list no-border>\n\n      <ion-list-header>\n        Acerca de...\n      </ion-list-header>\n\n      <ion-item>\n        <ion-icon name=\'information-circle\' item-start class="acerca"></ion-icon>\n        <ion-note item-end>\n          <button ion-button full small color="secondaryg" (click)="pasarAcerca()">\n            ¿Quiénes somos?\n          </button>\n        </ion-note>\n      </ion-item>\n\n      <ion-list-header>\n        Salir\n      </ion-list-header>\n\n      <ion-item>\n        <ion-icon name=\'walk\' item-start class="salir"></ion-icon>\n        <ion-note item-end>\n          <button ion-button full small color="danger" (click)="salir()">\n            ¡Vuelve pronto!\n          </button>\n        </ion-note>\n      </ion-item>\n    </ion-list>\n  </ion-content>\n</ion-content>'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/configuracion/configuracion.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
@@ -643,16 +651,16 @@ ConfiguracionPage = __decorate([
 
 /***/ }),
 
-/***/ 144:
+/***/ 145:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FormularioPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_login_service_login_service__ = __webpack_require__(71);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ingreso_ingreso__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_login_service_login_service__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ingreso_ingreso__ = __webpack_require__(83);
 /**
  * En esta clase se hace el formulario para la suscripción de un nuevo usuario
  */
@@ -716,7 +724,7 @@ var FormularioPage = (function () {
 FormularioPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-formulario',template:/*ion-inline-start:"/home/josh/Documentos/U.SlV/Proyecto_Integrador_1/OlyMatch/OlyMatch/src/pages/formulario/formulario.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Formulario</ion-title>\n  </ion-navbar>\n</ion-header>\n\n  <ion-content padding>\n    <!-->Solicita toda la información<-->\n    <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>\n      <ion-slides pager>\n\n        <!-->Slide de bienvenida<-->\n        <ion-slide>\n          <h2>Bienvenido a OlyMatch</h2>\n          <img src="../assets/img/logo_nue.png">\n        </ion-slide>\n          \n        <!-->Slide de nombre, primerApellido y segundoApellido<-->\n        <ion-slide>\n          <h2>Información personal</h2>\n          <ion-list>\n                  \n            <ion-item>\n              <ion-input formControlName="nombre" type="text" placeholder="Nombre" [(ngModel)]="nombre" ></ion-input>\n            </ion-item>\n                \n            <!-->Manejo de error<-->\n            <ion-item *ngIf="myForm.get(\'nombre\').errors && myForm.get(\'nombre\').dirty">\n              <p color="danger" ion-text *ngIf="myForm.get(\'nombre\').hasError(\'required\')">Nombre es requerido</p>\n            </ion-item>\n\n            <ion-item>\n              <ion-input formControlName="primerApellido" type="text" placeholder="Primer apellido" [(ngModel)]="primerApellido"></ion-input>\n            </ion-item>\n\n            <!-->Manejo de error<-->\n            <ion-item *ngIf="myForm.get(\'primerApellido\').errors && myForm.get(\'primerApellido\').dirty">\n              <p color="danger" ion-text *ngIf="myForm.get(\'primerApellido\').hasError(\'required\')">Primer apellido es requerido</p>\n            </ion-item>\n\n          </ion-list>\n        </ion-slide>\n        \n        <!-->Slide de email, contrasena y confirmarContrasena<-->\n        <ion-slide>\n          <h2>Validar información</h2>\n          <ion-list>\n            <ion-item>\n              <ion-input formControlName="user" type="text" placeholder="Nombre de usuario" [(ngModel)]="user"></ion-input>\n            </ion-item>\n\n            <!-->Manejo de error<-->\n            <ion-item *ngIf="myForm.get(\'user\').errors && myForm.get(\'user\').dirty">\n              <p color="danger" ion-text *ngIf="myForm.get(\'user\').hasError(\'required\')">Nombre de usuario es requerido</p>\n            </ion-item>\n\n\n            <ion-item>\n              <ion-input formControlName="codigo" type="text" placeholder="Codigo" [(ngModel)]="codigo"></ion-input>\n            </ion-item>\n\n            <!-->Manejo de error<-->\n            <ion-item *ngIf="myForm.get(\'codigo\').errors && myForm.get(\'codigo\').dirty">\n              <p color="danger" ion-text *ngIf="myForm.get(\'codigo\').hasError(\'required\')">Codigo es requerida</p>\n            </ion-item>\n\n            <ion-item>\n              <ion-input formControlName="contrasena" type="password" placeholder="Contraseña" [(ngModel)]="contrasena"></ion-input>\n            </ion-item>\n\n            <!-->Manejo de error<-->\n            <ion-item *ngIf="myForm.get(\'contrasena\').errors && myForm.get(\'contrasena\').dirty">\n              <p color="danger" ion-text *ngIf="myForm.get(\'contrasena\').hasError(\'required\')">Contraseña es requerida</p>\n            </ion-item>\n\n            <ion-item>\n              <ion-input formControlName="confirmarContrasena" type="password" placeholder="Confirmar contraseña"></ion-input>\n            </ion-item>\n\n            <!-->Manejo de error<-->\n            <ion-item *ngIf="myForm.get(\'confirmarContrasena\').errors && myForm.get(\'confirmarContrasena\').dirty">\n              <p color="danger" ion-text *ngIf="myForm.get(\'confirmarContrasena\').hasError(\'required\')">Contraseña es requerida</p>\n            </ion-item>\n\n            <ion-item>\n              <button ion-button block type="submit" [disabled]="myForm.invalid" (click)="volver()">¡Únete al juego!</button>\n            </ion-item>\n          </ion-list>\n        </ion-slide>\n      </ion-slides>\n    </form>\n  </ion-content>\n\n'/*ion-inline-end:"/home/josh/Documentos/U.SlV/Proyecto_Integrador_1/OlyMatch/OlyMatch/src/pages/formulario/formulario.html"*/,
+        selector: 'page-formulario',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/formulario/formulario.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Formulario</ion-title>\n  </ion-navbar>\n</ion-header>\n\n  <ion-content padding>\n    <!-->Solicita toda la información<-->\n    <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>\n      <ion-slides pager>\n\n        <!-->Slide de bienvenida<-->\n        <ion-slide>\n          <h2>Bienvenido a OlyMatch</h2>\n          <img src="../assets/img/logo_nue.png">\n        </ion-slide>\n          \n        <!-->Slide de nombre, primerApellido y segundoApellido<-->\n        <ion-slide>\n          <h2>Información personal</h2>\n          <ion-list>\n                  \n            <ion-item>\n              <ion-input formControlName="nombre" type="text" placeholder="Nombre" [(ngModel)]="nombre" ></ion-input>\n            </ion-item>\n                \n            <!-->Manejo de error<-->\n            <ion-item *ngIf="myForm.get(\'nombre\').errors && myForm.get(\'nombre\').dirty">\n              <p color="danger" ion-text *ngIf="myForm.get(\'nombre\').hasError(\'required\')">Nombre es requerido</p>\n            </ion-item>\n\n            <ion-item>\n              <ion-input formControlName="primerApellido" type="text" placeholder="Primer apellido" [(ngModel)]="primerApellido"></ion-input>\n            </ion-item>\n\n            <!-->Manejo de error<-->\n            <ion-item *ngIf="myForm.get(\'primerApellido\').errors && myForm.get(\'primerApellido\').dirty">\n              <p color="danger" ion-text *ngIf="myForm.get(\'primerApellido\').hasError(\'required\')">Primer apellido es requerido</p>\n            </ion-item>\n\n          </ion-list>\n        </ion-slide>\n        \n        <!-->Slide de email, contrasena y confirmarContrasena<-->\n        <ion-slide>\n          <h2>Validar información</h2>\n          <ion-list>\n            <ion-item>\n              <ion-input formControlName="user" type="text" placeholder="Nombre de usuario" [(ngModel)]="user"></ion-input>\n            </ion-item>\n\n            <!-->Manejo de error<-->\n            <ion-item *ngIf="myForm.get(\'user\').errors && myForm.get(\'user\').dirty">\n              <p color="danger" ion-text *ngIf="myForm.get(\'user\').hasError(\'required\')">Nombre de usuario es requerido</p>\n            </ion-item>\n\n\n            <ion-item>\n              <ion-input formControlName="codigo" type="text" placeholder="Codigo" [(ngModel)]="codigo"></ion-input>\n            </ion-item>\n\n            <!-->Manejo de error<-->\n            <ion-item *ngIf="myForm.get(\'codigo\').errors && myForm.get(\'codigo\').dirty">\n              <p color="danger" ion-text *ngIf="myForm.get(\'codigo\').hasError(\'required\')">Codigo es requerida</p>\n            </ion-item>\n\n            <ion-item>\n              <ion-input formControlName="contrasena" type="password" placeholder="Contraseña" [(ngModel)]="contrasena"></ion-input>\n            </ion-item>\n\n            <!-->Manejo de error<-->\n            <ion-item *ngIf="myForm.get(\'contrasena\').errors && myForm.get(\'contrasena\').dirty">\n              <p color="danger" ion-text *ngIf="myForm.get(\'contrasena\').hasError(\'required\')">Contraseña es requerida</p>\n            </ion-item>\n\n            <ion-item>\n              <ion-input formControlName="confirmarContrasena" type="password" placeholder="Confirmar contraseña"></ion-input>\n            </ion-item>\n\n            <!-->Manejo de error<-->\n            <ion-item *ngIf="myForm.get(\'confirmarContrasena\').errors && myForm.get(\'confirmarContrasena\').dirty">\n              <p color="danger" ion-text *ngIf="myForm.get(\'confirmarContrasena\').hasError(\'required\')">Contraseña es requerida</p>\n            </ion-item>\n\n            <ion-item>\n              <button ion-button block type="submit" [disabled]="myForm.invalid" (click)="volver()">¡Únete al juego!</button>\n            </ion-item>\n          </ion-list>\n        </ion-slide>\n      </ion-slides>\n    </form>\n  </ion-content>\n\n'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/formulario/formulario.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */],
@@ -728,7 +736,7 @@ FormularioPage = __decorate([
 
 /***/ }),
 
-/***/ 155:
+/***/ 156:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -741,56 +749,60 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 155;
+webpackEmptyAsyncContext.id = 156;
 
 /***/ }),
 
-/***/ 198:
+/***/ 199:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"../pages/acerca/acerca.module": [
-		730,
-		10
+		732,
+		11
 	],
 	"../pages/configuracion/configuracion.module": [
+		733,
+		10
+	],
+	"../pages/deporte/deporte.module": [
 		731,
 		9
 	],
-	"../pages/deporte/deporte.module": [
+	"../pages/dia/dia.module": [
 		729,
 		8
 	],
-	"../pages/dia/dia.module": [
-		727,
+	"../pages/escenario/escenario.module": [
+		730,
 		7
 	],
-	"../pages/escenario/escenario.module": [
-		728,
+	"../pages/formulario/formulario.module": [
+		734,
 		6
 	],
-	"../pages/formulario/formulario.module": [
-		732,
+	"../pages/horario/horario.module": [
+		728,
 		5
 	],
-	"../pages/horario/horario.module": [
-		726,
+	"../pages/informacion/informacion.module": [
+		725,
 		4
 	],
 	"../pages/ingreso/ingreso.module": [
-		733,
+		735,
 		3
 	],
 	"../pages/momento/momento.module": [
-		723,
+		724,
 		2
 	],
 	"../pages/nombre/nombre.module": [
-		724,
+		726,
 		1
 	],
 	"../pages/participantes/participantes.module": [
-		725,
+		727,
 		0
 	]
 };
@@ -805,12 +817,12 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 198;
+webpackAsyncContext.id = 199;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 199:
+/***/ 200:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -830,7 +842,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var CONFIG = {
-    apiUrl: 'http://10.161.48.43:8080/'
+    apiUrl: 'http://localhost:8080/'
 };
 var EscenarioSettingsProvider = (function () {
     function EscenarioSettingsProvider() {
@@ -849,7 +861,7 @@ EscenarioSettingsProvider = __decorate([
 
 /***/ }),
 
-/***/ 200:
+/***/ 201:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -866,7 +878,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 var CONFIG = {
-    apiUrl: 'http://10.161.48.43:8080/'
+    apiUrl: 'http://localhost:8080/'
 };
 var EventoSettingsProvider = (function () {
     function EventoSettingsProvider() {
@@ -885,7 +897,7 @@ EventoSettingsProvider = __decorate([
 
 /***/ }),
 
-/***/ 201:
+/***/ 202:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -902,7 +914,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 var CONFIG = {
-    apiUrl: 'http://10.161.48.43:8080/'
+    apiUrl: 'http://localhost:8080/'
 };
 var LoginSettingsProvider = (function () {
     function LoginSettingsProvider() {
@@ -921,16 +933,16 @@ LoginSettingsProvider = __decorate([
 
 /***/ }),
 
-/***/ 202:
+/***/ 203:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__evento_evento__ = __webpack_require__(70);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__perfil_perfil__ = __webpack_require__(203);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__inicio_inicio__ = __webpack_require__(361);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__perfil_perfil__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__inicio_inicio__ = __webpack_require__(362);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -960,7 +972,7 @@ var TabsPage = (function () {
     return TabsPage;
 }());
 TabsPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/home/josh/Documentos/U.SlV/Proyecto_Integrador_1/OlyMatch/OlyMatch/src/pages/tabs/tabs.html"*/'<ion-tabs selectedIndex="1">\n  <ion-tab [root]="tab1Root" tabTitle="Evento" tabIcon="people"></ion-tab>\n  <ion-tab [root]="tab2Root" [rootParams]="nombreUsuario" tabTitle="Inicio" tabIcon="bonfire"></ion-tab>\n  <ion-tab [root]="tab3Root" [rootParams]="nombreUsuario" tabTitle="Perfil" tabIcon="contact"></ion-tab>\n</ion-tabs>\n'/*ion-inline-end:"/home/josh/Documentos/U.SlV/Proyecto_Integrador_1/OlyMatch/OlyMatch/src/pages/tabs/tabs.html"*/
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/tabs/tabs.html"*/'<ion-tabs selectedIndex="1">\n  <ion-tab [root]="tab1Root" tabTitle="Evento" tabIcon="people"></ion-tab>\n  <ion-tab [root]="tab2Root" [rootParams]="nombreUsuario" tabTitle="Inicio" tabIcon="bonfire"></ion-tab>\n  <ion-tab [root]="tab3Root" [rootParams]="nombreUsuario" tabTitle="Perfil" tabIcon="contact"></ion-tab>\n</ion-tabs>\n'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/tabs/tabs.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
 ], TabsPage);
@@ -969,17 +981,17 @@ TabsPage = __decorate([
 
 /***/ }),
 
-/***/ 203:
+/***/ 204:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PerfilPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_login_service_login_service__ = __webpack_require__(71);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__configuracion_configuracion__ = __webpack_require__(143);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_native__ = __webpack_require__(431);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_image_service_image_service__ = __webpack_require__(359);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_login_service_login_service__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__configuracion_configuracion__ = __webpack_require__(144);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_native__ = __webpack_require__(432);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_image_service_image_service__ = __webpack_require__(360);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1038,7 +1050,7 @@ var PerfilPage = (function () {
 }());
 PerfilPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-perfil',template:/*ion-inline-start:"/home/josh/Documentos/U.SlV/Proyecto_Integrador_1/OlyMatch/OlyMatch/src/pages/perfil/perfil.html"*/'<ion-header>\n  <ion-navbar>\n    <img src="assets/img/logo_eafit_blanco.png" class="logo_navbar">\n    <ion-title>Perfil</ion-title>\n    <ion-buttons right large>\n      <button ion-button (click)="pasarConfiguracion()">\n        <ion-icon name="more">\n        </ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>       \n\n<ion-content class="contenido">\n\n    <ion-content padding>\n        <div class="gallery-button" text-center>\n          <img [src]="imageSrc" />    \n        \n          <button ion-button (click)="openGallery()">\n            Click me!\n          </button>\n      \n        <p>Choose a Photo</p>  \n      </div>\n      </ion-content>\n\n  <ion-list>\n\n    <ion-card>\n      <ion-card-content>\n        <ion-card-title text-center>\n          <h1>\n            {{ usuario }}\n          </h1>\n        </ion-card-title>\n      </ion-card-content>\n    </ion-card>\n\n  </ion-list>\n</ion-content>'/*ion-inline-end:"/home/josh/Documentos/U.SlV/Proyecto_Integrador_1/OlyMatch/OlyMatch/src/pages/perfil/perfil.html"*/
+        selector: 'page-perfil',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/perfil/perfil.html"*/'<ion-header>\n  <ion-navbar>\n    <img src="assets/img/logo_eafit_blanco.png" class="logo_navbar">\n    <ion-title>Perfil</ion-title>\n    <ion-buttons right large>\n      <button ion-button (click)="pasarConfiguracion()">\n        <ion-icon name="more">\n        </ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>       \n\n<ion-content class="contenido">\n\n    <ion-content padding>\n        <div class="gallery-button" text-center>\n          <img [src]="imageSrc" />    \n        \n          <button ion-button (click)="openGallery()">\n            Click me!\n          </button>\n      \n        <p>Choose a Photo</p>  \n      </div>\n      </ion-content>\n\n  <ion-list>\n\n    <ion-card>\n      <ion-card-content>\n        <ion-card-title text-center>\n          <h1>\n            {{ usuario }}\n          </h1>\n        </ion-card-title>\n      </ion-card-content>\n    </ion-card>\n\n  </ion-list>\n</ion-content>'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/perfil/perfil.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
@@ -1050,7 +1062,7 @@ PerfilPage = __decorate([
 
 /***/ }),
 
-/***/ 359:
+/***/ 360:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1059,7 +1071,7 @@ PerfilPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(53);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__image_settings_image_settings__ = __webpack_require__(360);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__image_settings_image_settings__ = __webpack_require__(361);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1096,7 +1108,7 @@ ImageServiceProvider = __decorate([
 
 /***/ }),
 
-/***/ 360:
+/***/ 361:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1113,7 +1125,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 var CONFIG = {
-    apiUrl: 'http://10.161.48.43:8080/'
+    apiUrl: 'http://localhost:8080/'
 };
 var ImageSettingsProvider = (function () {
     function ImageSettingsProvider() {
@@ -1132,14 +1144,15 @@ ImageSettingsProvider = __decorate([
 
 /***/ }),
 
-/***/ 361:
+/***/ 362:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InicioPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_evento_service_evento_service__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_evento_service_evento_service__ = __webpack_require__(71);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__informacion_informacion__ = __webpack_require__(142);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1152,19 +1165,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var InicioPage = (function () {
     function InicioPage(navCtrl, navParams, eventService) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.eventService = eventService;
-        //Villa lo necesita
         this.nombreUsuario = '';
         this.deporte = '';
         this.escenario = '';
         this.dia = '';
         this.horario = '';
-        this.participantes = '';
+        this.participantes = ''; //Número de participantes
         this.nombre = '';
+        this.integrantes = ''; //Personas
         this.nombreUsuario = navParams.data;
         this.loadEventos();
         //Variables que recibimos
@@ -1179,10 +1193,23 @@ var InicioPage = (function () {
     InicioPage.prototype.loadEventos = function () {
         return this.eventos = this.eventService.getAllEvents();
     };
-    InicioPage.prototype.unirParticipante = function (lugar, fecha, hora) {
-        console.log("unir", this.nombreUsuario, lugar, fecha, hora);
-        return this.eventService.putParticipante(this.nombreUsuario, lugar, fecha, hora).subscribe();
+    InicioPage.prototype.pasarInformacion = function (nombreUsuarioEvento, deporteEvento, escenarioEvento, diaEvento, horarioEvento, participantesEvento, integrantesEvento, nombreEvento) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__informacion_informacion__["a" /* InformacionPage */], { nombreUsuario: this.nombreUsuario,
+            deporte: deporteEvento,
+            escenario: escenarioEvento,
+            dia: diaEvento,
+            horario: horarioEvento,
+            participantes: participantesEvento,
+            nombre: nombreEvento,
+            integrantes: integrantesEvento });
     };
+    /**
+     * @method Unirse a evento desde el apartado inicio -> Desde acá funcionaba.
+     */
+    // unirParticipante(lugar, fecha, hora){
+    //   console.log("unir", this.nombreUsuario,lugar,fecha,hora);
+    //   return this.eventService.putParticipante(this.nombreUsuario, lugar, fecha, hora).subscribe();
+    // }
     InicioPage.prototype.doRefresh = function (refresher) {
         this.loadEventos();
         console.log('Begin async operation', refresher);
@@ -1195,22 +1222,23 @@ var InicioPage = (function () {
 }());
 InicioPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-inicio',template:/*ion-inline-start:"/home/josh/Documentos/U.SlV/Proyecto_Integrador_1/OlyMatch/OlyMatch/src/pages/inicio/inicio.html"*/'<ion-header class="header">\n  <ion-navbar class="navbar">\n    <img src="assets/img/logo_eafit_blanco.png" class="logo_navbar">\n    <ion-title class="titulo">\n      ¡Hora de jugar!\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="contenido">\n  <!-->Refrescar página para cargar eventos\n  <-->\n    <ion-refresher (ionRefresh)="doRefresh($event)" class="contenido">\n      <ion-refresher-content class="contenido"></ion-refresher-content>\n    </ion-refresher>\n\n    <ion-list class="lista">\n      <ion-item *ngFor="let event of eventos |  async" class="contenido">\n        <ion-card class="card">\n          <img src=\'{{ event.imagen }}\'/>\n          <ion-card-content>\n            <ion-card-title text-center>\n              <h1>\n                {{ event.nombre }}\n              </h1>\n            </ion-card-title>\n            <h2>\n              <ion-icon name="football" class="balon"></ion-icon> {{ event.deporte.nombre }}\n            </h2>\n            <h2>\n              <ion-icon name="calendar" class="calendario"></ion-icon> {{ event.fecha }}\n            </h2>\n            <h2>\n              <ion-icon name="time" class="reloj"></ion-icon> {{ event.hora }}\n            </h2>\n            <h2>\n              <ion-icon name="locate" class="ubicacion"></ion-icon> {{ event.lugar }}\n            </h2>\n            <h2>\n              <ion-icon name="clipboard" class="planilla"></ion-icon> {{ event.numMaxParticipantes }}\n            </h2>\n\n            <button ion-button full small color="secondaryb" (click)="unirParticipante(event.lugar,event.fecha, event.hora)">Unirse</button>\n            <button ion-button full small icon-start color="secondaryg">\n              <ion-icon name="information-circle"></ion-icon>\n              Información\n            </button>\n\n          </ion-card-content>\n        </ion-card>\n      </ion-item>\n    </ion-list>\n</ion-content>'/*ion-inline-end:"/home/josh/Documentos/U.SlV/Proyecto_Integrador_1/OlyMatch/OlyMatch/src/pages/inicio/inicio.html"*/
+        selector: 'page-inicio',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/inicio/inicio.html"*/'<ion-header class="header">\n  <ion-navbar class="navbar">\n    <img src="assets/img/logo_eafit_blanco.png" class="logo_navbar">\n    <ion-title class="titulo">\n      ¡Hora de jugar!\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="contenido">\n  <!-->Refrescar página para cargar eventos<-->\n    <ion-refresher (ionRefresh)="doRefresh($event)" class="contenido">\n      <ion-refresher-content class="contenido"></ion-refresher-content>\n    </ion-refresher>\n\n    <ion-list class="lista">\n      <ion-item *ngFor="let event of eventos |  async" class="contenido">\n        <ion-card class="card">\n          <img src=\'{{ event.imagen }}\'/>\n          <ion-card-content>\n            <ion-card-title text-center>\n              <h1>\n                {{ event.nombre }}\n              </h1>\n            </ion-card-title>\n            <h2>\n              <ion-icon name="football" class="balon"></ion-icon> {{ event.deporte.nombre }}\n            </h2>\n            <h2>\n              <ion-icon name="calendar" class="calendario"></ion-icon> {{ event.fecha }}\n            </h2>\n            <h2>\n              <ion-icon name="time" class="reloj"></ion-icon> {{ event.hora }}\n            </h2>\n            <h2>\n              <ion-icon name="locate" class="ubicacion"></ion-icon> {{ event.lugar }}\n            </h2>\n            <h2>\n              <ion-icon name="clipboard" class="planilla"></ion-icon> {{ event.numMaxParticipantes }}\n            </h2>\n            <h2>\n                <ion-icon name="clipboard" class="planilla"></ion-icon> {{ event.participantes }}\n              </h2>\n\n            <!-- Hasta acá funcionaba el botón de unirse -->\n            <!-- <button ion-button full small color="secondaryb" (click)="unirParticipante(event.lugar,event.fecha, event.hora)">Unirse</button> -->\n            <button ion-button full small icon-start color="secondaryg" (click)="pasarInformacion(event.admin,\n                                                                                                  event.deporte.nombre,\n                                                                                                  event.lugar,\n                                                                                                  event.fecha,\n                                                                                                  event.hora,\n                                                                                                  event.numMaxParticipantes,\n                                                                                                  event.participantes,\n                                                                                                  event.nombre\n                                                                                                  )">\n              <ion-icon name="information-circle"></ion-icon>\n              Información\n            </button>\n\n          </ion-card-content>\n        </ion-card>\n      </ion-item>\n    </ion-list>\n</ion-content>'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/inicio/inicio.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_evento_service_evento_service__["a" /* EventoServiceProvider */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_evento_service_evento_service__["a" /* EventoServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_evento_service_evento_service__["a" /* EventoServiceProvider */]) === "function" && _c || Object])
 ], InicioPage);
 
+var _a, _b, _c;
 //# sourceMappingURL=inicio.js.map
 
 /***/ }),
 
-/***/ 405:
+/***/ 406:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MomentoPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__evento_evento__ = __webpack_require__(70);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1262,7 +1290,7 @@ var MomentoPage = (function () {
 MomentoPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-momento',template:/*ion-inline-start:"/home/josh/Documentos/U.SlV/Proyecto_Integrador_1/OlyMatch/OlyMatch/src/pages/momento/momento.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Crear evento</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <h1 text-center>\n    ¡Vamos a jugar!\n  </h1>\n\n  <!-->Slides para la creación de eventos<-->\n  <ion-slides pager>\n    \n      <!-->Slide 1: Instrucciones o motivación<-->\n      <ion-slide>\n        <h2>Bienvenido a la creación de eventos</h2>\n\n        Aquí\n        van\n        las instrucciones\n        \n      </ion-slide>\n    \n      <!-->Slide 2: Deporte que se va a jugar -> (deporteEvento)<-->\n      <ion-slide>\n        <h2>¿Qué vamos a jugar?</h2>\n\n        <ion-item>\n          <ion-label>¿Qué vas a jugar?</ion-label>\n            <ion-select [(ngModel)]="deporteEvento">\n              <ion-option value="Fútbol">Fútbol</ion-option>\n              <ion-option value="Basketball">Basketball</ion-option>\n              <ion-option value="Tennis">Tennis</ion-option>\n              <ion-option value="Karate">Karate</ion-option>\n              <ion-option value="Ajedréz">Ajedrez</ion-option>\n              <ion-option value="Natación">Natación</ion-option>\n              <ion-option value="Tenis de mesa">Tenis de mesa</ion-option>\n            </ion-select>\n        </ion-item>\n\n      </ion-slide>\n\n      <!-->Slide 3: Nivel de exigencia -> (exigenciaEvento)<-->\n      <ion-slide>\n        <h2>¿Qué nivel de exigencia quieres enfrentar?</h2>\n\n        <ion-item>\n          <ion-label>Nivel de exigencia?</ion-label>\n            <ion-select [(ngModel)]="exigenciaEvento">\n              <ion-option value="Principiante">Principiante</ion-option>\n              <ion-option value="Profesional">Profesional</ion-option>\n              <ion-option value="Leyenda">Leyenda</ion-option>\n            </ion-select>\n        </ion-item>\n\n      </ion-slide>\n\n      <!-->Slide 4: Número de participantes -> (numeroParticipantesEvento)<-->\n      <ion-slide>\n        <h2>¿Cuántos van a jugar?</h2>\n\n        <!-->Va de acuerdo al deporte que se va a jugar<-->\n        <ion-item>\n          <ion-label>¿Cuántos?</ion-label>\n            <ion-select [(ngModel)]="numeroParticipantesEvento">\n              <ion-option value="1">1</ion-option>\n              <ion-option value="2">2</ion-option>\n              <ion-option value="3">3</ion-option>\n              <ion-option value="4">4</ion-option>\n              <ion-option value="5">5</ion-option>\n              <ion-option value="6">6</ion-option>\n              <ion-option value="7">7</ion-option>\n              <ion-option value="8">8</ion-option>\n              <ion-option value="9">9</ion-option>\n              <ion-option value="10">10</ion-option>\n            </ion-select>\n        </ion-item>\n\n      </ion-slide>\n\n      <!-->Slide 5: Fecha de evento -> (fechaEvento, horarioEvento)<-->\n      <ion-slide>\n        <h2>¿Cuándo vamos a jugar?</h2>\n\n        <!-->Fecha del evento<-->\n        <ion-item>\n          <ion-label>¿Cuándo?</ion-label>\n          <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="fechaEvento"></ion-datetime>\n        </ion-item>\n\n        <!-->Horario del evento<-->\n        <ion-item>\n          <ion-label>¿Hora?</ion-label>\n          <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="horarioEvento"></ion-datetime>\n        </ion-item>\n      </ion-slide>\n    \n      <!-->Slide 6: Lugar de evento -> (lugarEvento)<-->\n      <ion-slide>\n        <h2>¿Dónde vamos a jugar?</h2>\n\n        <ion-item>\n          <ion-label>¿Dónde?</ion-label>\n            <ion-select [(ngModel)]="lugarEvento">\n              <ion-option value="Placa # 1">Placa # 1</ion-option>\n              <ion-option value="Placa # 2">Placa # 2</ion-option>\n              <ion-option value="Placa # 3">Placa # 3</ion-option>\n              <ion-option value="Coliseo">Coliseo</ion-option>\n              <ion-option value="Mesa de tennis # 1">Mesa de tennis # 1</ion-option>\n              <ion-option value="Mesa de tennis # 2">Mesa de tennis # 2</ion-option>\n              <ion-option value="Mesa de tennis cemento">Mesa de tennis cemento</ion-option>\n            </ion-select>\n         </ion-item>\n\n      </ion-slide>\n\n      <!-->Slide 7: Nombre de evento -> (nombreEvento)<-->\n      <ion-slide>\n        <h2>Nombre del evento</h2>\n\n        <ion-item>\n          <ion-input placeholder="Nombre" [(ngModel)]="nombreEvento"></ion-input>\n        </ion-item>\n\n        <button ion-button block (click)="crear()">Crear evento</button>\n\n      </ion-slide>\n\n    </ion-slides>\n \n    \n  \n</ion-content>\n'/*ion-inline-end:"/home/josh/Documentos/U.SlV/Proyecto_Integrador_1/OlyMatch/OlyMatch/src/pages/momento/momento.html"*/,
+        selector: 'page-momento',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/momento/momento.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Crear evento</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <h1 text-center>\n    ¡Vamos a jugar!\n  </h1>\n\n  <!-->Slides para la creación de eventos<-->\n  <ion-slides pager>\n    \n      <!-->Slide 1: Instrucciones o motivación<-->\n      <ion-slide>\n        <h2>Bienvenido a la creación de eventos</h2>\n\n        Aquí\n        van\n        las instrucciones\n        \n      </ion-slide>\n    \n      <!-->Slide 2: Deporte que se va a jugar -> (deporteEvento)<-->\n      <ion-slide>\n        <h2>¿Qué vamos a jugar?</h2>\n\n        <ion-item>\n          <ion-label>¿Qué vas a jugar?</ion-label>\n            <ion-select [(ngModel)]="deporteEvento">\n              <ion-option value="Fútbol">Fútbol</ion-option>\n              <ion-option value="Basketball">Basketball</ion-option>\n              <ion-option value="Tennis">Tennis</ion-option>\n              <ion-option value="Karate">Karate</ion-option>\n              <ion-option value="Ajedréz">Ajedrez</ion-option>\n              <ion-option value="Natación">Natación</ion-option>\n              <ion-option value="Tenis de mesa">Tenis de mesa</ion-option>\n            </ion-select>\n        </ion-item>\n\n      </ion-slide>\n\n      <!-->Slide 3: Nivel de exigencia -> (exigenciaEvento)<-->\n      <ion-slide>\n        <h2>¿Qué nivel de exigencia quieres enfrentar?</h2>\n\n        <ion-item>\n          <ion-label>Nivel de exigencia?</ion-label>\n            <ion-select [(ngModel)]="exigenciaEvento">\n              <ion-option value="Principiante">Principiante</ion-option>\n              <ion-option value="Profesional">Profesional</ion-option>\n              <ion-option value="Leyenda">Leyenda</ion-option>\n            </ion-select>\n        </ion-item>\n\n      </ion-slide>\n\n      <!-->Slide 4: Número de participantes -> (numeroParticipantesEvento)<-->\n      <ion-slide>\n        <h2>¿Cuántos van a jugar?</h2>\n\n        <!-->Va de acuerdo al deporte que se va a jugar<-->\n        <ion-item>\n          <ion-label>¿Cuántos?</ion-label>\n            <ion-select [(ngModel)]="numeroParticipantesEvento">\n              <ion-option value="1">1</ion-option>\n              <ion-option value="2">2</ion-option>\n              <ion-option value="3">3</ion-option>\n              <ion-option value="4">4</ion-option>\n              <ion-option value="5">5</ion-option>\n              <ion-option value="6">6</ion-option>\n              <ion-option value="7">7</ion-option>\n              <ion-option value="8">8</ion-option>\n              <ion-option value="9">9</ion-option>\n              <ion-option value="10">10</ion-option>\n            </ion-select>\n        </ion-item>\n\n      </ion-slide>\n\n      <!-->Slide 5: Fecha de evento -> (fechaEvento, horarioEvento)<-->\n      <ion-slide>\n        <h2>¿Cuándo vamos a jugar?</h2>\n\n        <!-->Fecha del evento<-->\n        <ion-item>\n          <ion-label>¿Cuándo?</ion-label>\n          <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="fechaEvento"></ion-datetime>\n        </ion-item>\n\n        <!-->Horario del evento<-->\n        <ion-item>\n          <ion-label>¿Hora?</ion-label>\n          <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="horarioEvento"></ion-datetime>\n        </ion-item>\n      </ion-slide>\n    \n      <!-->Slide 6: Lugar de evento -> (lugarEvento)<-->\n      <ion-slide>\n        <h2>¿Dónde vamos a jugar?</h2>\n\n        <ion-item>\n          <ion-label>¿Dónde?</ion-label>\n            <ion-select [(ngModel)]="lugarEvento">\n              <ion-option value="Placa # 1">Placa # 1</ion-option>\n              <ion-option value="Placa # 2">Placa # 2</ion-option>\n              <ion-option value="Placa # 3">Placa # 3</ion-option>\n              <ion-option value="Coliseo">Coliseo</ion-option>\n              <ion-option value="Mesa de tennis # 1">Mesa de tennis # 1</ion-option>\n              <ion-option value="Mesa de tennis # 2">Mesa de tennis # 2</ion-option>\n              <ion-option value="Mesa de tennis cemento">Mesa de tennis cemento</ion-option>\n            </ion-select>\n         </ion-item>\n\n      </ion-slide>\n\n      <!-->Slide 7: Nombre de evento -> (nombreEvento)<-->\n      <ion-slide>\n        <h2>Nombre del evento</h2>\n\n        <ion-item>\n          <ion-input placeholder="Nombre" [(ngModel)]="nombreEvento"></ion-input>\n        </ion-item>\n\n        <button ion-button block (click)="crear()">Crear evento</button>\n\n      </ion-slide>\n\n    </ion-slides>\n \n    \n  \n</ion-content>\n'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/momento/momento.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
 ], MomentoPage);
@@ -1271,13 +1299,13 @@ MomentoPage = __decorate([
 
 /***/ }),
 
-/***/ 406:
+/***/ 407:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(407);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(411);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(408);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(412);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -1285,47 +1313,49 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 411:
+/***/ 412:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(719);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(720);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_inicio_inicio__ = __webpack_require__(361);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_perfil_perfil__ = __webpack_require__(203);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_inicio_inicio__ = __webpack_require__(362);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_perfil_perfil__ = __webpack_require__(204);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_evento_evento__ = __webpack_require__(70);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_tabs_tabs__ = __webpack_require__(202);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_momento_momento__ = __webpack_require__(405);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_ingreso_ingreso__ = __webpack_require__(82);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_formulario_formulario__ = __webpack_require__(144);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_tabs_tabs__ = __webpack_require__(203);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_momento_momento__ = __webpack_require__(406);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_ingreso_ingreso__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_formulario_formulario__ = __webpack_require__(145);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_deporte_deporte__ = __webpack_require__(136);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_escenario_escenario__ = __webpack_require__(137);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_dia_dia__ = __webpack_require__(138);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_horario_horario__ = __webpack_require__(139);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_participantes_participantes__ = __webpack_require__(140);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_nombre_nombre__ = __webpack_require__(141);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_configuracion_configuracion__ = __webpack_require__(143);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_acerca_acerca__ = __webpack_require__(142);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__ionic_native_status_bar__ = __webpack_require__(401);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__ionic_native_splash_screen__ = __webpack_require__(404);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__providers_evento_settings_evento_settings__ = __webpack_require__(200);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__providers_evento_service_evento_service__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__providers_escenario_settings_escenario_settings__ = __webpack_require__(199);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__providers_escenario_service_escenario_service__ = __webpack_require__(52);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__providers_login_settings_login_settings__ = __webpack_require__(201);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__providers_login_service_login_service__ = __webpack_require__(71);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__providers_image_service_image_service__ = __webpack_require__(359);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__providers_image_settings_image_settings__ = __webpack_require__(360);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_configuracion_configuracion__ = __webpack_require__(144);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_acerca_acerca__ = __webpack_require__(143);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_informacion_informacion__ = __webpack_require__(142);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__ionic_native_status_bar__ = __webpack_require__(402);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__ionic_native_splash_screen__ = __webpack_require__(405);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__providers_evento_settings_evento_settings__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__providers_evento_service_evento_service__ = __webpack_require__(71);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__providers_escenario_settings_escenario_settings__ = __webpack_require__(200);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__providers_escenario_service_escenario_service__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__providers_login_settings_login_settings__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__providers_login_service_login_service__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__providers_image_service_image_service__ = __webpack_require__(360);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__providers_image_settings_image_settings__ = __webpack_require__(361);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -1379,13 +1409,15 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_16__pages_participantes_participantes__["a" /* ParticipantesPage */],
             __WEBPACK_IMPORTED_MODULE_17__pages_nombre_nombre__["a" /* NombrePage */],
             __WEBPACK_IMPORTED_MODULE_18__pages_configuracion_configuracion__["a" /* ConfiguracionPage */],
-            __WEBPACK_IMPORTED_MODULE_19__pages_acerca_acerca__["a" /* AcercaPage */]
+            __WEBPACK_IMPORTED_MODULE_19__pages_acerca_acerca__["a" /* AcercaPage */],
+            __WEBPACK_IMPORTED_MODULE_20__pages_informacion_informacion__["a" /* InformacionPage */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */], {}, {
                 links: [
                     { loadChildren: '../pages/momento/momento.module#MomentoPageModule', name: 'MomentoPage', segment: 'momento', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/informacion/informacion.module#InformacionPageModule', name: 'InformacionPage', segment: 'informacion', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/nombre/nombre.module#NombrePageModule', name: 'NombrePage', segment: 'nombre', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/participantes/participantes.module#ParticipantesPageModule', name: 'ParticipantesPage', segment: 'participantes', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/horario/horario.module#HorarioPageModule', name: 'HorarioPage', segment: 'horario', priority: 'low', defaultHistory: [] },
@@ -1416,20 +1448,21 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_16__pages_participantes_participantes__["a" /* ParticipantesPage */],
             __WEBPACK_IMPORTED_MODULE_17__pages_nombre_nombre__["a" /* NombrePage */],
             __WEBPACK_IMPORTED_MODULE_18__pages_configuracion_configuracion__["a" /* ConfiguracionPage */],
-            __WEBPACK_IMPORTED_MODULE_19__pages_acerca_acerca__["a" /* AcercaPage */]
+            __WEBPACK_IMPORTED_MODULE_19__pages_acerca_acerca__["a" /* AcercaPage */],
+            __WEBPACK_IMPORTED_MODULE_20__pages_informacion_informacion__["a" /* InformacionPage */]
         ],
         providers: [
-            __WEBPACK_IMPORTED_MODULE_20__ionic_native_status_bar__["a" /* StatusBar */],
-            __WEBPACK_IMPORTED_MODULE_21__ionic_native_splash_screen__["a" /* SplashScreen */],
+            __WEBPACK_IMPORTED_MODULE_21__ionic_native_status_bar__["a" /* StatusBar */],
+            __WEBPACK_IMPORTED_MODULE_22__ionic_native_splash_screen__["a" /* SplashScreen */],
             { provide: __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicErrorHandler */] },
-            __WEBPACK_IMPORTED_MODULE_22__providers_evento_settings_evento_settings__["a" /* EventoSettingsProvider */],
-            __WEBPACK_IMPORTED_MODULE_23__providers_evento_service_evento_service__["a" /* EventoServiceProvider */],
-            __WEBPACK_IMPORTED_MODULE_24__providers_escenario_settings_escenario_settings__["a" /* EscenarioSettingsProvider */],
-            __WEBPACK_IMPORTED_MODULE_25__providers_escenario_service_escenario_service__["a" /* EscenarioServiceProvider */],
-            __WEBPACK_IMPORTED_MODULE_26__providers_login_settings_login_settings__["a" /* LoginSettingsProvider */],
-            __WEBPACK_IMPORTED_MODULE_27__providers_login_service_login_service__["a" /* LoginServiceProvider */],
-            __WEBPACK_IMPORTED_MODULE_28__providers_image_service_image_service__["a" /* ImageServiceProvider */],
-            __WEBPACK_IMPORTED_MODULE_29__providers_image_settings_image_settings__["a" /* ImageSettingsProvider */]
+            __WEBPACK_IMPORTED_MODULE_23__providers_evento_settings_evento_settings__["a" /* EventoSettingsProvider */],
+            __WEBPACK_IMPORTED_MODULE_24__providers_evento_service_evento_service__["a" /* EventoServiceProvider */],
+            __WEBPACK_IMPORTED_MODULE_25__providers_escenario_settings_escenario_settings__["a" /* EscenarioSettingsProvider */],
+            __WEBPACK_IMPORTED_MODULE_26__providers_escenario_service_escenario_service__["a" /* EscenarioServiceProvider */],
+            __WEBPACK_IMPORTED_MODULE_27__providers_login_settings_login_settings__["a" /* LoginSettingsProvider */],
+            __WEBPACK_IMPORTED_MODULE_28__providers_login_service_login_service__["a" /* LoginServiceProvider */],
+            __WEBPACK_IMPORTED_MODULE_29__providers_image_service_image_service__["a" /* ImageServiceProvider */],
+            __WEBPACK_IMPORTED_MODULE_30__providers_image_settings_image_settings__["a" /* ImageSettingsProvider */]
         ]
     })
 ], AppModule);
@@ -1447,7 +1480,7 @@ AppModule = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(53);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__escenario_settings_escenario_settings__ = __webpack_require__(199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__escenario_settings_escenario_settings__ = __webpack_require__(200);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1510,7 +1543,7 @@ EscenarioServiceProvider = __decorate([
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EventoPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__deporte_deporte__ = __webpack_require__(136);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1566,7 +1599,7 @@ var EventoPage = (function () {
 }());
 EventoPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-evento',template:/*ion-inline-start:"/home/josh/Documentos/U.SlV/Proyecto_Integrador_1/OlyMatch/OlyMatch/src/pages/evento/evento.html"*/'<ion-header>\n  <ion-navbar>\n    <img src="assets/img/logo_eafit_blanco.png" class="logo_navbar">\n    <ion-title>Evento</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="contenido">\n      <ion-fab right bottom>\n        <button ion-fab color="primary" (click)="cargarPaginaEvento()">\n            <ion-icon name="add"></ion-icon>\n        </button>\n      </ion-fab>\n</ion-content>\n'/*ion-inline-end:"/home/josh/Documentos/U.SlV/Proyecto_Integrador_1/OlyMatch/OlyMatch/src/pages/evento/evento.html"*/
+        selector: 'page-evento',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/evento/evento.html"*/'<ion-header>\n  <ion-navbar>\n    <img src="assets/img/logo_eafit_blanco.png" class="logo_navbar">\n    <ion-title>Evento</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="contenido">\n      <ion-fab right bottom>\n        <button ion-fab color="primary" (click)="cargarPaginaEvento()">\n            <ion-icon name="add"></ion-icon>\n        </button>\n      </ion-fab>\n</ion-content>\n'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/evento/evento.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
 ], EventoPage);
@@ -1579,10 +1612,71 @@ EventoPage = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EventoServiceProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__evento_settings_evento_settings__ = __webpack_require__(201);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var EventoServiceProvider = (function () {
+    function EventoServiceProvider(http, eventoSettingsProvider) {
+        this.http = http;
+        this.eventoSettingsProvider = eventoSettingsProvider;
+        this.apiUrl = this.eventoSettingsProvider.getApiUrl();
+    }
+    EventoServiceProvider.prototype.getAllEvents = function () {
+        return this.http.get(this.apiUrl + 'evento')
+            .map(function (response) { return response.json().result; });
+    };
+    EventoServiceProvider.prototype.crearEvento = function (nombre, admin, lugar, fecha, participantes, numMaxParticipantes, hora, deporte, imagen) {
+        console.log(nombre, admin, lugar, fecha, participantes, numMaxParticipantes, hora, deporte, imagen);
+        console.log('estamos en crear evento');
+        return this.http.post(this.apiUrl + 'evento', { 'nombre': nombre,
+            'admin': admin,
+            'lugar': lugar,
+            'fecha': fecha,
+            'participantes': participantes,
+            'numMaxParticipantes': numMaxParticipantes,
+            'hora': hora,
+            'deporte': { 'nombre': deporte },
+            'imagen': imagen })
+            .map(function (response) { return response.json(); });
+    };
+    EventoServiceProvider.prototype.putParticipante = function (nombreUsuario, lugar, fecha, hora) {
+        return this.http.put(this.apiUrl + 'unirse/' + nombreUsuario + '/' + lugar + '/' + fecha + '/' + hora, {}).map(function (Response) { return Response.json().result; });
+    };
+    return EventoServiceProvider;
+}());
+EventoServiceProvider = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_3__evento_settings_evento_settings__["a" /* EventoSettingsProvider */]])
+], EventoServiceProvider);
+
+//# sourceMappingURL=evento-service.js.map
+
+/***/ }),
+
+/***/ 72:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginServiceProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_settings_login_settings__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_settings_login_settings__ = __webpack_require__(202);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1641,16 +1735,16 @@ LoginServiceProvider = __decorate([
 
 /***/ }),
 
-/***/ 719:
+/***/ 720:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(401);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(404);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_ingreso_ingreso__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(402);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(405);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_ingreso_ingreso__ = __webpack_require__(83);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1679,7 +1773,7 @@ var MyApp = (function () {
     return MyApp;
 }());
 MyApp = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/home/josh/Documentos/U.SlV/Proyecto_Integrador_1/OlyMatch/OlyMatch/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/home/josh/Documentos/U.SlV/Proyecto_Integrador_1/OlyMatch/OlyMatch/src/app/app.html"*/
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/app/app.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
 ], MyApp);
@@ -1688,16 +1782,16 @@ MyApp = __decorate([
 
 /***/ }),
 
-/***/ 82:
+/***/ 83:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IngresoPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_login_service_login_service__ = __webpack_require__(71);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tabs_tabs__ = __webpack_require__(202);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__formulario_formulario__ = __webpack_require__(144);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_login_service_login_service__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tabs_tabs__ = __webpack_require__(203);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__formulario_formulario__ = __webpack_require__(145);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1759,7 +1853,7 @@ var IngresoPage = (function () {
 IngresoPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-ingreso',template:/*ion-inline-start:"/home/josh/Documentos/U.SlV/Proyecto_Integrador_1/OlyMatch/OlyMatch/src/pages/ingreso/ingreso.html"*/'<ion-header>\n  <ion-navbar>\n    <img src="assets/img/logo_eafit_blanco.png" class="logo_navbar">\n    <ion-title>Ingreso</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="contenido">\n  \n\n    <img src="assets/img/nombre.png" class="nombre">\n\n  \n  \n\n  <h3 class="slogan">\n    ¡Únete al juego!\n  </h3>\n    \n  <ion-list class="lista">\n    <ion-item no-line>\n      <ion-input type="text" placeholder="Nombre de usuario" [(ngModel)]="nombreUsuario"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-input type="password" placeholder="Contraseña" [(ngModel)]="contrasena"></ion-input>\n    </ion-item>\n\n    <h6>\n      {{ mensajeError }}\n    </h6>\n\n    <br>\n\n    <button ion-button small round full color="secondaryb" (click)="validarUsuario()">Ingresar</button>\n\n    <button ion-button small round full color="secondaryg" (click)="registrar()">Crear cuenta nueva</button>\n    \n    <button ion-button small round full color="secondaryb" (click)="iniciar()">De visita</button>\n    \n  </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/home/josh/Documentos/U.SlV/Proyecto_Integrador_1/OlyMatch/OlyMatch/src/pages/ingreso/ingreso.html"*/,
+        selector: 'page-ingreso',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/ingreso/ingreso.html"*/'<ion-header>\n  <ion-navbar>\n    <img src="assets/img/logo_eafit_blanco.png" class="logo_navbar">\n    <ion-title>Ingreso</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="contenido">\n  \n\n    <img src="assets/img/nombre.png" class="nombre">\n\n  \n  \n\n  <h3 class="slogan">\n    ¡Únete al juego!\n  </h3>\n    \n  <ion-list class="lista">\n    <ion-item no-line>\n      <ion-input type="text" placeholder="Nombre de usuario" [(ngModel)]="nombreUsuario"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-input type="password" placeholder="Contraseña" [(ngModel)]="contrasena"></ion-input>\n    </ion-item>\n\n    <h6>\n      {{ mensajeError }}\n    </h6>\n\n    <br>\n\n    <button ion-button small round full color="secondaryb" (click)="validarUsuario()">Ingresar</button>\n\n    <button ion-button small round full color="secondaryg" (click)="registrar()">Crear cuenta nueva</button>\n    \n    <button ion-button small round full color="secondaryb" (click)="iniciar()">De visita</button>\n    \n  </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/ingreso/ingreso.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
@@ -1770,5 +1864,5 @@ IngresoPage = __decorate([
 
 /***/ })
 
-},[406]);
+},[407]);
 //# sourceMappingURL=main.js.map
