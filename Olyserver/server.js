@@ -39,9 +39,10 @@ app.use(require('./app/routes/comentario-routes'));
 app.use(require('./app/routes/evento-routes'));
 app.use(require('./app/routes/escenario-routes'));
 app.use(require('./app/routes/usuario-routes'));
+app.use(require('./app/routes/imagen-routes'));
 
 
 
-http.createServer(app).listen(port, function (err) {
+http.createServer(app).listen(port,'0.0.0.0', function (err) {
     console.log('listeing in http://localhost:' + port);
 });

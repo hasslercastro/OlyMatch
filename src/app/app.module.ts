@@ -28,6 +28,8 @@ import { EscenarioSettingsProvider } from '../providers/escenario-settings/escen
 import { EscenarioServiceProvider } from '../providers/escenario-service/escenario-service';
 import { LoginSettingsProvider } from '../providers/login-settings/login-settings';
 import { LoginServiceProvider } from '../providers/login-service/login-service';
+import { ImageServiceProvider } from '../providers/image-service/image-service';
+import { ImageSettingsProvider } from '../providers/image-settings/image-settings';
 
 @NgModule({
   declarations: [
@@ -80,7 +82,9 @@ import { LoginServiceProvider } from '../providers/login-service/login-service';
     EscenarioSettingsProvider,
     EscenarioServiceProvider,
     LoginSettingsProvider,
-    LoginServiceProvider
+    LoginServiceProvider,
+    ImageServiceProvider,
+    ImageSettingsProvider
   ]
 })
 export class AppModule {}

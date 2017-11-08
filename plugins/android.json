@@ -1,0 +1,27 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "ionic-plugin-keyboard": {
+      "PACKAGE_NAME": "EAFIT.OlyMatch.ionic"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "EAFIT.OlyMatch.ionic"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "EAFIT.OlyMatch.ionic"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "EAFIT.OlyMatch.ionic"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "EAFIT.OlyMatch.ionic"
+    }
+  },
+  "dependent_plugins": {}
+}

@@ -88,6 +88,14 @@ app.post('/usuario', function (req, res) {
         nombre: req.body.nombre,
         primerApellido: req.body.primerApellido
     });
+
+    
+        bcrypt.hash(req.body.contrasena, null, null, function (err, hash) {
+            if (err) return next(err);
+            newUsuario.contrasena= hash;
+            //next();
+        });
+
     newUsuario.save(function (err) {
         if (err) {
             console.log("Some error", err);

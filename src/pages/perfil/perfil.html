@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <img src="../assets/img/logo_eafit_blanco.png" class="logo_navbar">
+    <img src="assets/img/logo_eafit_blanco.png" class="logo_navbar">
     <ion-title>Perfil</ion-title>
     <ion-buttons right large>
       <button ion-button (click)="pasarConfiguracion()">
@@ -12,6 +12,19 @@
 </ion-header>       
 
 <ion-content class="contenido">
+
+    <ion-content padding>
+        <div class="gallery-button" text-center>
+          <img [src]="imageSrc" />    
+        
+          <button ion-button (click)="openGallery()">
+            Click me!
+          </button>
+      
+        <p>Choose a Photo</p>  
+      </div>
+      </ion-content>
+
   <ion-list>
 
     <ion-card>

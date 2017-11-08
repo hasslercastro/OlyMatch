@@ -16,14 +16,4 @@ var UsuarioSchema = new Schema({
     comentarios: {type: [String], required: false},
     carrera: {type: String, required: false},    
 });
-
-UsuarioSchema.pre('save', function (next) {
-    var unUsuario = this;
-    bcrypt.hash(unUsuario.contrasena, null, null, function (err, hash) {
-        if (err) return next(err);
-        unUsuario.contrasena= hash;
-        next();
-    });
-});
-
 module.exports = mongoose.model('Usuario', UsuarioSchema);

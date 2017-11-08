@@ -2,5 +2,7 @@
   "name": "OlyMatch",
   "app_id": "d0c5155c",
   "type": "ionic-angular",
-  "integrations": {}
+  "integrations": {
+    "cordova": {}
+  }
 }
