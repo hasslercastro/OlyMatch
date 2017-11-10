@@ -21,6 +21,9 @@
     },
     "cordova-plugin-splashscreen": {
       "PACKAGE_NAME": "EAFIT.OlyMatch.ionic"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "eafit.olymatch.ionic"
     }
   },
   "dependent_plugins": {}
