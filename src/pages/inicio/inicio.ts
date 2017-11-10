@@ -1,25 +1,29 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
-import { EventoServiceProvider } from '../../providers/evento-service/evento-service'
+import { EventoServiceProvider } from '../../providers/evento-service/evento-service';
+import { InformacionPage } from '../informacion/informacion';
 
 @Component({
   selector: 'page-inicio',
   templateUrl: 'inicio.html'
 })
 export class InicioPage {
-  //Villa lo necesita
-  nombreUsuario = '';
+
   eventos: Observable<any>;
 
+  nombreUsuario = '';
   deporte = '';
   escenario = '';
   dia = '';
   horario = '';
-  participantes = '';
+  participantes = ''; //Número de participantes
   nombre = '';
+  integrantes = ''; //Personas
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public eventService: EventoServiceProvider) {
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams, 
+              public eventService: EventoServiceProvider) {
 
     this.nombreUsuario = navParams.data;
     this.loadEventos();
@@ -33,15 +37,36 @@ export class InicioPage {
     this.nombre = navParams.get('nombre');
     this.loadEventos();
   }
+
   loadEventos() {
     return this.eventos = this.eventService.getAllEvents();
   }
 
-  unirParticipante(lugar, fecha, hora){
-    console.log("unir", this.nombreUsuario,lugar,fecha,hora);
-    return this.eventService.putParticipante(this.nombreUsuario, lugar, fecha, hora).subscribe();
-
+  pasarInformacion(nombreUsuarioEvento, 
+                   deporteEvento, 
+                   escenarioEvento, 
+                   diaEvento, 
+                   horarioEvento, 
+                   participantesEvento,
+                   integrantesEvento,
+                   nombreEvento){
+    this.navCtrl.push(InformacionPage, {nombreUsuario:this.nombreUsuario,
+                                        deporte:deporteEvento,
+                                        escenario:escenarioEvento,
+                                        dia:diaEvento,
+                                        horario:horarioEvento,
+                                        participantes:participantesEvento,
+                                        nombre:nombreEvento,
+                                        integrantes:integrantesEvento});
   }
+
+  /**
+   * @method Unirse a evento desde el apartado inicio -> Desde acá funcionaba.
+   */
+  // unirParticipante(lugar, fecha, hora){
+  //   console.log("unir", this.nombreUsuario,lugar,fecha,hora);
+  //   return this.eventService.putParticipante(this.nombreUsuario, lugar, fecha, hora).subscribe();
+  // }
 
   doRefresh(refresher) {
     this.loadEventos();

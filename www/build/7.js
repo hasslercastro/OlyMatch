@@ -1,14 +1,14 @@
 webpackJsonp([7],{
 
-/***/ 726:
+/***/ 730:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DiaPageModule", function() { return DiaPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EscenarioPageModule", function() { return EscenarioPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__dia__ = __webpack_require__(140);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__escenario__ = __webpack_require__(137);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var DiaPageModule = (function () {
-    function DiaPageModule() {
+var EscenarioPageModule = (function () {
+    function EscenarioPageModule() {
     }
-    return DiaPageModule;
+    return EscenarioPageModule;
 }());
-DiaPageModule = __decorate([
+EscenarioPageModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__dia__["a" /* DiaPage */],
+            __WEBPACK_IMPORTED_MODULE_2__escenario__["a" /* EscenarioPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__dia__["a" /* DiaPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__escenario__["a" /* EscenarioPage */]),
         ],
     })
-], DiaPageModule);
+], EscenarioPageModule);
 
-//# sourceMappingURL=dia.module.js.map
+//# sourceMappingURL=escenario.module.js.map
 
 /***/ })
 

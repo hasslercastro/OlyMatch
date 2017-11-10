@@ -19,6 +19,7 @@ import { ParticipantesPage } from '../pages/participantes/participantes';
 import { NombrePage } from '../pages/nombre/nombre';
 import { ConfiguracionPage } from '../pages/configuracion/configuracion';
 import { AcercaPage } from '../pages/acerca/acerca';
+import { InformacionPage } from '../pages/informacion/informacion';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -30,6 +31,8 @@ import { LoginSettingsProvider } from '../providers/login-settings/login-setting
 import { LoginServiceProvider } from '../providers/login-service/login-service';
 import { ImageServiceProvider } from '../providers/image-service/image-service';
 import { ImageSettingsProvider } from '../providers/image-settings/image-settings';
+import { UsuarioServiceProvider } from '../providers/usuario-service/usuario-service';
+import { UsuarioSettingsProvider } from '../providers/usuario-settings/usuario-settings';
 
 @NgModule({
   declarations: [
@@ -48,7 +51,8 @@ import { ImageSettingsProvider } from '../providers/image-settings/image-setting
     ParticipantesPage,
     NombrePage,
     ConfiguracionPage,
-    AcercaPage
+    AcercaPage,
+    InformacionPage
   ],
   imports: [
     BrowserModule,
@@ -71,7 +75,8 @@ import { ImageSettingsProvider } from '../providers/image-settings/image-setting
     ParticipantesPage,
     NombrePage,
     ConfiguracionPage,
-    AcercaPage
+    AcercaPage,
+    InformacionPage
   ],
   providers: [
     StatusBar,
@@ -84,7 +89,9 @@ import { ImageSettingsProvider } from '../providers/image-settings/image-setting
     LoginSettingsProvider,
     LoginServiceProvider,
     ImageServiceProvider,
-    ImageSettingsProvider
+    ImageSettingsProvider,
+    UsuarioServiceProvider,
+    UsuarioSettingsProvider
   ]
 })
 export class AppModule {}

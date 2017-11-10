@@ -1,0 +1,33 @@
+page-informacion {
+
+    .contenido{
+        background-image: url("../assets/img/fondo_app.jpg");
+            
+    }
+
+    .card{
+        background-image: url("../assets/img/fondo_app.jpg");
+    }
+
+    .lista{
+        margin-left: -30px;
+        margin-right: -30px;
+    }
+
+    .calendario{
+        color: #00A5D9;
+    }
+
+    .reloj{
+        color: orangered;
+    }
+
+    .ubicacion{
+        color: #8CC63F;
+        
+    }
+
+    .planilla{
+        color: gray;
+    }
+}

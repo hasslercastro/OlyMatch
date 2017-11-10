@@ -13,7 +13,8 @@ var UsuarioSchema = new Schema({
   	primerApellido: {type: String, required: true},
   	segundoApellido: {type: String, required: false},
   	imagen_usuario: {type: String, default:'ruta' , required:false},
-    comentarios: {type: [String], required: false},
+    comentarios: {type: [Number], required: false},
     carrera: {type: String, required: false},    
 });
+
 module.exports = mongoose.model('Usuario', UsuarioSchema);
