@@ -4,6 +4,51 @@ webpackJsonp([13],{
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AcercaPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the AcercaPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var AcercaPage = (function () {
+    function AcercaPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    AcercaPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad AcercaPage');
+    };
+    return AcercaPage;
+}());
+AcercaPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-acerca',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/acerca/acerca.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Acerca de...</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<!-- <ion-content padding class="contenido"> -->\n  <ion-content class="list-avatar-page">\n    <ion-list>\n\n      <ion-list-header>Desarrolladores</ion-list-header>\n\n      <ion-item>\n        <ion-avatar item-start>\n          <img src="assets/img/crocker.png">\n        </ion-avatar>\n        <h2>Villa</h2>\n        <p>front-end</p>\n        <ion-note item-end>¡Melo!</ion-note>\n      </ion-item>\n\n      <ion-item>\n        <ion-avatar item-start>\n          <img src="assets/img/cj.png">\n        </ion-avatar>\n        <h2>Hass</h2>\n        <p>black-end</p>\n        <ion-note item-end>¡Hey no jodás!</ion-note>\n      </ion-item>\n\n      <ion-item>\n        <ion-avatar item-start>\n          <img src="assets/img/linux.png">\n        </ion-avatar>\n        <h2>Josh</h2>\n        <p>back-end</p>\n        <ion-note item-end>Vavava!</ion-note>\n      </ion-item>\n\n      <ion-item>\n        <ion-avatar item-start>\n          <img src="assets/img/castor.png">\n        </ion-avatar>\n        <h2>Edwin</h2>\n        <p>back-end</p>\n        <ion-note item-end>¡Máquinola!</ion-note>\n      </ion-item>\n\n    </ion-list>\n  </ion-content>\n<!-- </ion-content> -->'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/acerca/acerca.html"*/,
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
+], AcercaPage);
+
+//# sourceMappingURL=acerca.js.map
+
+/***/ }),
+
+/***/ 137:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CalificacionPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
@@ -68,14 +113,14 @@ CalificacionPage = __decorate([
 
 /***/ }),
 
-/***/ 137:
+/***/ 138:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ConfiguracionPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__acerca_acerca__ = __webpack_require__(138);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__acerca_acerca__ = __webpack_require__(136);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -116,51 +161,6 @@ ConfiguracionPage = __decorate([
 ], ConfiguracionPage);
 
 //# sourceMappingURL=configuracion.js.map
-
-/***/ }),
-
-/***/ 138:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AcercaPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-/**
- * Generated class for the AcercaPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var AcercaPage = (function () {
-    function AcercaPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-    }
-    AcercaPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad AcercaPage');
-    };
-    return AcercaPage;
-}());
-AcercaPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-acerca',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/acerca/acerca.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Acerca de...</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<!-- <ion-content padding class="contenido"> -->\n  <ion-content class="list-avatar-page">\n    <ion-list>\n\n      <ion-list-header>Desarrolladores</ion-list-header>\n\n      <ion-item>\n        <ion-avatar item-start>\n          <img src="assets/img/crocker.png">\n        </ion-avatar>\n        <h2>Villa</h2>\n        <p>front-end</p>\n        <ion-note item-end>¡Melo!</ion-note>\n      </ion-item>\n\n      <ion-item>\n        <ion-avatar item-start>\n          <img src="assets/img/cj.png">\n        </ion-avatar>\n        <h2>Hass</h2>\n        <p>black-end</p>\n        <ion-note item-end>¡Hey no jodás!</ion-note>\n      </ion-item>\n\n      <ion-item>\n        <ion-avatar item-start>\n          <img src="assets/img/linux.png">\n        </ion-avatar>\n        <h2>Josh</h2>\n        <p>back-end</p>\n        <ion-note item-end>Vavava!</ion-note>\n      </ion-item>\n\n      <ion-item>\n        <ion-avatar item-start>\n          <img src="assets/img/castor.png">\n        </ion-avatar>\n        <h2>Edwin</h2>\n        <p>back-end</p>\n        <ion-note item-end>¡Máquinola!</ion-note>\n      </ion-item>\n\n    </ion-list>\n  </ion-content>\n<!-- </ion-content> -->'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/acerca/acerca.html"*/,
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
-], AcercaPage);
-
-//# sourceMappingURL=acerca.js.map
 
 /***/ }),
 
@@ -734,7 +734,7 @@ FormularioPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_evento_service_evento_service__ = __webpack_require__(71);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__calificacion_calificacion__ = __webpack_require__(136);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__calificacion_calificacion__ = __webpack_require__(137);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -834,47 +834,47 @@ webpackEmptyAsyncContext.id = 157;
 
 var map = {
 	"../pages/acerca/acerca.module": [
-		739,
+		727,
 		12
 	],
 	"../pages/calificacion/calificacion.module": [
-		727,
+		728,
 		11
 	],
 	"../pages/configuracion/configuracion.module": [
-		728,
+		729,
 		10
 	],
 	"../pages/deporte/deporte.module": [
-		729,
+		730,
 		9
 	],
 	"../pages/dia/dia.module": [
-		730,
+		731,
 		8
 	],
 	"../pages/escenario/escenario.module": [
-		731,
+		732,
 		7
 	],
 	"../pages/formulario/formulario.module": [
-		732,
+		733,
 		6
 	],
 	"../pages/horario/horario.module": [
-		735,
+		734,
 		5
 	],
 	"../pages/informacion/informacion.module": [
-		733,
+		735,
 		4
 	],
 	"../pages/ingreso/ingreso.module": [
-		734,
+		736,
 		3
 	],
 	"../pages/momento/momento.module": [
-		736,
+		737,
 		2
 	],
 	"../pages/nombre/nombre.module": [
@@ -882,7 +882,7 @@ var map = {
 		1
 	],
 	"../pages/participantes/participantes.module": [
-		737,
+		739,
 		0
 	]
 };
@@ -1155,7 +1155,7 @@ TabsPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_login_service_login_service__ = __webpack_require__(72);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__configuracion_configuracion__ = __webpack_require__(137);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__configuracion_configuracion__ = __webpack_require__(138);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_native__ = __webpack_require__(435);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_image_service_image_service__ = __webpack_require__(363);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1560,10 +1560,10 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_horario_horario__ = __webpack_require__(142);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_participantes_participantes__ = __webpack_require__(143);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_nombre_nombre__ = __webpack_require__(144);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_configuracion_configuracion__ = __webpack_require__(137);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_acerca_acerca__ = __webpack_require__(138);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_configuracion_configuracion__ = __webpack_require__(138);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_acerca_acerca__ = __webpack_require__(136);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_informacion_informacion__ = __webpack_require__(146);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_calificacion_calificacion__ = __webpack_require__(136);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_calificacion_calificacion__ = __webpack_require__(137);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__ionic_native_status_bar__ = __webpack_require__(405);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__ionic_native_splash_screen__ = __webpack_require__(408);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__providers_evento_settings_evento_settings__ = __webpack_require__(204);
@@ -1647,19 +1647,19 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */], {}, {
                 links: [
+                    { loadChildren: '../pages/acerca/acerca.module#AcercaPageModule', name: 'AcercaPage', segment: 'acerca', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/calificacion/calificacion.module#CalificacionPageModule', name: 'CalificacionPage', segment: 'calificacion', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/configuracion/configuracion.module#ConfiguracionPageModule', name: 'ConfiguracionPage', segment: 'configuracion', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/deporte/deporte.module#DeportePageModule', name: 'DeportePage', segment: 'deporte', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/dia/dia.module#DiaPageModule', name: 'DiaPage', segment: 'dia', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/escenario/escenario.module#EscenarioPageModule', name: 'EscenarioPage', segment: 'escenario', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/formulario/formulario.module#FormularioPageModule', name: 'FormularioPage', segment: 'formulario', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/horario/horario.module#HorarioPageModule', name: 'HorarioPage', segment: 'horario', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/informacion/informacion.module#InformacionPageModule', name: 'InformacionPage', segment: 'informacion', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/ingreso/ingreso.module#IngresoPageModule', name: 'IngresoPage', segment: 'ingreso', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/horario/horario.module#HorarioPageModule', name: 'HorarioPage', segment: 'horario', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/momento/momento.module#MomentoPageModule', name: 'MomentoPage', segment: 'momento', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/participantes/participantes.module#ParticipantesPageModule', name: 'ParticipantesPage', segment: 'participantes', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/nombre/nombre.module#NombrePageModule', name: 'NombrePage', segment: 'nombre', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/acerca/acerca.module#AcercaPageModule', name: 'AcercaPage', segment: 'acerca', priority: 'low', defaultHistory: [] }
+                    { loadChildren: '../pages/participantes/participantes.module#ParticipantesPageModule', name: 'ParticipantesPage', segment: 'participantes', priority: 'low', defaultHistory: [] }
                 ]
             }), __WEBPACK_IMPORTED_MODULE_4__angular_http__["c" /* HttpModule */]
         ],
