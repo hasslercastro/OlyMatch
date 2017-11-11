@@ -85,7 +85,7 @@ app.post('/usuario', function (req, res) {
         contrasena : req.body.contrasena,
         correo : req.body.usuario+'@eafit.edu.co',
         codigo: req.body.codigo,
-        calificacion: 0,
+        calificacion: 4,
         nombre: req.body.nombre,
         primerApellido: req.body.primerApellido
     });

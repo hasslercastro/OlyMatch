@@ -19,9 +19,12 @@ var uploads = {};
   selector: 'page-perfil',
   templateUrl: 'perfil.html'
 })
-export   class PerfilPage {
+export class PerfilPage {
   nombreUsuario = '';
   usuario = '';
+  apellido = '';
+  imagen = '';
+  calificacion ='';
   private imageSrc: string;
   public base64Image: String;
   informacion: Observable<any>;
@@ -45,7 +48,7 @@ export   class PerfilPage {
       targetHeight: 1000
     }).then((imagenData) => {
       console.log(imagenData)
-      
+
       this.base64Image = 'data:image/jpeg;base64,' + imagenData;
 
 
@@ -64,7 +67,7 @@ export   class PerfilPage {
     }).then((imageData) => {
       console.log(imageData, "first one")
       this.base64Image = 'data:image/jpeg;base64,' + imageData;
-      this.imageServiceProvider.putProfileImage(this.usuario,this.base64Image).subscribe();
+      this.imageServiceProvider.putProfileImage(this.usuario, this.base64Image).subscribe();
       console.log(this.base64Image, "second one")
     }, (err) => {
       console.log(err);
@@ -125,7 +128,24 @@ export   class PerfilPage {
     console.log('Estamos en loadInfoUsuario');
     console.log(this.nombreUsuario);
     this.informacion = this.loginServiceProvider.getInfoUsuario(this.nombreUsuario);
-    this.informacion.subscribe(x => this.usuario = x[0].usuario);
+    this.informacion.subscribe(x => {
+    this.apellido = x[0].primerApellido;
+      this.usuario = x[0].usuario;
+      this.imagen = x[0].imagen_usuario;
+      if(x[0].calificacion>=0.0 && x[0].calificacion<0.8){
+        this.calificacion = 'assets/img/0_estrellas.png';
+      }else if(x[0].calificacion>=0.8 && x[0].calificacion<1.8){
+        this.calificacion = 'assets/img/1_estrellas.png';
+      }else if(x[0].calificacion>=1.8 && x[0].calificacion<2.8){
+        this.calificacion = 'assets/img/2_estrellas.png'; 
+      }else if(x[0].calificacion>=2.8 && x[0].calificacion<3.7){
+        this.calificacion = 'assets/img/3_estrellas.png'; 
+      }else if(x[0].calificacion>=3.7 && x[0].calificacion<4.5){
+        this.calificacion = 'assets/img/4_estrellas.png';  
+      }else if(x[0].calificacion>=4.5 && x[0].calificacion<=5.0){
+        this.calificacion = 'assets/img/5_estrellas.png';
+      }
+    });
 
   }
 
