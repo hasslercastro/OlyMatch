@@ -5,18 +5,12 @@ import { TabsPage } from '../tabs/tabs';
 import { FormularioPage } from '../formulario/formulario';
 import { PerfilPage } from '../perfil/perfil';
 
-/**
- * Generated class for the IngresoPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-ingreso',
   templateUrl: 'ingreso.html',
 })
+
 export class IngresoPage {
 
   //Variables que enviamos
@@ -52,7 +46,6 @@ export class IngresoPage {
 
     console.log(this.nombreUsuario)
       
-
   }
 
   iniciar(){

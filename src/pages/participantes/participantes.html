@@ -7,18 +7,14 @@
   <ion-content padding class="contenido">
     <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>
    
-      <ion-item>
+      <ion-item class="formulario">
         <ion-input formControlName="participantes" type="text" placeholder="Participantes" [(ngModel)]="participantes"></ion-input>
       </ion-item>
   
       <!-->Manejo de error<-->
       <ion-item *ngIf="myForm.get('participantes').errors && myForm.get('participantes').dirty">
         <p color="danger" ion-text *ngIf="myForm.get('participantes').hasError('required')">El número de participantes es requerido</p>
-        <p color="danger" ion-text *ngIf="myForm.get('participantes').hasError('pattern')">No es un número pendejo dxdxdxdx</p>
-      </ion-item>
-  
-      <ion-item>
-          {{ myForm.get('participantes').value }}
+        <p color="danger" ion-text *ngIf="myForm.get('participantes').hasError('pattern')">No es un número</p>
       </ion-item>
   
       <button ion-button block type="submit" [disabled]="myForm.invalid" (click)="pasarNombre()">Continuar</button>

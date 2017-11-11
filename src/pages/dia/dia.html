@@ -8,9 +8,9 @@
 <ion-content padding class="contenido">
   <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>
         
-    <ion-item>
-      <ion-label>¿Qué día vas a jugar?</ion-label>  
-      <ion-select formControlName="dia" placeholder="Seleccionar día" [(ngModel)]="dia">
+    <ion-item class="formulario">
+      <ion-label>¿Cuándo?</ion-label>  
+      <ion-select formControlName="dia" [(ngModel)]="dia">
         <ion-option *ngFor="let fecha of fechas |  async"  value="{{ fecha }}">{{ fecha }}</ion-option>
       </ion-select>
     </ion-item>
@@ -19,11 +19,7 @@
     <ion-item *ngIf="myForm.get('dia').errors && myForm.get('dia').dirty">
       <p color="danger" ion-text *ngIf="myForm.get('dia').hasError('required')">El día es requerido</p>
     </ion-item>
-
-    <ion-item>
-      {{ myForm.get('dia').value }}
-    </ion-item>
-  
+ 
     <button ion-button block type="submit" [disabled]="myForm.invalid" (click)="pasarHorario()">Continuar</button>
     </form>
 </ion-content>

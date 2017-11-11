@@ -1,10 +1,17 @@
 page-deporte {
 
     .contenido{
-        background-image: url("../assets/img/fondo_app.jpg");    
+        background-image: url("../assets/img/fondo_deporte2.jpg");
+        background-position-x: 50%;
+        background-position-y: 40px;
+        background-size: cover;    
     }
 
     .formulario{
-        align-content: center;
+        margin-top: 60%;
+    }
+
+    .boton{
+       // margin-top: 75%;
     }
 }

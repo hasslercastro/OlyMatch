@@ -13,8 +13,8 @@ export class UsuarioServiceProvider {
     console.log('Hello UsuarioServiceProvider Provider');
   }
   
-  public solicitarCalificar(fecha){
-    return this.http.get(this.apiUrl+'calificar/'+fecha)
+  public solicitarCalificar(eventoId, nombreUsuario){
+    return this.http.get(this.apiUrl+'calificar/'+eventoId+'/'+nombreUsuario)
     .map(response => response.text());
   }
 

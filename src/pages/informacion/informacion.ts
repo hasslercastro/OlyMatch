@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EventoServiceProvider } from '../../providers/evento-service/evento-service';
 import { Observable } from 'rxjs/Observable';
+import { CalificacionPage } from '../calificacion/calificacion';
 
 @IonicPage()
 @Component({
@@ -13,6 +14,7 @@ export class InformacionPage {
 
   eventos: Observable<any>;
 
+  id = '';
   nombreUsuario = '';
   deporte = '';
   escenario = '';
@@ -21,6 +23,8 @@ export class InformacionPage {
   participantes = '';
   nombre = '';
   integrantes = '';
+  mensajeValido = '';
+  mensajeError = '';
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
@@ -34,7 +38,8 @@ export class InformacionPage {
     this.participantes = navParams.get('participantes');
     this.nombre = navParams.get('nombre');
     this.integrantes = navParams.get('integrantes');
-
+    this.id = navParams.get('id');
+    
   }
 
   ionViewDidLoad() {
@@ -42,12 +47,23 @@ export class InformacionPage {
   }
 
   unirParticipante(lugar, fecha, hora){
-    // console.log("unir", this.nombreUsuario,lugar,fecha,hora);
-    console.log('PARAMETROS');
-    console.log(lugar, fecha, hora);
-    console.log('this');
-    console.log(this.nombreUsuario, this.escenario, this.dia, this.horario);
-    return this.eventoServiceProvider.putParticipante(this.nombreUsuario, this.escenario, this.dia, this.horario).subscribe();
+    this.eventoServiceProvider.putParticipante(this.nombreUsuario, this.escenario, this.dia, this.horario).subscribe(x => {
+      console.log("x: ", x);
+      if(x == 'true'){
+        this.mensajeValido = 'Te has unido al juego';
+      }
+      else{
+        this.mensajeError = 'Ya estás en el evento o no hay más cupos disponibles';
+      }
+    })
+  }
+
+  pasarCalificacion(integrante){
+    this.navCtrl.push(CalificacionPage, {
+                                        id:this.id,
+                                        integrante:integrante,
+                                        dia:this.dia,
+                                        integrantes:this.integrantes})
   }
 
 }

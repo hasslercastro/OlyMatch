@@ -7,20 +7,16 @@
 <ion-content padding class="contenido">
   <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>
 
-    
-    <ion-item>
-      <ion-label>¿A qué hora vas a jugar?</ion-label>  
-      <ion-select formControlName="horario" placeholder="Seleccionar hora" [(ngModel)]="horario">
+    <ion-item class="formulario">
+      <ion-label>¿Hora?</ion-label>
+      <ion-select formControlName="horario" [(ngModel)]="horario">
         <ion-option *ngFor="let hora of horas |  async"  value="{{ hora.disponibilidad.hora }}">{{ hora.disponibilidad.hora }}</ion-option>
       </ion-select>
     </ion-item>
+
     <!-->Manejo de error<-->
     <ion-item *ngIf="myForm.get('horario').errors && myForm.get('horario').dirty">
         <p color="danger" ion-text *ngIf="myForm.get('horario').hasError('required')">El horario es requerido</p>
-    </ion-item>
-
-    <ion-item>
-        {{ myForm.get('horario').value }}
     </ion-item>
 
     <button ion-button block type="submit" [disabled]="myForm.invalid" (click)="pasarParticipantes()">Continuar</button>

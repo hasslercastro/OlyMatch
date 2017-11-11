@@ -33,12 +33,30 @@
           <h2>
             <ion-icon name="clipboard" class="planilla"></ion-icon> {{ participantes }}
           </h2>
+
+          <ion-list>
+            <ion-item *ngFor="let integrante of integrantes">
+              {{ integrante }}
+              <button ion-button icon-only color="secondaryb" (click)="pasarCalificacion(integrante)">
+                <ion-icon name="star"></ion-icon>
+              </button>
+            </ion-item>
+
+          </ion-list>
           <h2>
               <ion-icon name="clipboard" class="planilla"></ion-icon> {{ integrantes }}
             </h2>
 
           <!-- Hasta acá funcionaba el botón de unirse -->
-          <button ion-button full small color="secondaryb" (click)="unirParticipante(escenario,dia, horario)">Unirse</button>
+          <button ion-button full small color="secondaryb" (click)="unirParticipante(escenario, dia, horario)">Unirse</button>
+
+          <h6 class="valido">
+            {{ mensajeValido }}
+          </h6>
+
+          <h6 class="invalido">
+            {{ mensajeError }}
+          </h6>
          
         </ion-card-content>
       </ion-card>

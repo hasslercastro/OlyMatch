@@ -43,6 +43,6 @@ app.use(require('./app/routes/imagen-routes'));
 
 
 // , '0.0.0.0',
-http.createServer(app).listen(port, function (err) {
-    console.log('listeing in http://localhost:' + port);
+http.createServer(app).listen(port,'0.0.0.0', function (err) {
+   // console.log('listeing in http://localhost:' + port);
 });
