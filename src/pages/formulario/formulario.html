@@ -7,16 +7,15 @@
   <ion-content padding>
     <!-->Solicita toda la información<-->
     <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>
-      <ion-slides pager>
+      
 
         <!-->Slide de bienvenida<-->
-        <ion-slide>
+       
           <h2>Bienvenido a OlyMatch</h2>
           <img src="../assets/img/logo_nue.png">
-        </ion-slide>
-          
+                 
         <!-->Slide de nombre, primerApellido y segundoApellido<-->
-        <ion-slide>
+       
           <h2>Información personal</h2>
           <ion-list>
                   
@@ -39,10 +38,10 @@
             </ion-item>
 
           </ion-list>
-        </ion-slide>
+       
         
         <!-->Slide de email, contrasena y confirmarContrasena<-->
-        <ion-slide>
+       
           <h2>Validar información</h2>
           <ion-list>
             <ion-item>
@@ -86,8 +85,7 @@
               <button ion-button block type="submit" [disabled]="myForm.invalid" (click)="volver()">¡Únete al juego!</button>
             </ion-item>
           </ion-list>
-        </ion-slide>
-      </ion-slides>
+        
     </form>
   </ion-content>
 

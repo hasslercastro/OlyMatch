@@ -16,6 +16,7 @@ import { Cordova } from 'cordova'
 export class PerfilPage {
   nombreUsuario='';
   usuario = '';
+  correo = '';
   private imageSrc: string;
   informacion: Observable<any>;
 
@@ -57,7 +58,8 @@ export class PerfilPage {
     console.log('Estamos en loadInfoUsuario');
     console.log(this.nombreUsuario);
     this.informacion = this.loginServiceProvider.getInfoUsuario(this.nombreUsuario);
-    this.informacion.subscribe(x => this.usuario = x[0].usuario);
+    this.informacion.subscribe(x => {this.usuario = x[0].usuario,
+                                     this.correo = x[0].correo});
 
   }
 

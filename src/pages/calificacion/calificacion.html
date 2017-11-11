@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Calificación</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  {{ integrante }}
+
+  {{ dia }}
+
+  <ion-list radio-group [(ngModel)]="calificacion">
+    <ion-list-header>
+      Desempeño del participante
+    </ion-list-header>
+  
+    <ion-item>
+      <ion-label>Excelente</ion-label>
+      <ion-radio value="5" ></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Sobresaliente</ion-label>
+      <ion-radio value="4" ></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Aceptable</ion-label>
+      <ion-radio value="3" ></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Insuficiente</ion-label>
+      <ion-radio value="2" ></ion-radio>
+    </ion-item>
+    <ion-item>
+      <ion-label>Deficiente</ion-label>
+      <ion-radio value="1" ></ion-radio>
+    </ion-item>
+  </ion-list>
+
+  {{ calificacion }}
+
+  <button ion-button full large color="secondaryb" (click)="calificar(integrante, calificacion, dia)">Calificar</button>
+
+</ion-content>

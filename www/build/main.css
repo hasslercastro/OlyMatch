@@ -27522,21 +27522,36 @@ page-configuracion .acerca {
 }
 
 page-deporte .contenido {
-  background-image: url("../assets/img/fondo_app.jpg");
+  background-image: url("../assets/img/fondo_deporte2.jpg");
+  background-position-x: 50%;
+  background-position-y: 40px;
+  background-size: cover;
 }
 
 page-deporte .formulario {
-  -webkit-align-content: center;
-  -ms-flex-line-pack: center;
-  align-content: center;
+  margin-top: 60%;
 }
 
 page-dia .contenido {
-  background-image: url("../assets/img/fondo_app.jpg");
+  background-image: url("../assets/img/fondo_dia.jpg");
+  background-position-x: 50%;
+  background-position-y: 40px;
+  background-size: cover;
+}
+
+page-dia .formulario {
+  margin-top: 60%;
 }
 
 page-escenario .contenido {
-  background-image: url("../assets/img/fondo_app.jpg");
+  background-image: url("../assets/img/fondo_ubicacion.jpg");
+  background-position-x: 50%;
+  background-position-y: 40px;
+  background-size: cover;
+}
+
+page-escenario .formulario {
+  margin-top: 60%;
 }
 
 page-evento .logo_navbar {
@@ -27550,7 +27565,14 @@ page-evento .contenido {
 }
 
 page-horario .contenido {
-  background-image: url("../assets/img/fondo_app.jpg");
+  background-image: url("../assets/img/fondo_horario.jpg");
+  background-position-x: 50%;
+  background-position-y: 40px;
+  background-size: cover;
+}
+
+page-horario .formulario {
+  margin-top: 60%;
 }
 
 page-informacion .contenido {
@@ -27580,6 +27602,14 @@ page-informacion .ubicacion {
 
 page-informacion .planilla {
   color: gray;
+}
+
+page-informacion .valido {
+  color: #8CC63F;
+}
+
+page-informacion .invalido {
+  color: red;
 }
 
 page-ingreso .contenido {
@@ -27689,11 +27719,25 @@ page-inicio .planilla {
 }
 
 page-nombre .contenido {
-  background-image: url("../assets/img/fondo_app.jpg");
+  background-image: url("../assets/img/fondo_login.jpg");
+  background-position-x: 50%;
+  background-position-y: 40px;
+  background-size: cover;
+}
+
+page-nombre .formulario {
+  margin-top: 60%;
 }
 
 page-participantes .contenido {
-  background-image: url("../assets/img/fondo_app.jpg");
+  background-image: url("../assets/img/fondo_login.jpg");
+  background-position-x: 50%;
+  background-position-y: 40px;
+  background-size: cover;
+}
+
+page-participantes .formulario {
+  margin-top: 60%;
 }
 
 page-perfil .logo_navbar {

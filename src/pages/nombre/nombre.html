@@ -7,7 +7,7 @@
 
 <ion-content padding class="contenido">
   <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>
-    <ion-item>
+    <ion-item class="formulario">
       <ion-input formControlName="nombre" type="text" placeholder="Nombre del evento" [(ngModel)]="nombre"></ion-input>
     </ion-item>
 
@@ -16,10 +16,7 @@
       <p color="danger" ion-text *ngIf="myForm.get('nombre').hasError('required')">Nombre es requerido</p>
     </ion-item>
 
-    <ion-item>
-        <button ion-button block type="submit" [disabled]="myForm.invalid" (click)="volverEvento()">Finalizar</button>
-    </ion-item>
-
-    
+    <button ion-button block type="submit" [disabled]="myForm.invalid" (click)="volverEvento()">Finalizar</button>
+        
   </form>
 </ion-content>

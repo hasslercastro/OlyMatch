@@ -1,6 +1,7 @@
 var express = require('express');
 var app = module.exports = express.Router();
 var User = require('../models/usuario');
+var evento = require('../models/evento');
 var bcrypt = require('bcrypt-nodejs');
 
 app.get('/usuario', function (req, res) {
@@ -112,19 +113,51 @@ app.post('/usuario', function (req, res) {
 });
 
 
-app.get('/calificar/:fecha', function(req, res){
-    var fecha = req.params.fecha;
-    var fechaActual = Date.now();
-    fecha = fecha.split("-");
-    var newFecha = fecha[1]+"/"+fecha[0]+"/"+fecha[2];
-    var newDate = new Date(newFecha).getTime() + 86400000;
+app.get('/calificar/:eventoId/:nombreUsuario', function(req, res){
+    var eventoId = req.params.eventoId;
+    var nombreUsuario = req.params.nombreUsuario;
+   
+        evento.findOne({"_id" : eventoId}, function (err, even) {
+            if (err) {
+                return res.json({
+                    "success": false,
+                    "msg": "No se encontro el usuario",
+                    "error": err
+                });
+            }
+            
+            var fecha = even.fecha;
+            fecha = fecha.split("-");
+            var fechaActual = Date.now();
+            var newFecha = fecha[1]+"/"+fecha[0]+"/"+fecha[2];
+            var newDate = new Date(newFecha).getTime() + 86400000;
+            var participantes = even.participantes;
+            var esParticipante = participantes.indexOf(nombreUsuario);
 
-    if(fechaActual > newDate){
-        res.status(200).send(true);
-    }
-    else{
-        res.status(200).send(false);
-    }    
+            console.log('esPArticipante');
+            console.log(esParticipante);
+            
+            console.log('participantes: ', participantes);
+            console.log('nombreUsuario: ', nombreUsuario);
+            console.log('fecha del evetno: ', fecha);
+            console.log('fecha acutial: ', fechaActual);
+            console.log('fecha newDate: ', newDate);
+            if (esParticipante > 0) {
+                console.log('entre a la calificacion porque estoy en el evento');
+                if (fechaActual > newDate) {
+                    console.log('entre a la calificacion porque estoy en la fecha correcta');
+                    res.status(200).send(true);
+                }
+                else {
+                    res.status(200).send(false);
+                }
+            }
+            else {
+                res.status(200).send(false);
+            } 
+
+        });
+   
 });
 
 

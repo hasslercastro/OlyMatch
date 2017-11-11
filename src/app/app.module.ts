@@ -20,6 +20,7 @@ import { NombrePage } from '../pages/nombre/nombre';
 import { ConfiguracionPage } from '../pages/configuracion/configuracion';
 import { AcercaPage } from '../pages/acerca/acerca';
 import { InformacionPage } from '../pages/informacion/informacion';
+import { CalificacionPage } from '../pages/calificacion/calificacion';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -52,7 +53,8 @@ import { UsuarioSettingsProvider } from '../providers/usuario-settings/usuario-s
     NombrePage,
     ConfiguracionPage,
     AcercaPage,
-    InformacionPage
+    InformacionPage,
+    CalificacionPage
   ],
   imports: [
     BrowserModule,
@@ -76,7 +78,8 @@ import { UsuarioSettingsProvider } from '../providers/usuario-settings/usuario-s
     NombrePage,
     ConfiguracionPage,
     AcercaPage,
-    InformacionPage
+    InformacionPage,
+    CalificacionPage
   ],
   providers: [
     StatusBar,

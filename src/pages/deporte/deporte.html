@@ -26,6 +26,6 @@
       <p color="danger" ion-text *ngIf="myForm.get('deporte').hasError('required')">El deporte es requerido</p>
     </ion-item>
 
-    <button ion-button block type="submit" [disabled]="myForm.invalid" (click)="pasarEscenario()">Continuar</button>
+    <button ion-button block type="submit" [disabled]="myForm.invalid" (click)="pasarEscenario()" class="boton">Continuar</button>
   </form>
 </ion-content>

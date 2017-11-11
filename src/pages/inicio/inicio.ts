@@ -12,6 +12,7 @@ export class InicioPage {
 
   eventos: Observable<any>;
 
+  id = '';
   nombreUsuario = '';
   deporte = '';
   escenario = '';
@@ -42,7 +43,8 @@ export class InicioPage {
     return this.eventos = this.eventService.getAllEvents();
   }
 
-  pasarInformacion(nombreUsuarioEvento, 
+  pasarInformacion(idEvento,
+                   nombreUsuarioEvento, 
                    deporteEvento, 
                    escenarioEvento, 
                    diaEvento, 
@@ -50,7 +52,9 @@ export class InicioPage {
                    participantesEvento,
                    integrantesEvento,
                    nombreEvento){
-    this.navCtrl.push(InformacionPage, {nombreUsuario:this.nombreUsuario,
+    this.navCtrl.push(InformacionPage, {
+                                        id:idEvento,
+                                        nombreUsuario:this.nombreUsuario,
                                         deporte:deporteEvento,
                                         escenario:escenarioEvento,
                                         dia:diaEvento,

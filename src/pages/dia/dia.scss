@@ -1,7 +1,15 @@
 page-dia {
 
     .contenido{
-        background-image: url("../assets/img/fondo_app.jpg");    
+        background-image: url("../assets/img/fondo_dia.jpg");
+        background-position-x: 50%;
+        background-position-y: 40px;
+        background-size: cover;    
     }
+
+    .formulario{
+        margin-top: 60%;
+    }    
+    
     
 }
