@@ -4,8 +4,37 @@
     <ion-title class="titulo">
       ¡Hora de jugar!
     </ion-title>
+    <ion-buttons right large>
+      
+               
+              <ion-select placeholder="filtrar" [(ngModel)]="buscada">
+                <ion-option value="futbol">Fútbol</ion-option>
+                <ion-option value="baloncesto">Baloncesto</ion-option>
+                <ion-option value="tennis">Tennis</ion-option>
+                <ion-option value="karate">Karate</ion-option>
+                <ion-option value="ajedrez">Ajedrez</ion-option>
+                <ion-option value="natacion">Natación</ion-option>
+                <ion-option value="tenisDeMesa">Tenis de mesa</ion-option>
+                <ion-option value="ultimate">Ultimate</ion-option>
+                <ion-option value="micro">Micro Fútbol</ion-option>
+              </ion-select> 
+    
+
+          </ion-buttons>
   </ion-navbar>
 </ion-header>
+
+<!-- <ion-select formControlName="deporte" [(ngModel)]="deporte">
+  <ion-option value="futbol">Fútbol</ion-option>
+  <ion-option value="baloncesto">Baloncesto</ion-option>
+  <ion-option value="tennis">Tennis</ion-option>
+  <ion-option value="karate">Karate</ion-option>
+  <ion-option value="ajedrez">Ajedrez</ion-option>
+  <ion-option value="natacion">Natación</ion-option>
+  <ion-option value="tenisDeMesa">Tenis de mesa</ion-option>
+  <ion-option value="ultimate">Ultimate</ion-option>
+  <ion-option value="micro">Micro Fútbol</ion-option>
+</ion-select> -->
 
 <ion-content padding class="contenido">
   <!-->Refrescar página para cargar eventos<-->

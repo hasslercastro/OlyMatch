@@ -20,6 +20,25 @@ app.get('/evento', function (req, res) {
     });
 });
 
+app.get('/filtrar/:deporte', function (req, res) {
+    var dep= req.params.deporte;
+    console.log("desde el server este es el deporte" , dep)
+    Evento.find({"deporte.nombre" : dep}, function (err, even) {
+        if (err) {
+            return res.json({
+                "success": false,
+                "msg": "Error while retrieving events",
+                "error": err
+            });
+        }
+        res.status(200).send({
+            "success": true,
+            "result": even
+        });
+    });
+});
+
+
 app.put('/unirse/:username/:lugar/:fecha/:hora',(req, res) =>{
     var foto = req.body.foto;
     var nombre = req.body.nombre;

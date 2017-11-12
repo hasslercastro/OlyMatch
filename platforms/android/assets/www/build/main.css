@@ -27553,6 +27553,35 @@ page-horario .contenido {
   background-image: url("../assets/img/fondo_app.jpg");
 }
 
+page-informacion .contenido {
+  background-image: url("../assets/img/fondo_app.jpg");
+}
+
+page-informacion .card {
+  background-image: url("../assets/img/fondo_app.jpg");
+}
+
+page-informacion .lista {
+  margin-left: -30px;
+  margin-right: -30px;
+}
+
+page-informacion .calendario {
+  color: #00A5D9;
+}
+
+page-informacion .reloj {
+  color: orangered;
+}
+
+page-informacion .ubicacion {
+  color: #8CC63F;
+}
+
+page-informacion .planilla {
+  color: gray;
+}
+
 page-ingreso .contenido {
   background-image: url("../assets/img/fondo_login.jpg");
   background-position-x: 50%;
@@ -27674,7 +27703,10 @@ page-perfil .logo_navbar {
 }
 
 page-perfil .imagen_usuario {
-  border-radius: 1000px;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 page-perfil .contenido {

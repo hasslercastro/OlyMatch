@@ -7,8 +7,18 @@ page-perfil {
     }
 
     .imagen_usuario{
-        border-radius: 1000px;
+        // width: 310px;
+        // height: 310px;
+        // border-radius: 50%;
+  
+        display: inline-block;
+  
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
     }
+    
+    
     
     .contenido{
         background-image: url("../assets/img/fondo_app.jpg");    

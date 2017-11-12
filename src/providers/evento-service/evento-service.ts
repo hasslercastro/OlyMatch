@@ -15,6 +15,12 @@ export class EventoServiceProvider {
     .map(response => response.json().result);
   }
 
+  public getSomeEvents(deporte){
+    console.log("desde los servicios este es el deporte", deporte)
+    return this.http.get(this.apiUrl + 'filtrar/' + deporte).
+    map(response => response.json().result);
+  }
+
   public crearEvento(nombre,admin,lugar,fecha,participantes,numMaxParticipantes,hora,deporte,imagen){
     console.log(nombre,admin,lugar,fecha,participantes,numMaxParticipantes,hora,deporte,imagen);
     console.log('estamos en crear evento');

@@ -27747,7 +27747,10 @@ page-perfil .logo_navbar {
 }
 
 page-perfil .imagen_usuario {
-  border-radius: 1000px;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 page-perfil .contenido {

@@ -2,7 +2,7 @@
  * En esta clase se crea el nombre del evento
  */
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,ToastController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { EventoPage } from '../evento/evento';
 import { InicioPage } from '../inicio/inicio';
@@ -33,7 +33,8 @@ export class NombrePage {
     public navParams: NavParams, 
     public fb: FormBuilder,
     public escenarioServiceProvider : EscenarioServiceProvider,
-    public eventoServiceProvider: EventoServiceProvider) {
+    public eventoServiceProvider: EventoServiceProvider,
+    public toastCtrl: ToastController) {
 
     this.myForm = this.fb.group({
       nombre: ['', [Validators.required]]
@@ -54,7 +55,11 @@ export class NombrePage {
     console.log("desde antes (NOMBRE)")
     console.log(this.imagen[0])
     this.imagen = this.imagen[0];
-    this.eventoServiceProvider.crearEvento(this.nombre,administrador,this.escenario,this.dia,participante,this.participantes,this.horario,this.deporte,this.imagen).subscribe();
+    this.eventoServiceProvider.crearEvento(this.nombre,administrador,this.escenario,this.dia,participante,this.participantes,this.horario,this.deporte,this.imagen)
+    .subscribe(data => {
+      this.loadEventos();
+      this.showToast('Evento creado');
+    });
   }
 
   public confirmarReserva(){
@@ -84,6 +89,14 @@ export class NombrePage {
 
   saveData(){
     JSON.stringify(this.myForm.value);
+  }
+
+  private showToast(message: string) {
+    let toast = this.toastCtrl.create({
+      message: message,
+      duration: 3000
+    });
+    toast.present();
   }
 
 }

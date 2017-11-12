@@ -3,40 +3,37 @@
     <img src="assets/img/logo_eafit_blanco.png" class="logo_navbar">
     <ion-title>Perfil</ion-title>
     <ion-buttons right large>
+
+      <button ion-button (click)="openGallery()">
+        <ion-icon name="camera"></ion-icon>
+      </button>
+
       <button ion-button (click)="pasarConfiguracion()">
         <ion-icon name="more">
         </ion-icon>
       </button>
+
+
+
+
     </ion-buttons>
   </ion-navbar>
-</ion-header>       
+</ion-header>
 
 <ion-content class="contenido">
-
-    <ion-content padding>
-        <div class="gallery-button" text-center>
-          <img src="{{ base64Image }}" />    
-        
-          <button ion-button (click) =   "openGallery()">
-            Click me!
-          </button>
-      
-        <p>Choose a Photo</p>  
-      </div>
-      </ion-content>
-
+  <div class="gallery-button" text-center>
+    <img class="imagen_usuario" src="{{ imagen }}" />
+  </div>
   <ion-list>
-
     <ion-card>
       <ion-card-content>
         <ion-card-title text-center>
-          <h1>
-            {{ usuario }}
-          </h1>
-          <h1>
-            {{ correo }}
-          </h1>
+          {{ nombreUsuario }} {{ apellido }}
         </ion-card-title>
+        <p text-center>
+          {{ usuario }}
+        </p>
+        <img src="{{ calificacion }}"/>
       </ion-card-content>
     </ion-card>
 
