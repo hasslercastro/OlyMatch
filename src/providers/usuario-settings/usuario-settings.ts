@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 const CONFIG = {
-  apiUrl:'http://10.161.41.21:8080/'
+  apiUrl:'http://192.168.1.63:8080/'
 };
 
 @Injectable()

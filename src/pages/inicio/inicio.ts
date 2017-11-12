@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
 import { Observable } from 'rxjs/Observable';
 import { EventoServiceProvider } from '../../providers/evento-service/evento-service';
 import { InformacionPage } from '../informacion/informacion';
@@ -21,10 +21,13 @@ export class InicioPage {
   participantes = ''; //Número de participantes
   nombre = '';
   integrantes = ''; //Personas
+  buscada = '';
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
-              public eventService: EventoServiceProvider) {
+              public eventService: EventoServiceProvider,
+              public alertCtlr: AlertController,
+              public toastCtrl: ToastController) {
 
     this.nombreUsuario = navParams.data;
     this.loadEventos();
@@ -40,7 +43,14 @@ export class InicioPage {
   }
 
   loadEventos() {
+    console.log("desde buscada ", this.buscada);
+    if(this.buscada == ''){
     return this.eventos = this.eventService.getAllEvents();
+    }else {
+      this.eventos = this.eventService.getSomeEvents(this.buscada);
+      console.log(this.eventos)
+      return this.eventos;
+    }
   }
 
   pasarInformacion(idEvento,
@@ -80,5 +90,14 @@ export class InicioPage {
       refresher.complete();
     }, 2000);
   }
+
+  private showToast(message: string) {
+    let toast = this.toastCtrl.create({
+      message: message,
+      duration: 3000
+    });
+    toast.present();
+  }
+
 }
 

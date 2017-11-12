@@ -29,7 +29,7 @@ ConfiguracionPageModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_2__configuracion__["a" /* ConfiguracionPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__configuracion__["a" /* ConfiguracionPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__configuracion__["a" /* ConfiguracionPage */]),
         ],
     })
 ], ConfiguracionPageModule);

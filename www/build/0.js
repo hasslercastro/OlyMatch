@@ -29,7 +29,7 @@ ParticipantesPageModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_2__participantes__["a" /* ParticipantesPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__participantes__["a" /* ParticipantesPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__participantes__["a" /* ParticipantesPage */]),
         ],
     })
 ], ParticipantesPageModule);

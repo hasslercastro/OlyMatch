@@ -3,7 +3,7 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 const CONFIG ={
-  apiUrl:'http://10.161.41.21:8080/'
+  apiUrl:'http://192.168.1.63:8080/'
 };
 
 @Injectable()
