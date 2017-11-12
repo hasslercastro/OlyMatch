@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { EventoSettingsProvider } from '../evento-settings/evento-settings'
 
 @Injectable()
 export class EventoServiceProvider {
   apiUrl = this.eventoSettingsProvider.getApiUrl();
-  constructor(public http: Http, public eventoSettingsProvider: EventoSettingsProvider) {
+  constructor(public http: Http, 
+              public eventoSettingsProvider: EventoSettingsProvider) {
   }
 
   public getAllEvents(){
@@ -29,9 +30,14 @@ export class EventoServiceProvider {
     .map(response => response.json());
   }
 
-  public putParticipante(nombreUsuario, lugar, fecha, hora){
+  public putParticipante(nombreUsuario, lugar, fecha, hora, foto, nombre, primerApellido){
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
     
-    return this.http.put(this.apiUrl+'unirse/'+nombreUsuario+'/'+lugar+'/'+fecha+'/'+hora, {}).map(Response => Response.text());
-
+    return this.http.put(this.apiUrl+'unirse/'+nombreUsuario+'/'+lugar+'/'+fecha+'/'+hora, {
+      "userName": nombreUsuario,
+     "foto": foto, 
+     "nombre" : nombre, 
+     "primerApellido": primerApellido}, {headers: headers}).map(Response => Response.text());
   }
 }

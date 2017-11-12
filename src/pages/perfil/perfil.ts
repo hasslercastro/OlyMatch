@@ -11,8 +11,6 @@ import { Cordova } from 'cordova';
 import { CloudinaryModule, CloudinaryConfiguration } from '@cloudinary/angular-4.x';
 import { Cloudinary } from 'cloudinary-core';
 
-
-
 var uploads = {};
 
 @Component({
@@ -22,7 +20,9 @@ var uploads = {};
 export   class PerfilPage {
   nombreUsuario = '';
   usuario = '';
+  primerApellido = '';
   correo = '';
+  fotoPerfil = '';
   private imageSrc: string;
   public base64Image: String;
   informacion: Observable<any>;
@@ -126,13 +126,22 @@ export   class PerfilPage {
     console.log('Estamos en loadInfoUsuario');
     console.log(this.nombreUsuario);
     this.informacion = this.loginServiceProvider.getInfoUsuario(this.nombreUsuario);
+    
     this.informacion.subscribe(x => {this.usuario = x[0].usuario,
-                                     this.correo = x[0].correo});
-
+                                     this.correo = x[0].correo,
+                                     this.nombreUsuario = x[0].nombre,
+                                     this.primerApellido = x[0].primerApellido,
+                                     this.fotoPerfil = x[0].imagen_usuario} );
+      
   }
+  
 
   pasarConfiguracion() {
     this.navCtrl.push(ConfiguracionPage);
+  }
+
+  pasarInformacion(){
+    this.navCtrl.
   }
 
 }

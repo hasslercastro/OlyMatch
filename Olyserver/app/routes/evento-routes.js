@@ -21,6 +21,9 @@ app.get('/evento', function (req, res) {
 });
 
 app.put('/unirse/:username/:lugar/:fecha/:hora',(req, res) =>{
+    var foto = req.body.foto;
+    var nombre = req.body.nombre;
+    var primerApellido = req.body.primerApellido;
     lugar = req.params.lugar;
     fecha = req.params.fecha;
     hora = req.params.hora;
@@ -33,12 +36,21 @@ app.put('/unirse/:username/:lugar/:fecha/:hora',(req, res) =>{
         }
 
         else{
-            console.log("Even: ",even)
-            if(even.numMaxParticipantes > 0 && even.participantes.indexOf(username) < 0) {
+            console.log("Even: ", even)
+            var noEsta = true;
+            for (var index = 0; index < even.participantes.length; index++) {
+                if(even.participantes[index].userName == username){
+                    noEsta = false;
+                }
+                
+            }
+            // && even.participantes.indexOf(username) < 0
+            if (even.numMaxParticipantes > 0 && (noEsta == true)) {
 
-            even.participantes.push(username);
-            even.numMaxParticipantes = even.numMaxParticipantes -1;
-            
+                var participante = { userName: username, fotoPerfil: foto, nombre: nombre, primerApellido: primerApellido }
+                even.participantes.push(participante);
+                even.numMaxParticipantes = even.numMaxParticipantes - 1;
+
             even.save((err, even) => {
                 if (err) {
                     res.status(500).send(err)
@@ -54,6 +66,7 @@ app.put('/unirse/:username/:lugar/:fecha/:hora',(req, res) =>{
                 res.status(200).send(false);
             }   
         }
+
     });
 });
 

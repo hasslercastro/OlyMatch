@@ -153,7 +153,7 @@ var ConfiguracionPage = (function () {
 }());
 ConfiguracionPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-configuracion',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/configuracion/configuracion.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Configuración</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="contenido">\n  <ion-content>\n    <ion-list no-border>\n\n      <ion-list-header>\n        Acerca de...\n      </ion-list-header>\n\n      <ion-item>\n        <ion-icon name=\'information-circle\' item-start class="acerca"></ion-icon>\n        <ion-note item-end>\n          <button ion-button full small color="secondaryg" (click)="pasarAcerca()">\n            ¿Quiénes somos?\n          </button>\n        </ion-note>\n      </ion-item>\n\n      <ion-list-header>\n        Salir\n      </ion-list-header>\n\n      <ion-item>\n        <ion-icon name=\'walk\' item-start class="salir"></ion-icon>\n        <ion-note item-end>\n          <button ion-button full small color="danger" (click)="salir()">\n            ¡Vuelve pronto!\n          </button>\n        </ion-note>\n      </ion-item>\n    </ion-list>\n  </ion-content>\n</ion-content>'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/configuracion/configuracion.html"*/,
+        selector: 'page-configuracion',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/configuracion/configuracion.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Configuración</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="contenido">\n  <!-- <ion-content class="contenido"> -->\n    <ion-list no-border>\n\n      <ion-list-header>\n        Acerca de...\n      </ion-list-header>\n\n      <ion-item>\n        <ion-icon name=\'information-circle\' item-start class="acerca"></ion-icon>\n        <ion-note item-end>\n          <button ion-button full small color="secondaryg" (click)="pasarAcerca()">\n            ¿Quiénes somos?\n          </button>\n        </ion-note>\n      </ion-item>\n\n      <ion-list-header>\n        Salir\n      </ion-list-header>\n\n      <ion-item>\n        <ion-icon name=\'walk\' item-start class="salir"></ion-icon>\n        <ion-note item-end>\n          <button ion-button full small color="danger" (click)="salir()">\n            ¡Vuelve pronto!\n          </button>\n        </ion-note>\n      </ion-item>\n    </ion-list>\n  <!-- </ion-content> -->\n</ion-content>'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/configuracion/configuracion.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
@@ -735,6 +735,7 @@ FormularioPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_evento_service_evento_service__ = __webpack_require__(71);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__calificacion_calificacion__ = __webpack_require__(137);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_login_service_login_service__ = __webpack_require__(72);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -748,11 +749,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var InformacionPage = (function () {
-    function InformacionPage(navCtrl, navParams, eventoServiceProvider) {
+    function InformacionPage(navCtrl, navParams, eventoServiceProvider, loginServiceProvider) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.eventoServiceProvider = eventoServiceProvider;
+        this.loginServiceProvider = loginServiceProvider;
         this.id = '';
         this.nombreUsuario = '';
         this.deporte = '';
@@ -762,6 +765,10 @@ var InformacionPage = (function () {
         this.participantes = '';
         this.nombre = '';
         this.integrantes = '';
+        this.nombreIntegrante = '';
+        this.apellidoIntegrante = '';
+        this.correoIntegrante = '';
+        this.fotoIntegrante = '';
         this.mensajeValido = '';
         this.mensajeError = '';
         this.nombreUsuario = navParams.get('nombreUsuario');
@@ -773,14 +780,29 @@ var InformacionPage = (function () {
         this.nombre = navParams.get('nombre');
         this.integrantes = navParams.get('integrantes');
         this.id = navParams.get('id');
+        console.log(this.integrantes);
     }
     InformacionPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad InformacionPage');
     };
     InformacionPage.prototype.unirParticipante = function (lugar, fecha, hora) {
         var _this = this;
-        this.eventoServiceProvider.putParticipante(this.nombreUsuario, this.escenario, this.dia, this.horario).subscribe(function (x) {
-            console.log("x: ", x);
+        this.perfil = this.loginServiceProvider.getInfoUsuario(this.nombreUsuario);
+        this.perfil.subscribe(function (x) {
+            _this.nombreUsuario = x[0].usuario,
+                _this.correoIntegrante = x[0].correo,
+                _this.nombreIntegrante = x[0].nombre,
+                _this.apellidoIntegrante = x[0].primerApellido,
+                _this.fotoIntegrante = x[0].imagen_usuario;
+            _this.getInformacionPerfil();
+        });
+        // (nombreUsuario, lugar, fecha, hora, foto, nombre, primerApellido)
+        console.log(this.correoIntegrante);
+    };
+    InformacionPage.prototype.getInformacionPerfil = function () {
+        var _this = this;
+        this.eventoServiceProvider.putParticipante(this.nombreUsuario, this.escenario, this.dia, this.horario, this.fotoIntegrante, this.nombreIntegrante, this.apellidoIntegrante).subscribe(function (x) {
+            console.log('esto es= apellido: ', _this.apellidoIntegrante);
             if (x == 'true') {
                 _this.mensajeValido = 'Te has unido al juego';
             }
@@ -801,13 +823,12 @@ var InformacionPage = (function () {
 }());
 InformacionPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-informacion',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/informacion/informacion.html"*/'<ion-header class="header">\n  <ion-navbar class="navbar">\n    <ion-title class="titulo">\n      Información\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="contenido">\n\n  <ion-list class="lista">\n    <!-- <ion-item *ngFor="let event of eventos |  async" class="contenido"> -->\n      <ion-card class="card">\n        <!-- <img src=\'{{ event.imagen }}\' /> -->\n        <ion-card-content>\n          <ion-card-title text-center>\n            <h1>\n              {{ nombre }}\n            </h1>\n          </ion-card-title>\n          <h2>\n            <ion-icon name="football" class="balon"></ion-icon> {{ deporte }}\n          </h2>\n          <h2>\n            <ion-icon name="calendar" class="calendario"></ion-icon> {{ dia }}\n          </h2>\n          <h2>\n            <ion-icon name="time" class="reloj"></ion-icon> {{ horario }}\n          </h2>\n          <h2>\n            <ion-icon name="locate" class="ubicacion"></ion-icon> {{ escenario }} \n          </h2>\n          <h2>\n            <ion-icon name="clipboard" class="planilla"></ion-icon> {{ participantes }}\n          </h2>\n\n          <ion-list>\n            <ion-item *ngFor="let integrante of integrantes">\n              {{ integrante }}\n              <button ion-button icon-only color="secondaryb" (click)="pasarCalificacion(integrante)">\n                <ion-icon name="star"></ion-icon>\n              </button>\n            </ion-item>\n\n          </ion-list>\n          <h2>\n              <ion-icon name="clipboard" class="planilla"></ion-icon> {{ integrantes }}\n            </h2>\n\n          <!-- Hasta acá funcionaba el botón de unirse -->\n          <button ion-button full small color="secondaryb" (click)="unirParticipante(escenario, dia, horario)">Unirse</button>\n\n          <h6 class="valido">\n            {{ mensajeValido }}\n          </h6>\n\n          <h6 class="invalido">\n            {{ mensajeError }}\n          </h6>\n         \n        </ion-card-content>\n      </ion-card>\n    <!-- </ion-item> -->\n  </ion-list>\n</ion-content>'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/informacion/informacion.html"*/,
+        selector: 'page-informacion',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/informacion/informacion.html"*/'<ion-header class="header">\n  <ion-navbar class="navbar">\n    <ion-title class="titulo">\n      Información\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="contenido">\n\n  <ion-list class="lista">\n    <!-- <ion-item *ngFor="let event of eventos |  async" class="contenido"> -->\n      <ion-card class="card">\n        <!-- <img src=\'{{ event.imagen }}\' /> -->\n        <ion-card-content>\n          <ion-card-title text-center>\n            <h1>\n              {{ nombre }}\n            </h1>\n          </ion-card-title>\n          <h2>\n            <ion-icon name="football" class="balon"></ion-icon> {{ deporte }}\n          </h2>\n          <h2>\n            <ion-icon name="calendar" class="calendario"></ion-icon> {{ dia }}\n          </h2>\n          <h2>\n            <ion-icon name="time" class="reloj"></ion-icon> {{ horario }}\n          </h2>\n          <h2>\n            <ion-icon name="locate" class="ubicacion"></ion-icon> {{ escenario }} \n          </h2>\n          <h2>\n            <ion-icon name="clipboard" class="planilla"></ion-icon> {{ participantes }}\n          </h2>\n\n          <ion-list>\n            <ion-item *ngFor="let integrante of integrantes">\n              <ion-avatar item-start>\n                <img src="{{ integrante.fotoPerfil }}">\n              </ion-avatar>\n              <h2>{{ integrante.nombre }}  {{ integrante.primerApellido }}</h2>\n              <ion-note item-end>\n                <button ion-button icon-only color="secondaryb" (click)="pasarCalificacion(integrante)">\n                  <ion-icon name="star"></ion-icon>\n                </button>\n              </ion-note>\n            </ion-item>\n          </ion-list>\n\n          <h2>\n            <ion-icon name="clipboard" class="planilla"></ion-icon> {{ integrantes }}\n          </h2>\n\n          <!-- Hasta acá funcionaba el botón de unirse -->\n          <button ion-button full small color="secondaryb" (click)="unirParticipante(escenario, dia, horario)">Unirse</button>\n\n          <h6 class="valido">\n            {{ mensajeValido }}\n          </h6>\n\n          <h6 class="invalido">\n            {{ mensajeError }}\n          </h6>\n         \n        </ion-card-content>\n      </ion-card>\n    <!-- </ion-item> -->\n  </ion-list>\n</ion-content>'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/informacion/informacion.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_2__providers_evento_service_evento_service__["a" /* EventoServiceProvider */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_evento_service_evento_service__["a" /* EventoServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_evento_service_evento_service__["a" /* EventoServiceProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__providers_login_service_login_service__["a" /* LoginServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_login_service_login_service__["a" /* LoginServiceProvider */]) === "function" && _d || Object])
 ], InformacionPage);
 
+var _a, _b, _c, _d;
 //# sourceMappingURL=informacion.js.map
 
 /***/ }),
@@ -1182,7 +1203,9 @@ var PerfilPage = (function () {
         this.imageServiceProvider = imageServiceProvider;
         this.nombreUsuario = '';
         this.usuario = '';
+        this.primerApellido = '';
         this.correo = '';
+        this.fotoPerfil = '';
         this.nombreUsuario = navParams.data;
         this.loadInfoUsuario();
     }
@@ -1260,7 +1283,10 @@ var PerfilPage = (function () {
         this.informacion = this.loginServiceProvider.getInfoUsuario(this.nombreUsuario);
         this.informacion.subscribe(function (x) {
             _this.usuario = x[0].usuario,
-                _this.correo = x[0].correo;
+                _this.correo = x[0].correo,
+                _this.nombreUsuario = x[0].nombre,
+                _this.primerApellido = x[0].primerApellido,
+                _this.fotoPerfil = x[0].imagen_usuario;
         });
     };
     PerfilPage.prototype.pasarConfiguracion = function () {
@@ -1272,12 +1298,10 @@ PerfilPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-perfil',template:/*ion-inline-start:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/perfil/perfil.html"*/'<ion-header>\n  <ion-navbar>\n    <img src="assets/img/logo_eafit_blanco.png" class="logo_navbar">\n    <ion-title>Perfil</ion-title>\n    <ion-buttons right large>\n      <button ion-button (click)="pasarConfiguracion()">\n        <ion-icon name="more">\n        </ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>       \n\n<ion-content class="contenido">\n\n    <ion-content padding>\n        <div class="gallery-button" text-center>\n          <img src="{{ base64Image }}" />    \n        \n          <button ion-button (click) =   "openGallery()">\n            Click me!\n          </button>\n      \n        <p>Choose a Photo</p>  \n      </div>\n      </ion-content>\n\n  <ion-list>\n\n    <ion-card>\n      <ion-card-content>\n        <ion-card-title text-center>\n          <h1>\n            {{ usuario }}\n          </h1>\n          <h1>\n            {{ correo }}\n          </h1>\n        </ion-card-title>\n      </ion-card-content>\n    </ion-card>\n\n  </ion-list>\n</ion-content>'/*ion-inline-end:"/home/camilovilla/proyectoIntegrador/OlyMatch/src/pages/perfil/perfil.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_2__providers_login_service_login_service__["a" /* LoginServiceProvider */],
-        __WEBPACK_IMPORTED_MODULE_5__providers_image_service_image_service__["a" /* ImageServiceProvider */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_login_service_login_service__["a" /* LoginServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_login_service_login_service__["a" /* LoginServiceProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__providers_image_service_image_service__["a" /* ImageServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__providers_image_service_image_service__["a" /* ImageServiceProvider */]) === "function" && _d || Object])
 ], PerfilPage);
 
+var _a, _b, _c, _d;
 //# sourceMappingURL=perfil.js.map
 
 /***/ }),
@@ -1890,16 +1914,24 @@ var EventoServiceProvider = (function () {
             'imagen': imagen })
             .map(function (response) { return response.json(); });
     };
-    EventoServiceProvider.prototype.putParticipante = function (nombreUsuario, lugar, fecha, hora) {
-        return this.http.put(this.apiUrl + 'unirse/' + nombreUsuario + '/' + lugar + '/' + fecha + '/' + hora, {}).map(function (Response) { return Response.text(); });
+    EventoServiceProvider.prototype.putParticipante = function (nombreUsuario, lugar, fecha, hora, foto, nombre, primerApellido) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
+        headers.append('Content-Type', 'application/json');
+        return this.http.put(this.apiUrl + 'unirse/' + nombreUsuario + '/' + lugar + '/' + fecha + '/' + hora, {
+            "userName": nombreUsuario,
+            "foto": foto,
+            "nombre": nombre,
+            "primerApellido": primerApellido
+        }, { headers: headers }).map(function (Response) { return Response.text(); });
     };
     return EventoServiceProvider;
 }());
 EventoServiceProvider = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_3__evento_settings_evento_settings__["a" /* EventoSettingsProvider */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__evento_settings_evento_settings__["a" /* EventoSettingsProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__evento_settings_evento_settings__["a" /* EventoSettingsProvider */]) === "function" && _b || Object])
 ], EventoServiceProvider);
 
+var _a, _b;
 //# sourceMappingURL=evento-service.js.map
 
 /***/ }),
