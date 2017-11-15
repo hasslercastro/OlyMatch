@@ -1,3 +1,18 @@
 page-calificacion {
 
+    .contenido {
+        background-image: url("../assets/img/fondo_app.jpg");
+    }
+
+    .item{
+        background-color: transparent;
+    }
+
+    .lista{
+        position: absolute;
+        left: 0%;
+        right: 0%;
+        top: 7%;
+        bottom: 0%;
+    }
 }

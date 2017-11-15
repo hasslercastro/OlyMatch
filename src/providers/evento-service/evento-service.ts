@@ -36,11 +36,13 @@ export class EventoServiceProvider {
     .map(response => response.json());
   }
 
-  public putParticipante(nombreUsuario, lugar, fecha, hora, foto, nombre, primerApellido){
+  public putParticipante(nombreUsuario, lugar, fecha, hora, foto, nombre, primerApellido, codigo){
     let headers = new Headers();
+    console.log('xdddddddddddddddddddddddddddddddddddddddddddddddddd');
+    console.log(nombreUsuario, lugar, fecha, hora, foto, nombre, primerApellido, codigo);
     headers.append('Content-Type', 'application/json');
-    
-    return this.http.put(this.apiUrl+'unirse/'+nombreUsuario+'/'+lugar+'/'+fecha+'/'+hora, {
+    console.log("codigo======", codigo);
+    return this.http.put(this.apiUrl+'unirse/'+nombreUsuario+'/'+lugar+'/'+fecha+'/'+hora+'/'+codigo, {
       "userName": nombreUsuario,
      "foto": foto, 
      "nombre" : nombre, 

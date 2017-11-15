@@ -1,15 +1,16 @@
 page-configuracion {
-
-    .contenido{
+    .contenido {
         background-image: url("../assets/img/fondo_app.jpg");
-            
     }
-
-    .salir{
-        color: #f53d3d;
+    .item {
+        background-color: transparent;
     }
-
-    .acerca{
-        color: #8CC63F;
+    .lista {
+        background-color: transparent;
+        position: absolute;
+        left: 0%;
+        right: 0%;
+        top: 0%;
+        bottom: 0%;
     }
 }

@@ -13,9 +13,6 @@
         </ion-icon>
       </button>
 
-
-
-
     </ion-buttons>
   </ion-navbar>
 </ion-header>
@@ -24,18 +21,36 @@
   <div class="gallery-button" text-center>
     <img class="imagen_usuario" src="{{ imagen }}" />
   </div>
-  <ion-list>
-    <ion-card>
-      <ion-card-content>
-        <ion-card-title text-center>
-          {{ nombreUsuario }} {{ apellido }}
-        </ion-card-title>
-        <p text-center>
-          {{ usuario }}
-        </p>
-        <img src="{{ calificacion }}"/>
-      </ion-card-content>
-    </ion-card>
+
+  <ion-list no-lines class="list">
+
+    <ion-item text-center class="item">
+      Información personal
+    </ion-item>
+
+    <ion-item class="item">
+      <ion-icon name='md-contact' item-start color="secondaryb"></ion-icon>
+      Nombre
+      <ion-note item-end color="dark">
+        {{ nombreee }} {{ apellido }}
+      </ion-note>
+    </ion-item>
+
+    <ion-item class="item">
+      <ion-icon name='md-person' item-start color="secondaryb"></ion-icon>
+      Usuario
+      <ion-note item-end color="dark">
+        {{ usuario }}
+      </ion-note>
+    </ion-item>
+
+    <ion-item text-center class="item">
+      Calificación
+    </ion-item>
+
+    <ion-item class="item">
+      <img src="{{ calificacion }}" />
+    </ion-item>
 
   </ion-list>
 </ion-content>

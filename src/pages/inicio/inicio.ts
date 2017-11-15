@@ -22,16 +22,17 @@ export class InicioPage {
   nombre = '';
   integrantes = ''; //Personas
   buscada = '';
+  imagen = ''; //Imagen del escenario
 
-  constructor(public navCtrl: NavController, 
-              public navParams: NavParams, 
-              public eventService: EventoServiceProvider,
-              public alertCtlr: AlertController,
-              public toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public eventService: EventoServiceProvider,
+    public alertCtlr: AlertController,
+    public toastCtrl: ToastController) {
 
     this.nombreUsuario = navParams.data;
     this.loadEventos();
-    
+
     //Variables que recibimos
     this.deporte = navParams.get('deporte');
     this.escenario = navParams.get('escenario');
@@ -44,9 +45,9 @@ export class InicioPage {
 
   loadEventos() {
     console.log("desde buscada ", this.buscada);
-    if(this.buscada == ''){
-    return this.eventos = this.eventService.getAllEvents();
-    }else {
+    if (this.buscada == '') {
+      return this.eventos = this.eventService.getAllEvents();
+    } else {
       this.eventos = this.eventService.getSomeEvents(this.buscada);
       console.log(this.eventos)
       return this.eventos;
@@ -54,24 +55,27 @@ export class InicioPage {
   }
 
   pasarInformacion(idEvento,
-                   nombreUsuarioEvento, 
-                   deporteEvento, 
-                   escenarioEvento, 
-                   diaEvento, 
-                   horarioEvento, 
-                   participantesEvento,
-                   integrantesEvento,
-                   nombreEvento){
+    nombreUsuarioEvento,
+    deporteEvento,
+    escenarioEvento,
+    diaEvento,
+    horarioEvento,
+    participantesEvento,
+    integrantesEvento,
+    nombreEvento,
+    imagenEvento) {
     this.navCtrl.push(InformacionPage, {
-                                        id:idEvento,
-                                        nombreUsuario:this.nombreUsuario,
-                                        deporte:deporteEvento,
-                                        escenario:escenarioEvento,
-                                        dia:diaEvento,
-                                        horario:horarioEvento,
-                                        participantes:participantesEvento,
-                                        nombre:nombreEvento,
-                                        integrantes:integrantesEvento});
+      id: idEvento,
+      nombreUsuario: this.nombreUsuario,
+      deporte: deporteEvento,
+      escenario: escenarioEvento,
+      dia: diaEvento,
+      horario: horarioEvento,
+      participantes: participantesEvento,
+      nombre: nombreEvento,
+      integrantes: integrantesEvento,
+      imagen: imagenEvento
+    });
   }
 
   /**

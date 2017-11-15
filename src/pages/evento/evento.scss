@@ -1,12 +1,22 @@
 page-evento {
-
-    .logo_navbar{
+    .logo_navbar {
         height: 30px;
         float: left;
         margin-left: 5px;
     }
-
-    .contenido{
-        background-image: url("../assets/img/fondo_app.jpg");    
+    .contenido {
+        background-image: url("../assets/img/fondo_app.jpg");
+    }
+    .item {
+        background-color: transparent;
+    }
+    .lista {
+        // background-image: url("../assets/img/fondo_app.jpg");
+        background-color: transparent;
+        position: absolute;
+        left: 0%;
+        right: 0%;
+        top: 0%;
+        bottom: 0%;
     }
 }

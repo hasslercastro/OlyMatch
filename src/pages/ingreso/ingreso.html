@@ -6,36 +6,34 @@
 </ion-header>
 
 <ion-content padding class="contenido">
-  
 
-    <img src="assets/img/nombre.png" class="nombre">
-
-  
-  
+  <img src="assets/img/nombre.png" class="nombre">
 
   <h3 class="slogan">
     ¡Únete al juego!
   </h3>
-    
+
   <ion-list class="lista">
-    <ion-item no-line>
+    <ion-item class="item">
       <ion-input type="text" placeholder="Nombre de usuario" [(ngModel)]="nombreUsuario"></ion-input>
     </ion-item>
 
-    <ion-item>
+    <ion-item class="item">
       <ion-input type="password" placeholder="Contraseña" [(ngModel)]="contrasena"></ion-input>
     </ion-item>
 
-    <h6>
+    <p class="mensajeError">
       {{ mensajeError }}
-    </h6>
+    </p>
 
-    <br>
+    <button ion-button small round full color="secondaryb" (click)="validarUsuario()" class="ingresar">
+      Ingresar
+    </button>
 
-    <button ion-button small round full color="secondaryb" (click)="validarUsuario()">Ingresar</button>
+    <button ion-button small round full color="secondaryg" (click)="registrar()" class="registrar">
+      Crear cuenta nueva
+    </button>
 
-    <button ion-button small round full color="secondaryg" (click)="registrar()">Crear cuenta nueva</button>
-    
   </ion-list>
 
 </ion-content>

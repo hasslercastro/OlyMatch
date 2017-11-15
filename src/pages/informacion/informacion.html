@@ -8,63 +8,95 @@
 
 <ion-content padding class="contenido">
 
-  <ion-list class="lista">
-    <!-- <ion-item *ngFor="let event of eventos |  async" class="contenido"> -->
-      <ion-card class="card">
-        <!-- <img src='{{ event.imagen }}' /> -->
-        <ion-card-content>
-          <ion-card-title text-center>
-            <h1>
-              {{ nombre }}
-            </h1>
-          </ion-card-title>
-          <h2>
-            <ion-icon name="football" class="balon"></ion-icon> {{ deporte }}
-          </h2>
-          <h2>
-            <ion-icon name="calendar" class="calendario"></ion-icon> {{ dia }}
-          </h2>
-          <h2>
-            <ion-icon name="time" class="reloj"></ion-icon> {{ horario }}
-          </h2>
-          <h2>
-            <ion-icon name="locate" class="ubicacion"></ion-icon> {{ escenario }} 
-          </h2>
-          <h2>
-            <ion-icon name="clipboard" class="planilla"></ion-icon> {{ participantes }}
-          </h2>
+  <ion-list no-border class="lista">
 
-          <ion-list>
-            <ion-item *ngFor="let integrante of integrantes">
-              <ion-avatar item-start>
-                <img src="{{ integrante.fotoPerfil }}">
-              </ion-avatar>
-              <h2>{{ integrante.nombre }}  {{ integrante.primerApellido }}</h2>
-              <ion-note item-end>
-                <button ion-button icon-only color="secondaryb" (click)="pasarCalificacion(integrante)">
-                  <ion-icon name="star"></ion-icon>
-                </button>
-              </ion-note>
-            </ion-item>
-          </ion-list>
+    <ion-item text-center class="item">
+      Información del evento
+    </ion-item>
 
-          <h2>
-            <ion-icon name="clipboard" class="planilla"></ion-icon> {{ integrantes }}
-          </h2>
+    <ion-item class="item">
+      <ion-icon name='md-flame' item-start color="secondaryb"></ion-icon>
+      Nombre
+      <ion-note item-end color="dark">
+        {{ nombre }}
+      </ion-note>
+    </ion-item>
 
-          <!-- Hasta acá funcionaba el botón de unirse -->
-          <button ion-button full small color="secondaryb" (click)="unirParticipante(escenario, dia, horario)">Unirse</button>
+    <ion-item class="item">
+      <ion-icon name='md-walk' item-start color="secondaryb"></ion-icon>
+      Deporte
+      <ion-note item-end color="dark">
+        {{ deporte }}
+      </ion-note>
+    </ion-item>
 
-          <h6 class="valido">
-            {{ mensajeValido }}
-          </h6>
+    <ion-item class="item">
+      <ion-icon name='md-locate' item-start color="secondaryb"></ion-icon>
+      Lugar
+      <ion-note item-end color="dark">
+        {{ escenario }}
+      </ion-note>
+    </ion-item>
 
-          <h6 class="invalido">
-            {{ mensajeError }}
-          </h6>
-         
-        </ion-card-content>
-      </ion-card>
-    <!-- </ion-item> -->
+    <ion-item>
+      <img src='{{ imagen }}' />
+    </ion-item>
+
+
+    <ion-item class="item">
+      <ion-icon name='md-calendar' item-start color="secondaryb"></ion-icon>
+      Día
+      <ion-note item-end color="dark">
+        {{ dia }}
+      </ion-note>
+    </ion-item>
+
+    <ion-item class="item">
+      <ion-icon name='md-time' item-start color="secondaryb"></ion-icon>
+      Hora
+      <ion-note item-end color="dark">
+        {{ horario }}
+      </ion-note>
+    </ion-item>
+
+    <ion-item class="item">
+      <ion-icon name='md-contacts' item-start color="secondaryb"></ion-icon>
+      Número de participantes
+      <ion-note item-end color="dark">
+        {{ participantes }}
+      </ion-note>
+    </ion-item>
+
+    <ion-item text-center>
+      Participantes
+    </ion-item>
+
+    <ion-item *ngFor="let integrante of integrantes" class="item">
+      <ion-avatar item-start>
+        <img src="{{ integrante.fotoPerfil }}">
+      </ion-avatar>
+      <h2>{{ integrante.nombre }} {{ integrante.primerApellido }}</h2>
+      <p>  {{ integrante.codigo }}</p>
+      <ion-note item-end>
+        <button ion-button icon-left small clear color="secondaryb" (click)="pasarCalificacion(integrante)">
+          <ion-icon color="star" name="md-star"></ion-icon>
+          Calificar
+        </button>
+      </ion-note>
+    </ion-item>
+
+    <ion-item class="item">
+      <button ion-button round full large color="secondaryb" (click)="unirParticipante(escenario, dia, horario)">
+        Unirse
+      </button>
+    </ion-item>
+
+    <p class="item-valido">
+      {{ mensajeValido }}
+    </p>
+
+    <p class="item-error">
+      {{ mensajeError }}
+    </p>
   </ion-list>
 </ion-content>

@@ -18,6 +18,7 @@ export class DeportePage {
   myForm: FormGroup;
 
   deporte='';
+  nombreUsuario='';
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public fb: FormBuilder) {
 
@@ -27,10 +28,12 @@ export class DeportePage {
 
     });
 
+    this.nombreUsuario = navParams.get('nombreUsuario');
+
   }
 
   pasarEscenario(){
-    this.navCtrl.push(EscenarioPage, {deporte:this.deporte});
+    this.navCtrl.push(EscenarioPage, {deporte:this.deporte, nombreUsuario:this.nombreUsuario});
   }
 
   saveData(){

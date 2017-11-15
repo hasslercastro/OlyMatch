@@ -5,75 +5,76 @@
       ¡Hora de jugar!
     </ion-title>
     <ion-buttons right large>
-      
-               
-              <ion-select placeholder="filtrar" [(ngModel)]="buscada">
-                <ion-option value="futbol">Fútbol</ion-option>
-                <ion-option value="baloncesto">Baloncesto</ion-option>
-                <ion-option value="tennis">Tennis</ion-option>
-                <ion-option value="karate">Karate</ion-option>
-                <ion-option value="ajedrez">Ajedrez</ion-option>
-                <ion-option value="natacion">Natación</ion-option>
-                <ion-option value="tenisDeMesa">Tenis de mesa</ion-option>
-                <ion-option value="ultimate">Ultimate</ion-option>
-                <ion-option value="micro">Micro Fútbol</ion-option>
-              </ion-select> 
-    
 
-          </ion-buttons>
+      <ion-select placeholder="filtrar" [(ngModel)]="buscada">
+        <ion-option value="futbol">Fútbol</ion-option>
+        <ion-option value="baloncesto">Baloncesto</ion-option>
+        <ion-option value="tennis">Tennis</ion-option>
+        <ion-option value="karate">Karate</ion-option>
+        <ion-option value="ajedrez">Ajedrez</ion-option>
+        <ion-option value="natacion">Natación</ion-option>
+        <ion-option value="tenisDeMesa">Tenis de mesa</ion-option>
+        <ion-option value="ultimate">Ultimate</ion-option>
+        <ion-option value="micro">Micro Fútbol</ion-option>
+      </ion-select>
+
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<!-- <ion-select formControlName="deporte" [(ngModel)]="deporte">
-  <ion-option value="futbol">Fútbol</ion-option>
-  <ion-option value="baloncesto">Baloncesto</ion-option>
-  <ion-option value="tennis">Tennis</ion-option>
-  <ion-option value="karate">Karate</ion-option>
-  <ion-option value="ajedrez">Ajedrez</ion-option>
-  <ion-option value="natacion">Natación</ion-option>
-  <ion-option value="tenisDeMesa">Tenis de mesa</ion-option>
-  <ion-option value="ultimate">Ultimate</ion-option>
-  <ion-option value="micro">Micro Fútbol</ion-option>
-</ion-select> -->
-
 <ion-content padding class="contenido">
-  <!-->Refrescar página para cargar eventos<-->
-    <ion-refresher (ionRefresh)="doRefresh($event)" class="contenido">
-      <ion-refresher-content class="contenido"></ion-refresher-content>
-    </ion-refresher>
 
-    <ion-list class="lista">
-      <ion-item *ngFor="let event of eventos |  async" class="contenido">
-        <ion-card class="card">
-          <img src='{{ event.imagen }}'/>
-          <ion-card-content>
-            <ion-card-title text-center>
-              <h1>
-                {{ event.nombre }}
-              </h1>
-            </ion-card-title>
-            <h2>
-              <ion-icon name="football" class="balon"></ion-icon> {{ event.deporte.nombre }}
-            </h2>
-            <h2>
-              <ion-icon name="calendar" class="calendario"></ion-icon> {{ event.fecha }}
-            </h2>
-            <h2>
-              <ion-icon name="time" class="reloj"></ion-icon> {{ event.hora }}
-            </h2>
-            <h2>
-              <ion-icon name="locate" class="ubicacion"></ion-icon> {{ event.lugar }}
-            </h2>
-            <h2>
-              <ion-icon name="clipboard" class="planilla"></ion-icon> {{ event.numMaxParticipantes }}
-            </h2>
-            <h2>
-                <ion-icon name="clipboard" class="planilla"></ion-icon> {{ event.participantes }}
-              </h2>
+  <ion-refresher (ionRefresh)="doRefresh($event)" class="contenido">
+    <ion-refresher-content class="contenido"></ion-refresher-content>
+  </ion-refresher>
 
-            <!-- Hasta acá funcionaba el botón de unirse -->
-            <!-- <button ion-button full small color="secondaryb" (click)="unirParticipante(event.lugar,event.fecha, event.hora)">Unirse</button> -->
-            <button ion-button full small icon-start color="secondaryg" (click)="pasarInformacion(event._id,
+  <ion-list class="lista">
+    <ion-item *ngFor="let event of eventos |  async" class="contenido">
+      <ion-card class="card">
+
+        <ion-item>
+          <ion-avatar item-start>
+            <img src="{{ event.participantes[0].fotoPerfil }}">
+          </ion-avatar>
+          <h2>{{ event.participantes[0].nombre }} {{ event.participantes[0].primerApellido }}</h2>
+          <p>{{ event.participantes[0].codigo }}</p>
+        </ion-item>
+
+        <img src='{{ event.imagen }}' />
+
+        <ion-card-content>
+          <ion-item text-center class="item">
+            <h1>
+              {{ event.nombre }}
+            </h1>
+          </ion-item>
+
+          <ion-item class="item">
+            <ion-icon name='md-walk' item-start color="secondaryb"></ion-icon>
+            {{ event.deporte.nombre }}
+          </ion-item>
+
+          <ion-item class="item">
+            <ion-icon name='md-calendar' item-start color="secondaryb"></ion-icon>
+            {{ event.fecha }}
+          </ion-item>
+
+          <ion-item class="item">
+            <ion-icon name='md-time' item-start color="secondaryb"></ion-icon>
+            {{ event.hora }}
+          </ion-item>
+
+          <ion-item class="item">
+            <ion-icon name='md-locate' item-start color="secondaryb"></ion-icon>
+            {{ event.lugar }}
+          </ion-item>
+
+          <ion-item class="item">
+            <ion-icon name='md-contacts' item-start color="secondaryb"></ion-icon>
+            {{ event.numMaxParticipantes }}
+          </ion-item>
+
+          <button ion-button round icon-left color="secondaryb" (click)="pasarInformacion(event._id,
                                                                                                   event.admin,
                                                                                                   event.deporte.nombre,
                                                                                                   event.lugar,
@@ -81,14 +82,14 @@
                                                                                                   event.hora,
                                                                                                   event.numMaxParticipantes,
                                                                                                   event.participantes,
-                                                                                                  event.nombre
+                                                                                                  event.nombre,
+                                                                                                  event.imagen
                                                                                                   )">
-              <ion-icon name="information-circle"></ion-icon>
-              Información
-            </button>
-
-          </ion-card-content>
-        </ion-card>
-      </ion-item>
-    </ion-list>
+            <ion-icon name="md-information-circle"></ion-icon>
+            Información
+          </button>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-list>
 </ion-content>

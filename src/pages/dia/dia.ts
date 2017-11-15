@@ -23,6 +23,7 @@ export class DiaPage {
   deporte = '';
   escenario = '';
   dia = '';
+  nombreUsuario='';
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams, 
@@ -37,6 +38,7 @@ export class DiaPage {
 
     this.deporte = navParams.get('deporte');
     this.escenario = navParams.get('escenario');
+    this.nombreUsuario = navParams.get('nombreUsuario');
     this.mostrarFechas();
     this.imagen = this.escenarioServiceProvider.traerImagenEscenario(navParams.get('escenario'));
     this.imagen.subscribe(x => this.imagenRuta = x);
@@ -63,7 +65,8 @@ export class DiaPage {
     this.navCtrl.push(HorarioPage, {deporte:this.deporte,
                                     escenario:this.escenario,
                                     imagen: this.imagenRuta,
-                                    dia:this.dia});
+                                    dia:this.dia,
+                                    nombreUsuario:this.nombreUsuario});
   }
 
   saveData(){

@@ -21,6 +21,7 @@ export class EscenarioPage {
 
   deporte = '';
   escenario = '';
+  nombreUsuario='';
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams, 
@@ -33,6 +34,7 @@ export class EscenarioPage {
 
     //Variables que recibimos de ngModel
     this.deporte = navParams.get('deporte');
+    this.nombreUsuario = navParams.get('nombreUsuario');
     this.mostrarEscenarios();
   }
 
@@ -42,7 +44,8 @@ export class EscenarioPage {
 
   pasarDia(){
     this.navCtrl.push(DiaPage, {deporte:this.deporte,
-                                escenario:this.escenario});
+                                escenario:this.escenario,
+                                nombreUsuario:this.nombreUsuario});
   }
 
   saveData(){

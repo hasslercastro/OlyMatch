@@ -9,6 +9,7 @@ import { InicioPage } from '../inicio/inicio';
 import { EscenarioServiceProvider } from '../../providers/escenario-service/escenario-service';
 import { Observable } from 'rxjs/Observable';
 import { EventoServiceProvider } from '../../providers/evento-service/evento-service';
+import { LoginServiceProvider } from '../../providers/login-service/login-service';
 
 @IonicPage()
 @Component({
@@ -20,6 +21,7 @@ export class NombrePage {
 
   myForm: FormGroup;
   eventos: Observable<any>;
+  perfil: Observable<any>;
 
   deporte = '';
   escenario = '';
@@ -29,12 +31,20 @@ export class NombrePage {
   nombre = '';
   imagen = '';
 
+  //Variables del usuario
+  nombreUsuario='';
+  nombreIntegrante='';
+  apellidoIntegrante='';
+  fotoIntegrante='';
+  codigo='';
+
   constructor(public navCtrl: NavController, 
     public navParams: NavParams, 
     public fb: FormBuilder,
     public escenarioServiceProvider : EscenarioServiceProvider,
     public eventoServiceProvider: EventoServiceProvider,
-    public toastCtrl: ToastController) {
+    public toastCtrl: ToastController,
+    public loginServiceProvider: LoginServiceProvider) {
 
     this.myForm = this.fb.group({
       nombre: ['', [Validators.required]]
@@ -47,20 +57,56 @@ export class NombrePage {
     this.horario = navParams.get('horario');
     this.imagen = navParams.get('imagen');
     this.participantes = navParams.get('participantes');
+    this.nombreUsuario= navParams.get('nombreUsuario');
+
+    console.log('administradorrrrrrrr');
+    console.log(this.nombreUsuario);
+    
+  }
+
+  unirParticipante(lugar, fecha, hora) {
+    console.log('debuggiando ando');
+    console.log(this.nombreUsuario);
+    this.perfil = this.loginServiceProvider.getInfoUsuario(this.nombreUsuario);
+    this.perfil.subscribe(x => {
+    this.nombreUsuario = x[0].usuario,
+      this.nombreIntegrante = x[0].nombre,
+      this.apellidoIntegrante = x[0].primerApellido,
+      this.fotoIntegrante = x[0].imagen_usuario,
+      this.codigo = x[0].codigo,
+      this.getInformacionPerfil()
+    });
+    // (nombreUsuario, lugar, fecha, hora, foto, nombre, primerApellido)
+    
+
+  }
+
+  getInformacionPerfil() {
+    console.log('Uniendo participante', this.nombreUsuario);
+    this.eventoServiceProvider.putParticipante(this.nombreUsuario,
+      this.escenario,
+      this.dia,
+      this.horario,
+      this.fotoIntegrante,
+      this.nombreIntegrante,
+      this.apellidoIntegrante,
+      this.codigo).subscribe()
   }
 
   public crearEvento(){
-    let administrador = 'villa';
-    let participante = ['josh','hassler','rengifo'];
+    let participante = [];
     console.log("desde antes (NOMBRE)")
     console.log(this.imagen[0])
     this.imagen = this.imagen[0];
-    this.eventoServiceProvider.crearEvento(this.nombre,administrador,this.escenario,this.dia,participante,this.participantes,this.horario,this.deporte,this.imagen)
+    this.eventoServiceProvider.crearEvento(this.nombre,this.nombreUsuario,this.escenario,this.dia,participante,this.participantes,this.horario,this.deporte,this.imagen)
     .subscribe(data => {
       this.loadEventos();
       this.showToast('Evento creado');
     });
+    this.unirParticipante(this.escenario, this.dia, this.horario);
   }
+
+
 
   public confirmarReserva(){
     console.log("/////////////////////7 ")

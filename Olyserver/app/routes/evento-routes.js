@@ -39,13 +39,14 @@ app.get('/filtrar/:deporte', function (req, res) {
 });
 
 
-app.put('/unirse/:username/:lugar/:fecha/:hora',(req, res) =>{
+app.put('/unirse/:username/:lugar/:fecha/:hora/:codigo',(req, res) =>{
     var foto = req.body.foto;
     var nombre = req.body.nombre;
     var primerApellido = req.body.primerApellido;
     lugar = req.params.lugar;
     fecha = req.params.fecha;
     hora = req.params.hora;
+    codigo = req.params.codigo;
     username = req.params.username;
     console.log(lugar, fecha, hora, username)
 
@@ -66,7 +67,7 @@ app.put('/unirse/:username/:lugar/:fecha/:hora',(req, res) =>{
             // && even.participantes.indexOf(username) < 0
             if (even.numMaxParticipantes > 0 && (noEsta == true)) {
 
-                var participante = { userName: username, fotoPerfil: foto, nombre: nombre, primerApellido: primerApellido }
+                var participante = { userName: username, fotoPerfil: foto, nombre: nombre, primerApellido: primerApellido, codigo: codigo }
                 even.participantes.push(participante);
                 even.numMaxParticipantes = even.numMaxParticipantes - 1;
 

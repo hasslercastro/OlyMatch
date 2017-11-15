@@ -1,41 +1,47 @@
 page-informacion {
-
-    .contenido{
-        background-image: url("../assets/img/fondo_app.jpg");
-            
-    }
-
-    .card{
+    .contenido {
         background-image: url("../assets/img/fondo_app.jpg");
     }
-
-    .lista{
-        margin-left: -30px;
-        margin-right: -30px;
+    .card {
+        background-image: url("../assets/img/fondo_app.jpg");
     }
-
-    .calendario{
+    .item {
+        background-color: transparent;
+    }
+    .item-error {
+        color: #f53d3d;
+    }
+    .item-valido {
+        color: #8CC63F;
+    }
+    .nota {
+        text-decoration-color: black;
+    }
+    .lista {
+        // background-image: url("../assets/img/fondo_app.jpg");
+        background-color: transparent;
+        position: absolute;
+        left: 0%;
+        right: 0%;
+        top: 0%;
+        bottom: 0%;
+    }
+    .calendario {
         color: #00A5D9;
     }
-
-    .reloj{
+    .reloj {
         color: orangered;
     }
-
-    .ubicacion{
+    .ubicacion {
         color: #8CC63F;
-        
     }
-
-    .planilla{
+    .planilla {
         color: gray;
     }
-
-    .valido{
+    .valido {
         color: #8CC63F;
     }
-
-    .invalido{
+    .invalido {
         color: red;
     }
 }

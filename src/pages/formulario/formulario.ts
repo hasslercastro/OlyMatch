@@ -50,7 +50,7 @@ export class FormularioPage {
 
   // Se obtiene la información luego de que todo esté validado
   saveData() {
-    alert(JSON.stringify(this.myForm.value));
+    JSON.stringify(this.myForm.value);
   }
 
   volver() {

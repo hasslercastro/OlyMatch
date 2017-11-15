@@ -33,6 +33,8 @@ export class InformacionPage {
   fotoIntegrante = '';
   mensajeValido = '';
   mensajeError = '';
+  imagen = '';
+  codigo = '';
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -48,6 +50,7 @@ export class InformacionPage {
     this.nombre = navParams.get('nombre');
     this.integrantes = navParams.get('integrantes');
     this.id = navParams.get('id');
+    this.imagen = navParams.get('imagen');
 
     console.log(this.integrantes);
 
@@ -64,11 +67,12 @@ export class InformacionPage {
       this.correoIntegrante = x[0].correo,
       this.nombreIntegrante = x[0].nombre,
       this.apellidoIntegrante = x[0].primerApellido,
-      this.fotoIntegrante = x[0].imagen_usuario
+      this.fotoIntegrante = x[0].imagen_usuario,
+      this.codigo = x[0].codigo,
       this.getInformacionPerfil()
     });
     // (nombreUsuario, lugar, fecha, hora, foto, nombre, primerApellido)
-    console.log(this.correoIntegrante);
+    
 
   }
 
@@ -79,7 +83,8 @@ export class InformacionPage {
       this.horario,
       this.fotoIntegrante,
       this.nombreIntegrante,
-      this.apellidoIntegrante).subscribe(x => {
+      this.apellidoIntegrante,
+      this.codigo).subscribe(x => {
         console.log('esto es= apellido: ', this.apellidoIntegrante);
         if (x == 'true') {
           this.mensajeValido = 'Te has unido al juego';

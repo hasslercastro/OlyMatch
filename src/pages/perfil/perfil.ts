@@ -26,6 +26,7 @@ export class PerfilPage {
   apellido = '';
   imagen = '';
   calificacion ='';
+  nombreee='';
   private imageSrc: string;
   public base64Image: String;
   informacion: Observable<any>;
@@ -38,6 +39,8 @@ export class PerfilPage {
 
     this.nombreUsuario = navParams.data;
     this.loadInfoUsuario();
+    console.log('soy la foto en perfil');
+    console.log(this.imagen);
 
   }
 
@@ -130,6 +133,7 @@ export class PerfilPage {
     console.log(this.nombreUsuario);
     this.informacion = this.loginServiceProvider.getInfoUsuario(this.nombreUsuario);
     this.informacion.subscribe(x => {
+      this.nombreee = x[0].nombre;
     this.apellido = x[0].primerApellido;
       this.usuario = x[0].usuario;
       this.imagen = x[0].imagen_usuario;
@@ -150,6 +154,9 @@ export class PerfilPage {
 
   }
   
+  getInformacion(){
+    return this.nombreUsuario;
+  }
 
   pasarConfiguracion() {
     this.navCtrl.push(ConfiguracionPage);

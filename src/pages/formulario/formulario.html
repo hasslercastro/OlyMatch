@@ -4,88 +4,89 @@
   </ion-navbar>
 </ion-header>
 
-  <ion-content padding>
-    <!-->Solicita toda la información<-->
-    <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>
-      
+<ion-content padding class="contenido">
+  <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>
+    <ion-list class="lista">
 
-        <!-->Slide de bienvenida<-->
-       
-          <h2>Bienvenido a OlyMatch</h2>
-          <img src="../assets/img/logo_nue.png">
-                 
-        <!-->Slide de nombre, primerApellido y segundoApellido<-->
-       
-          <h2>Información personal</h2>
-          <ion-list>
-                  
-            <ion-item>
-              <ion-input formControlName="nombre" type="text" placeholder="Nombre" [(ngModel)]="nombre" ></ion-input>
-            </ion-item>
-                
-            <!-->Manejo de error<-->
-            <ion-item *ngIf="myForm.get('nombre').errors && myForm.get('nombre').dirty">
-              <p color="danger" ion-text *ngIf="myForm.get('nombre').hasError('required')">Nombre es requerido</p>
-            </ion-item>
+      <ion-item text-center class="item">
+        Información personal
+      </ion-item>
 
-            <ion-item>
-              <ion-input formControlName="primerApellido" type="text" placeholder="Primer apellido" [(ngModel)]="primerApellido"></ion-input>
-            </ion-item>
+      <ion-item class="item">
+        <ion-input formControlName="nombre" type="text" placeholder="Nombre" [(ngModel)]="nombre">
+        </ion-input>
+      </ion-item>
 
-            <!-->Manejo de error<-->
-            <ion-item *ngIf="myForm.get('primerApellido').errors && myForm.get('primerApellido').dirty">
-              <p color="danger" ion-text *ngIf="myForm.get('primerApellido').hasError('required')">Primer apellido es requerido</p>
-            </ion-item>
+      <ion-item *ngIf="myForm.get('nombre').errors && myForm.get('nombre').dirty" class="item">
+        <p color="danger" ion-text *ngIf="myForm.get('nombre').hasError('required')">
+          Nombre es requerido
+        </p>
+      </ion-item>
 
-          </ion-list>
-       
-        
-        <!-->Slide de email, contrasena y confirmarContrasena<-->
-       
-          <h2>Validar información</h2>
-          <ion-list>
-            <ion-item>
-              <ion-input formControlName="user" type="text" placeholder="Nombre de usuario" [(ngModel)]="user"></ion-input>
-            </ion-item>
+      <ion-item class="item">
+        <ion-input formControlName="primerApellido" type="text" placeholder="Primer apellido" [(ngModel)]="primerApellido">
+        </ion-input>
+      </ion-item>
 
-            <!-->Manejo de error<-->
-            <ion-item *ngIf="myForm.get('user').errors && myForm.get('user').dirty">
-              <p color="danger" ion-text *ngIf="myForm.get('user').hasError('required')">Nombre de usuario es requerido</p>
-            </ion-item>
+      <ion-item *ngIf="myForm.get('primerApellido').errors && myForm.get('primerApellido').dirty" class="item">
+        <p color="danger" ion-text *ngIf="myForm.get('primerApellido').hasError('required')">
+          Primer apellido es requerido
+        </p>
+      </ion-item>
+
+      <ion-item text-center class="item">
+        Validar información
+      </ion-item>
+
+      <ion-item class="item">
+        <ion-input formControlName="user" type="text" placeholder="Nombre de usuario" [(ngModel)]="user">
+        </ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="myForm.get('user').errors && myForm.get('user').dirty" class="item">
+        <p color="danger" ion-text *ngIf="myForm.get('user').hasError('required')">
+          Nombre de usuario es requerido
+        </p>
+      </ion-item>
+
+      <ion-item class="item">
+        <ion-input formControlName="codigo" type="text" placeholder="Codigo" [(ngModel)]="codigo">
+        </ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="myForm.get('codigo').errors && myForm.get('codigo').dirty" class="item">
+        <p color="danger" ion-text *ngIf="myForm.get('codigo').hasError('required')">
+          Codigo es requerida
+        </p>
+      </ion-item>
+
+      <ion-item class="item">
+        <ion-input formControlName="contrasena" type="password" placeholder="Contraseña" [(ngModel)]="contrasena">
+        </ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="myForm.get('contrasena').errors && myForm.get('contrasena').dirty" class="item">
+        <p color="danger" ion-text *ngIf="myForm.get('contrasena').hasError('required')">Contraseña es requerida</p>
+      </ion-item>
+
+      <ion-item class="item">
+        <ion-input formControlName="confirmarContrasena" type="password" placeholder="Confirmar contraseña">
+        </ion-input>
+      </ion-item>
 
 
-            <ion-item>
-              <ion-input formControlName="codigo" type="text" placeholder="Codigo" [(ngModel)]="codigo"></ion-input>
-            </ion-item>
+      <ion-item *ngIf="myForm.get('confirmarContrasena').errors && myForm.get('confirmarContrasena').dirty" class="item">
+        <p color="danger" ion-text *ngIf="myForm.get('confirmarContrasena').hasError('required')">
+          Contraseña es requerida
+        </p>
+      </ion-item>
 
-            <!-->Manejo de error<-->
-            <ion-item *ngIf="myForm.get('codigo').errors && myForm.get('codigo').dirty">
-              <p color="danger" ion-text *ngIf="myForm.get('codigo').hasError('required')">Codigo es requerida</p>
-            </ion-item>
+      <ion-item class="item">
+        <button ion-button round full large color="secondaryb" type="submit" [disabled]="myForm.invalid" (click)="volver()">
+          ¡Únete al juego!
+        </button>
+      </ion-item>
+    </ion-list>
 
-            <ion-item>
-              <ion-input formControlName="contrasena" type="password" placeholder="Contraseña" [(ngModel)]="contrasena"></ion-input>
-            </ion-item>
-
-            <!-->Manejo de error<-->
-            <ion-item *ngIf="myForm.get('contrasena').errors && myForm.get('contrasena').dirty">
-              <p color="danger" ion-text *ngIf="myForm.get('contrasena').hasError('required')">Contraseña es requerida</p>
-            </ion-item>
-
-            <ion-item>
-              <ion-input formControlName="confirmarContrasena" type="password" placeholder="Confirmar contraseña"></ion-input>
-            </ion-item>
-
-            <!-->Manejo de error<-->
-            <ion-item *ngIf="myForm.get('confirmarContrasena').errors && myForm.get('confirmarContrasena').dirty">
-              <p color="danger" ion-text *ngIf="myForm.get('confirmarContrasena').hasError('required')">Contraseña es requerida</p>
-            </ion-item>
-
-            <ion-item>
-              <button ion-button block type="submit" [disabled]="myForm.invalid" (click)="volver()">¡Únete al juego!</button>
-            </ion-item>
-          </ion-list>
-        
-    </form>
-  </ion-content>
-
+  </form>
+</ion-content>

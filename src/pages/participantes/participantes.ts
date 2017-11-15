@@ -22,6 +22,7 @@ export class ParticipantesPage {
   dia = '';
   horario = '';
   participantes = '';
+  nombreUsuario='';
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public fb: FormBuilder) {
 
@@ -35,6 +36,7 @@ export class ParticipantesPage {
     this.dia = navParams.get('dia');
     this.horario = navParams.get('horario');
     this.imagen = navParams.get('imagen');
+    this.nombreUsuario = navParams.get('nombreUsuario');
 
   }
 
@@ -44,7 +46,8 @@ export class ParticipantesPage {
                                   dia:this.dia,
                                   horario:this.horario,
                                   participantes:this.participantes,
-                                  imagen : this.imagen 
+                                  imagen : this.imagen,
+                                  nombreUsuario: this.nombreUsuario 
                                  });
   }
 

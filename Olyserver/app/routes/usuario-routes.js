@@ -86,7 +86,9 @@ app.post('/usuario', function (req, res) {
         contrasena : req.body.contrasena,
         correo : req.body.usuario+'@eafit.edu.co',
         codigo: req.body.codigo,
-        calificacion: 4,
+        calificacion: 0,
+        //Borrar imagen de usuario de aquí XDDDDDDDDDDDDDDDDDDDDDDDD
+        imagen_usuario: req.body.imagen_usuario,
         nombre: req.body.nombre,
         primerApellido: req.body.primerApellido
     });
@@ -132,7 +134,13 @@ app.get('/calificar/:eventoId/:nombreUsuario', function(req, res){
             var newFecha = fecha[1]+"/"+fecha[0]+"/"+fecha[2];
             var newDate = new Date(newFecha).getTime() + 86400000;
             var participantes = even.participantes;
-            var esParticipante = participantes.indexOf(nombreUsuario);
+            var esParticipante = false;
+
+            for (var index = 0; index < participantes.length; index++) {
+                if(participantes[index].userName == nombreUsuario){
+                    esParticipante = true;
+                }
+            }
 
             console.log('esPArticipante');
             console.log(esParticipante);
@@ -142,7 +150,7 @@ app.get('/calificar/:eventoId/:nombreUsuario', function(req, res){
             console.log('fecha del evetno: ', fecha);
             console.log('fecha acutial: ', fechaActual);
             console.log('fecha newDate: ', newDate);
-            if (esParticipante > 0) {
+            if (esParticipante == true) {
                 console.log('entre a la calificacion porque estoy en el evento');
                 if (fechaActual > newDate) {
                     console.log('entre a la calificacion porque estoy en la fecha correcta');
@@ -153,6 +161,7 @@ app.get('/calificar/:eventoId/:nombreUsuario', function(req, res){
                 }
             }
             else {
+                console.log('xd');
                 res.status(200).send(false);
             } 
 

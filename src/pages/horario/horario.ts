@@ -23,6 +23,7 @@ export class HorarioPage {
   escenario = '';
   dia = '';
   horario = '';
+  nombreUsuario='';
 
   constructor(public navCtrl: NavController, 
     public navParams: NavParams, 
@@ -39,6 +40,7 @@ export class HorarioPage {
     this.escenario = navParams.get('escenario');
     this.dia = navParams.get('dia');
     this.imagen = navParams.get('imagen');
+    this.nombreUsuario = navParams.get('nombreUsuario');
     //this.imagen = this.imagen[0];
     console.log("desde lejos jeje");
     console.log(this.imagen);
@@ -54,7 +56,8 @@ export class HorarioPage {
                                           escenario:this.escenario,
                                           dia:this.dia,
                                           imagen : this.imagen,
-                                          horario:this.horario});
+                                          horario:this.horario,
+                                          nombreUsuario:this.nombreUsuario});
   }
 
   ionViewDidLoad() {

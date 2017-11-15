@@ -1,3 +1,26 @@
 page-formulario {
+    .contenido{
+        background-image: url("../assets/img/fondo_app.jpg");
+        position: fixed;
+        //background-size: 325px 850px;
+        background-position-x: 50%;
+        background-position-y: 40px;
+        background-size: cover;
+    }
 
+    .lista{
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        right: 0%;
+        bottom: 0%;
+    }
+
+    .item {
+        background-color: transparent;
+    }
+
+    .ion-list-header{
+        color: #00395B;
+    }
 }

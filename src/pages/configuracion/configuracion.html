@@ -6,33 +6,33 @@
 
 <ion-content padding class="contenido">
   <!-- <ion-content class="contenido"> -->
-    <ion-list no-border>
+  <ion-list no-border class="lista">
 
-      <ion-list-header>
-        Acerca de...
-      </ion-list-header>
+    <ion-item text-center class="item">
+      Acerca de...
+    </ion-item>
 
-      <ion-item>
-        <ion-icon name='information-circle' item-start class="acerca"></ion-icon>
-        <ion-note item-end>
-          <button ion-button full small color="secondaryg" (click)="pasarAcerca()">
-            ¿Quiénes somos?
-          </button>
-        </ion-note>
-      </ion-item>
+    <ion-item class="item">
+      <h2>¿Quiénes somos?</h2>
+      <ion-note item-end>
+        <button ion-button icon-only round small color="secondaryb" (click)="pasarAcerca()">
+          <ion-icon name="md-information-circle"></ion-icon>
+        </button>
+      </ion-note>
+    </ion-item>
 
-      <ion-list-header>
-        Salir
-      </ion-list-header>
+    <ion-item text-center class="item">
+      Salir
+    </ion-item>
 
-      <ion-item>
-        <ion-icon name='walk' item-start class="salir"></ion-icon>
-        <ion-note item-end>
-          <button ion-button full small color="danger" (click)="salir()">
-            ¡Vuelve pronto!
-          </button>
-        </ion-note>
-      </ion-item>
-    </ion-list>
-  <!-- </ion-content> -->
+    <ion-item class="item">
+      <h2>¡Vuelve pronto!</h2>
+      <ion-note item-end>
+        <button ion-button icon-only round small color="danger" (click)="salir()">
+          <ion-icon name="md-log-out"></ion-icon>
+        </button>
+      </ion-note>
+    </ion-item>
+
+  </ion-list>
 </ion-content>

@@ -5,40 +5,68 @@
 </ion-header>
 
 
-<ion-content padding>
-  {{ integrante }}
+<ion-content padding class="contenido">
+  <ion-list radio-group [(ngModel)]="calificacion" class="lista">
 
-  {{ dia }}
-
-  <ion-list radio-group [(ngModel)]="calificacion">
-    <ion-list-header>
+    <ion-item text-center class="item">
       Desempeño del participante
-    </ion-list-header>
-  
-    <ion-item>
-      <ion-label>Excelente</ion-label>
-      <ion-radio value="5" ></ion-radio>
     </ion-item>
-    <ion-item>
-      <ion-label>Sobresaliente</ion-label>
-      <ion-radio value="4" ></ion-radio>
+
+    <ion-item class="item">
+      <ion-icon name='star' item-start color="secondaryb">
+      </ion-icon>
+      <ion-label>
+        Excelente
+      </ion-label>
+      <ion-radio value="5">
+      </ion-radio>
     </ion-item>
-    <ion-item>
-      <ion-label>Aceptable</ion-label>
-      <ion-radio value="3" ></ion-radio>
+
+    <ion-item class="item">
+      <ion-icon item-start color="secondaryb">
+      </ion-icon>
+      <ion-label>
+        Sobresaliente
+      </ion-label>
+      <ion-radio value="4">
+      </ion-radio>
     </ion-item>
-    <ion-item>
-      <ion-label>Insuficiente</ion-label>
-      <ion-radio value="2" ></ion-radio>
+
+    <ion-item class="item">
+      <ion-icon name="md-star-half" item-start color="secondaryb">
+      </ion-icon>
+      <ion-label>
+        Aceptable
+      </ion-label>
+      <ion-radio value="3">
+      </ion-radio>
     </ion-item>
-    <ion-item>
-      <ion-label>Deficiente</ion-label>
-      <ion-radio value="1" ></ion-radio>
+
+    <ion-item class="item">
+      <ion-icon item-start color="secondaryb">
+      </ion-icon>
+      <ion-label>
+        Insuficiente
+      </ion-label>
+      <ion-radio value="2">
+      </ion-radio>
     </ion-item>
+
+    <ion-item class="item">
+      <ion-icon name="md-star-outline" item-start color="secondaryb">
+      </ion-icon>
+      <ion-label>
+        Deficiente
+      </ion-label>
+      <ion-radio value="1">
+      </ion-radio>
+    </ion-item>
+
+    <ion-item class="item">
+      <button ion-button round full large color="secondaryb" (click)="calificar(integrante.userName, calificacion, dia)">
+        Calificar
+      </button>
+    </ion-item>
+
   </ion-list>
-
-  {{ calificacion }}
-
-  <button ion-button full large color="secondaryb" (click)="calificar(integrante, calificacion, dia)">Calificar</button>
-
 </ion-content>
